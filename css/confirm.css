@@ -1,0 +1,51 @@
+/********************
+ *                  *
+ *      START       *
+ *                  *
+ *                  *
+ ********************/
+
+@font-face {
+  font-family: 'Crackman';
+  src: url('fonts/crackman.regular.ttf');
+}
+
+body {
+  background-color: #2b5754;
+  font-size: 100px;
+  font-family: 'Crackman';
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+#container {
+  text-align: center;
+}
+
+#prompt {
+  line-height: 30vh;
+}
+
+#answer {
+  line-height: 20vh;
+}
+
+#character {
+  height: 40vh;
+}
+
+#answer span {
+  color: #000;
+  text-decoration: none;
+  padding: 20px;
+  border: 8px dashed #2b5754;
+}
+
+#answer span:hover {
+  color: #52bfa1;
+  cursor: pointer;
+  padding: 20px;
+  border-color: #52bfa1;
+}

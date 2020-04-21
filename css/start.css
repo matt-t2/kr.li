@@ -1,0 +1,38 @@
+/********************
+ *                  *
+ *      START       *
+ *                  *
+ *                  *
+ ********************/
+
+@font-face {
+  font-family: 'Crackman';
+  src: url('fonts/crackman.regular.ttf');
+}
+
+body {
+  background-color: #2b5754;
+  font-size: 200px;
+  font-family: 'Crackman';
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+#title {
+  text-align: center;
+  line-height: 100vh;
+}
+
+#title a {
+  color: #000;
+  text-decoration: none;
+}
+
+#title a:hover {
+  color: #52bfa1;
+  cursor: pointer;
+  padding: 20px;
+  border: 8px dashed #52bfa1;
+}
