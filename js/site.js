@@ -10,31 +10,9 @@
  *                  *
  ********************/
 
-var chars;
-var questions;
-
-$.ajax({
-  url: "js/json/chars.json",
-  dataType: "json",
-  success: function(data) {
-  	$.each(data, function(item){
-  		chars.push(item);
-  	});
-  }
-});
-
-$.ajax({
-  url: "js/json/questions.json",
-  dataType: "json",
-  success: function(data) {
-  	$.each(data, function(item){
-  		questions.push(item);
-  	});
-  }
-});
-
+var chars = [];
+var questions = [];
 var currChar = 0;
-var numCs = chars.length;
 var stat_max = 8;
 var name;
 var thisCharacter;
@@ -42,11 +20,89 @@ var xPos = 0;
 var xLength;
 var stepTime;
 var currQuestion = 0;
-var numQs = questions.length;
 var wrongAnswers = 0;
 var numHints = 0;
 var questionSlideTime = 8000;
+var numCs;
+var numQs;
 
+$(document).ready(function(){
+  $.ajax({
+    url: "data/chars.json",
+    dataType: "json",
+    success: function(data) {
+    	$.each(data, function(key, value){
+    		chars.push(value);
+    	});
+    },
+    complete: function(data) {
+      numCs = chars.length;
+      nextCharacter();
+    }
+  });
+
+  $.ajax({
+    url: "data/questions.json",
+    dataType: "json",
+    success: function(data) {
+      $.each(data, function(key, value){
+        questions.push(value);
+      });
+    },
+    complete: function(data) {
+      numQs = questions.length;
+    }
+  });
+});
+
+
+/********************
+ *                  *
+ *      START       *
+ *                  *
+ *                  *
+ ********************/
+
+$("#load_character_selection").on('click', function(){
+  $("#load_character_selection").off();
+  $('#container').html(character_selection);
+  document.getElementById("music").play();
+  nextCharacter();
+
+  $("#right_arrow").on({
+  	mouseenter: function(){
+  		$(this).attr('src','img/arrow_hover.png');
+  	},
+  	mouseleave: function(){
+  		$(this).attr('src','img/arrow.png');
+  	}, 
+  	click: function(){
+  		currChar = (currChar + 1) % numCs;
+	  	nextCharacter();
+  	}
+  });
+
+  $("#left_arrow").on({
+  	mouseenter: function(){
+  		$(this).attr('src','img/arrow_hover.png');
+  	},
+  	mouseleave: function(){
+  		$(this).attr('src','img/arrow.png');
+  	}, 
+  	click: function(){
+  		currChar = (currChar - 1) % numCs;
+	  	nextCharacter();
+  	}
+  });
+
+  $("#select").on({
+  	click: function(){
+  		$('#container').html(confirm);
+  		$("#left_arrow,#right_arrow,#select").off();
+  	}
+  });
+});
+ 
 
 
 
@@ -74,9 +130,9 @@ function nextCharacter(){
   thisCharacter = chars[currChar];
   name = thisCharacter.name;
 
-  $("#character").css('charBackground-image','url(img/chars/profile/' + thisCharacter.image + ')');
-  $("#character").css('charBackground-position',thisCharacter.charBackgroundPosition);
-  $("#character").css('charBackground-size',thisCharacter.charBackgroundSize);
+  $("#sel_character").css('background-image','url(img/chars/profile/' + thisCharacter.image + ')');
+  $("#sel_character").css('background-position',thisCharacter.charBackgroundPosition);
+  $("#sel_character").css('background-size',thisCharacter.charBackgroundSize);
   $("#name").html(name);
   createStat('attack',thisCharacter.attack);
   createStat('defense',thisCharacter.defense);
@@ -85,31 +141,6 @@ function nextCharacter(){
 }
 
 /**** EVENT HANDLERS ****/
-$("#right_arrow").on('click', function(){
-  currChar = (currChar + 1) % numCs;
-  nextCharacter();
-});
-
-$("#left_arrow").on('click', function(){
-  currChar = (currChar - 1) % numCs;
-  if(currChar == -1){ currChar += numCs; }
-  nextCharacter();
-});
-
-$("#select").on('click', function(){
-  window.location.href = "confirm?char=" + name.replace(/ /g,'');
-});
-
-$("#left_arrow,#right_arrow").hover(
-  function(){
-    $(this).attr('src','img/arrow_hover.png');
-  }, function() {
-    $(this).attr('src','img/arrow.png');
-  }
-);
-
-/**** RUN ON LOAD ****/
-nextCharacter();
 
 
 
@@ -121,8 +152,59 @@ nextCharacter();
  *                  *
  ********************/
 
-// TODO: add sound effects
+// TODO: links to char_sel & gameplay
 
+// // TODO: set these variables on `CONFIRM` step
+// // Update animation time so character finishes at rest
+// var stoppingPoint = Math.ceil((questionSlideTime / stepTime) / xLength) * xLength;
+// questionSlideTime = stepTime * stoppingPoint;
+
+// content.forEach(function(question, index){
+// 	var q_div = $('<div>' + 
+//     //'<div class=\'q_text\'>' + question.name + '</div>' + 
+//     '<img class=\'q_img\' alt=\'img ' + currQuestion + '\' src=\'' + question.image + '\'>' + 
+//     '<input class=\'answer\' placeholder=\'> Your Guess Here <\'>' + 
+//     '<div class=\'wrong_cont\'>' + 
+//     '<img src=\'img/wrong/wrong_1.png\' alt=\'wrong1\' class=\'wrong wrong1\'>' + 
+//     '<img src=\'img/wrong/wrong_2.png\' alt=\'wrong2\' class=\'wrong wrong2\'>' + 
+//     '<img src=\'img/wrong/wrong_3.png\' alt=\'wrong3\' class=\'wrong wrong3\'>' + 
+//     '</div>' + 
+//     '<div class=\'hint_cont\'>' + 
+//     '<img src=\'img/lightbulb.png\' alt=\'hint1\' class=\'hint hint_avail hint1\'>' + 
+//     '<img src=\'img/lightbulb.png\' alt=\'hint2\' class=\'hint hint_avail hint2\'>' + 
+//     '<img src=\'img/lightbulb.png\' alt=\'hint3\' class=\'hint hint_avail hint3\'>' + 
+//     '</div>' + 
+//     '</div>');
+// 	$('#character_selection_container').append(q_div);
+// 	q_div.addClass('question_box');
+// });
+//generateCharacter();
+
+// $(window).keypress(function(event){
+//   // Enter key = `13`
+//   if(event.which == 13){
+//     nextQuestion();
+//   }
+// });
+
+
+// // TODO: on hover, change lightbulb to lightbulb_inv
+// // on click, change lightbulb to lightbulb_off.  make unclickable.  provide hint
+// $('body').on('mouseenter', '.hint_avail', function(){
+//     $(this).attr('src','img/lightbulb_inv.png');
+// });
+
+
+// $('body').on('mouseleave', '.hint_avail', function(){
+//     $(this).attr('src','img/lightbulb.png');
+// });
+
+// $("body").on('click', '.hint_avail', function(){
+//     $(this).removeClass('hint_avail');
+//     $(this).attr('src','img/lightbulb_off.png');
+//     addHint();
+//   }
+// );
 
 
 
@@ -150,14 +232,14 @@ function characterWalk(sTime, wTime){
       clearInterval(walkingAnimation);
     }
     
-    $("#character").css('gameBackground-position',thisCharacter.gameBackgroundPosX[xPos % xLength] + ' ' + thisCharacter.gameBackgroundPosY);
+    $("#game_character").css('background-position',thisCharacter.gameBackgroundPosX[xPos % xLength] + ' ' + thisCharacter.gameBackgroundPosY);
   }, sTime);
 }
 
 function characterEnter(sTime, wTime){
   characterWalk(sTime, wTime);
   var slideCharacter = window.setInterval(function() {
-    $("#character").css('left', '+=1');
+    $("#game_character").css('left', '+=1');
   }, 20);
   setTimeout(function() {
     clearInterval(slideCharacter);
@@ -174,13 +256,13 @@ function generateCharacter(){
   var stoppingPoint = Math.ceil((enterTime / stepTime) / xLength) * xLength;
   enterTime = stepTime * stoppingPoint;
 
-  $("#character").css('gameBackground-image','url(img/chars/walking/' + thisCharacter.image + ')');
-  $("#character").css('gameBackground-position',thisCharacter.gameBackgroundPosX[xPos] + ' ' + thisCharacter.gameBackgroundPosY);
-  //$("#character").css('left',thisCharacter.left[xPos]);
-  $("#character").css('gameBackground-size',thisCharacter.gameBackgroundSize);
-  $("#character").css('height',thisCharacter.height);
-  $("#character").css('width',thisCharacter.width);
-  $("#character").css('left','-' + thisCharacter.width);
+  $("#game_character").css('background-image','url(img/chars/walking/' + thisCharacter.image + ')');
+  $("#game_character").css('background-position',thisCharacter.gameBackgroundPosX[xPos] + ' ' + thisCharacter.gameBackgroundPosY);
+  //$("#game_character").css('left',thisCharacter.left[xPos]);
+  $("#game_character").css('background-size',thisCharacter.gameBackgroundSize);
+  $("#game_character").css('height',thisCharacter.height);
+  $("#game_character").css('width',thisCharacter.width);
+  $("#game_character").css('left','-' + thisCharacter.width);
   characterEnter(stepTime, enterTime);
 
   // Add grayscale for zombie (she doesn't have enough contrast with gameBackground)
@@ -284,71 +366,6 @@ function addHint(){
   numHints++;
 }
 
-/**** EVENT HANDLERS ****/
-
-// $(window).keypress(function(event){
-//   // Enter key = `13`
-//   if(event.which == 13){
-//     nextQuestion();
-//   }
-// });
-
-
-// // TODO: on hover, change lightbulb to lightbulb_inv
-// // on click, change lightbulb to lightbulb_off.  make unclickable.  provide hint
-// $('body').on('mouseenter', '.hint_avail', function(){
-//     $(this).attr('src','img/lightbulb_inv.png');
-// });
-
-
-// $('body').on('mouseleave', '.hint_avail', function(){
-//     $(this).attr('src','img/lightbulb.png');
-// });
-
-// $("body").on('click', '.hint_avail', function(){
-//     $(this).removeClass('hint_avail');
-//     $(this).attr('src','img/lightbulb_off.png');
-//     addHint();
-//   }
-// );
-
-
-
-
-
-
-// // TODO: set these variables on `CONFIRM` step
-// // Update animation time so character finishes at rest
-// var stoppingPoint = Math.ceil((questionSlideTime / stepTime) / xLength) * xLength;
-// questionSlideTime = stepTime * stoppingPoint;
-
-
-// // TODO: run this on `GAMEPLAY` step
-// // Generate all question boxes and position off-screen
-// content.forEach(function(question, index){
-// 	var q_div = $('<div>' + 
-//     //'<div class=\'q_text\'>' + question.name + '</div>' + 
-//     '<img class=\'q_img\' alt=\'img ' + currQuestion + '\' src=\'' + question.image + '\'>' + 
-//     '<input class=\'answer\' placeholder=\'> Your Guess Here <\'>' + 
-//     '<div class=\'wrong_cont\'>' + 
-//     '<img src=\'img/wrong/wrong_1.png\' alt=\'wrong1\' class=\'wrong wrong1\'>' + 
-//     '<img src=\'img/wrong/wrong_2.png\' alt=\'wrong2\' class=\'wrong wrong2\'>' + 
-//     '<img src=\'img/wrong/wrong_3.png\' alt=\'wrong3\' class=\'wrong wrong3\'>' + 
-//     '</div>' + 
-//     '<div class=\'hint_cont\'>' + 
-//     '<img src=\'img/lightbulb.png\' alt=\'hint1\' class=\'hint hint_avail hint1\'>' + 
-//     '<img src=\'img/lightbulb.png\' alt=\'hint2\' class=\'hint hint_avail hint2\'>' + 
-//     '<img src=\'img/lightbulb.png\' alt=\'hint3\' class=\'hint hint_avail hint3\'>' + 
-//     '</div>' + 
-//     '</div>');
-// 	$('#container').append(q_div);
-// 	q_div.addClass('question_box');
-// });
-
-
-
-
-// document.getElementById("music").play();
 
 
 
@@ -361,5 +378,10 @@ function addHint(){
 
 
 
-nextCharacter();
-//generateCharacter();
+
+
+
+
+
+
+
