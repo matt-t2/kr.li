@@ -334,6 +334,7 @@ $('#character_selection_container').on('click', '#select', function(){
 
 $('#confirm_container').on('click', '#yes', function(){
   showCont("game_container");
+  $("#howto_cont").show();
   questions.forEach(function(question, index){
    var q_div = $('<div>' + 
       //'<div class=\'q_text\'>' + question.name + '</div>' + 

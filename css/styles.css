@@ -34,17 +34,17 @@ body {
 
 }
 
-#title {
+#start_title {
   text-align: center;
   line-height: 80vh;
 }
 
-#title span {
+#start_title span {
   color: #000;
   text-decoration: none;
 }
 
-#title span:hover {
+#start_title span:hover {
   color: #52bfa1;
   cursor: pointer;
   padding: 20px;
@@ -412,6 +412,7 @@ body {
  ********************/
 
 #howto_cont {
+	display: none;
 	font-size: 30px;
 	height: 80vh;
 	width: 25vw;
@@ -437,7 +438,16 @@ body {
   color: #444;
 }
 
+/********************
+ *                  *
+ *       OTHER      *
+ *                  *
+ *                  *
+ ********************/
 
+#other_container {
+	display: none;
+}
 
 
 
