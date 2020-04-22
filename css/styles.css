@@ -30,6 +30,10 @@ body {
  *                  *
  ********************/
 
+#start_container {
+
+}
+
 #title {
   text-align: center;
   line-height: 80vh;
@@ -64,6 +68,7 @@ body {
  ********************/
 
 #character_selection_container {
+	display:none;
  	position: absolute;
  	margin: 0;
  	width: 100%;
@@ -195,6 +200,7 @@ body {
  ********************/
 
 #confirm_container {
+  display: none;
   text-align: center;
   font-size: 100px;
 }
@@ -233,6 +239,7 @@ body {
  ********************/
 
 #game_container {
+	display: none;
 	overflow-x: hidden;
 	width: 20000px;
 	height: 100%;
@@ -383,7 +390,6 @@ body {
  ********************/
 
 #hintbox_cont {
-	
 	font-size: 20px;
 	position: fixed;
 	top: 10px;
