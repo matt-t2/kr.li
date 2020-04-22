@@ -2,12 +2,18 @@ html {
 	scroll-behavior: smooth;
 }
 
+@font-face {
+  font-family: 'Alegreya';
+  src: url('fonts/Alegreya Sans SC Medium.ttf');
+}
+
 body, #container {
 	overflow-x: hidden;
 	width: 20000px;
 	height: 100%;
 	margin: 0;
 	position: absolute;
+	font-family: 'Alegreya';
 }
 
 /********************
@@ -104,7 +110,6 @@ body, #container {
 	margin: 5%;
 	font-size: 20px;
 	background-color: #65ada0;
-	font-family: Roboto;
 	text-align: center;
 }
 

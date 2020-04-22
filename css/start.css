@@ -22,7 +22,7 @@ body {
 
 #title {
   text-align: center;
-  line-height: 100vh;
+  line-height: 80vh;
 }
 
 #title a {
@@ -35,4 +35,13 @@ body {
   cursor: pointer;
   padding: 20px;
   border: 8px dashed #52bfa1;
+}
+
+#extra {
+  font-size: 20px;
+  font-family: 'Droid Sans';
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  font-style: italic;
 }
