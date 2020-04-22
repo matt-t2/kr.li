@@ -1,0 +1,439 @@
+@font-face {
+	font-family: 'Crackman';
+	src: url('fonts/crackman.regular.ttf');
+}
+
+@font-face {
+	font-family: 'Zelda';
+	src: url('fonts/zelda.otf');
+}
+
+@font-face {
+  font-family: 'Alegreya';
+  src: url('fonts/AlegreyaSansSC-Medium.ttf');
+}
+
+body {
+	box-sizing: border-box;
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+	font-size: 200px;
+	font-family: 'Crackman';
+	background-color: #2b5754;
+}
+
+/********************
+ *                  *
+ *       START      *
+ *                  *
+ *                  *
+ ********************/
+
+#title {
+  text-align: center;
+  line-height: 80vh;
+}
+
+#title span {
+  color: #000;
+  text-decoration: none;
+}
+
+#title span:hover {
+  color: #52bfa1;
+  cursor: pointer;
+  padding: 20px;
+  border: 8px dashed #52bfa1;
+}
+
+#extra {
+  font-size: 20px;
+  font-family: 'Droid Sans';
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  font-style: italic;
+}
+
+/********************
+ *                  *
+ *     CHARACTER    *
+ *      SELECT      *
+ *                  *
+ ********************/
+
+#character_selection_container {
+ 	position: absolute;
+ 	margin: 0;
+ 	width: 100%;
+ 	height: 100%;
+ 	background-color: #2b5754;
+}
+
+/* Character Select */
+#start {
+	font-family: 'Crackman';
+	width: 100vw;
+	height: 100vh;
+	float: left;
+	margin: auto;
+}
+
+#sel_title {
+	height: 20%;
+	font-size: 80px;
+	text-align: center;
+	line-height: 2;
+	color: #52bfa1;
+}
+
+#start_main {
+	height: 80%;
+	display: flex;
+	justify-content: center;
+}
+
+#char_stats {
+	width: 30%;
+	height: 100%;
+	font-size: 30px;
+	color: #52bfa1;
+	padding: 1%;
+	box-sizing: border-box;
+
+}
+
+#char_stats div {
+	text-align: center;
+}
+
+#name, #select {
+	font-family: 'Zelda';
+	text-align: center;
+	box-sizing: border-box;
+}
+
+#name {
+	font-size: 70px;
+	margin-bottom: 1%;
+	color: #000;
+	height: 15vh;
+	position: absolute;
+}
+
+#name_placeholder {
+	height: 15vh;
+	width: 100%;
+}
+
+#select {
+	height: 15%;
+	font-size: 10vh;
+	color: #333;
+	border: 2px dashed #333;
+	box-shadow: 0 0 0 4px #2b5754;
+}
+
+#select:hover {
+	color: #000;
+	background: #4b948f;
+	border: 2px dashed #333;
+	box-shadow: 0 0 0 4px #4b948f, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+}
+
+#select:hover, #left_arrow:hover, #right_arrow:hover {
+	cursor: pointer;
+}
+
+
+.dot {
+	height: 25px;
+	width: 25px;
+	background-color: #52bfa1;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 5px;
+}
+
+.gray {
+	background-color: #aaa;
+}
+
+#character_container {
+	width: 40%;
+	display: inline-block;
+	height: 100%;
+}
+
+#sel_character {
+	height: 80%;
+	background-repeat: no-repeat;
+}
+
+
+/* Arrows */
+#left_arrow {
+	transform: rotate(181deg);
+	-webkit-transform: rotate(181deg);
+	height: 50%;
+	margin-top: 10%;
+}
+
+#right_arrow {
+	transform: rotate(-1deg);
+	-webkit-transform: rotate(-1deg);
+	height: 50%;
+	margin-top: 10%;
+}
+ 
+/********************
+ *                  *
+ *      CONFIRM     *
+ *                  *
+ *                  *
+ ********************/
+
+#confirm_container {
+  text-align: center;
+}
+
+#prompt {
+  line-height: 30vh;
+}
+
+#conf_answer {
+  line-height: 20vh;
+}
+
+#conf_character {
+  height: 40vh;
+}
+
+#conf_answer span {
+  color: #000;
+  text-decoration: none;
+  padding: 20px;
+  border: 8px dashed #2b5754;
+}
+
+#conf_answer span:hover {
+  color: #52bfa1;
+  cursor: pointer;
+  padding: 20px;
+  border-color: #52bfa1;
+}
+
+ /********************
+ *                  *
+ *     GAMEPLAY     *
+ *                  *
+ *                  *
+ ********************/
+
+#game_container {
+	overflow-x: hidden;
+	width: 20000px;
+	height: 100%;
+	margin: 0;
+	position: absolute;
+	font-family: 'Alegreya';
+}
+
+/********************
+ *                  *
+ *     PARALLAX     *
+ *    BACKGROUND    *
+ *                  *
+ ********************/
+
+.bg {
+	position: absolute;
+	background-repeat: repeat-x;
+	background-position: left top;
+	width: 100%;
+	height: 100%;
+	background-size: auto 100%;
+	transition: 0s linear;
+	transition-property: background-property;
+}
+
+
+#bg1 {
+	background-image: url('../img/background/plx-1.png');
+}
+
+#bg2 {
+	background-image: url('../img/background/plx-2.png');	
+}
+
+#bg3 {
+	background-image: url('../img/background/plx-3.png');
+}
+
+#bg4 {
+	background-image: url('../img/background/plx-4.png');	
+}
+
+#bg5 {
+	background-image: url('../img/background/plx-5.png');	
+}
+
+#ground {
+	height: 10%;
+	bottom: 0px;
+	background-image: url('../img/background/jungle-tileset.png');
+}
+
+#ground-over {
+	height: 10%;
+	bottom: 0px;
+	z-index: 3;
+	background-image: url('../img/background/jungle-tileset-over.png');
+}
+
+/********************
+ *                  *
+ *    CHARACTER     *
+ *                  *
+ *                  *
+ ********************/
+
+#game_character {
+	position: fixed;
+	background-repeat: no-repeat;
+	bottom: 5%;
+	z-index: 2;
+}
+
+/********************
+ *                  *
+ *    QUESTIONS     *
+ *                  *
+ *                  *
+ ********************/
+
+.question_box {
+	height: 80vh;
+	width: 25vw;
+	background-color: #65ada060;
+	position: fixed;
+	top: 25px;
+	left: 170vw;
+}
+
+.question_box div {
+	margin: 15px;
+}
+
+.answer {
+	display: block;
+	border: none;
+	width: 90%;
+	margin: 5%;
+	font-size: 20px;
+	background-color: #aedecb;
+	text-align: center;
+	font-family: 'Alegreya';
+	position: absolute;
+	top: 50%;
+}
+
+.q_img {
+	height: 40%;
+	max-width: 90%;
+	max-height: 40%;
+	display: block;
+	margin: 5% auto;
+	text-align: center;
+}
+
+.wrong_cont {
+	height: 15%;
+	position: absolute;
+	bottom: 15%;
+	width: 100%;
+	margin: 0;
+}
+
+.wrong {
+	height: 50%;
+	margin-left: 8%;
+	display: none;
+}
+
+.hint_cont {
+	height: 15%;
+	position: absolute;
+	bottom: 0;
+
+}
+
+.hint {
+	width: 20%;
+	margin-left: 10%;
+}
+
+/********************
+ *                  *
+ *     HINTBOX      *
+ *                  *
+ *                  *
+ ********************/
+
+#hintbox_cont {
+	
+	font-size: 20px;
+	position: fixed;
+	top: 10px;
+	left: 10px;
+}
+
+.hintbox {
+	background-color: #aedecb;
+	width: 50vw;
+	line-height: 20px;
+	margin: 5%;
+	padding: 10px;
+}
+
+/********************
+ *                  *
+ *      HOW-TO      *
+ *                  *
+ *                  *
+ ********************/
+
+#howto_cont {
+	font-size: 30px;
+	height: 80vh;
+	width: 25vw;
+	background-color: #65ada060;
+	position: fixed;
+	top: 25px;
+	left: 70vw;
+	text-align: center;
+	padding: 2vw;
+	box-sizing: border-box;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #444;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #444;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #444;
+}
+
+
+
+
+
+
+
+

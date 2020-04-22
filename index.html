@@ -9,11 +9,20 @@
 		<!-- Date: 2013-09-06 -->
 		<!-- <script src="jquery-1.5.1.min.js" type="text/javascript" charset="utf-8"></script> -->
 		<script src="js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
-		<link href='css/start.css' rel='stylesheet' type='text/css'>		
+		<script type="text/javascript" src="js/templates.js"></script>	
+		<link href='css/start.css' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
-		<div id="title"><a href="character_selection">START</a></div>
-		<div id="extra">For best experience, view full screen</div>
+		<div id="container">
+			<div id="title"><span id="load_character_selection">START</span></div>
+			<div id="extra">For best experience, view full screen</div>
+		</div>
+		<audio id="music">
+			<source src="sound/music.mp4" type="audio/mp4">
+		</audio>
+		<audio id="correct">
+			<source src="sound/effects/correct.mp3" type="audio/mp3">
+		</audio>
+		<script src="js/site.js"></script>
 	</body>
-	
 </html>
