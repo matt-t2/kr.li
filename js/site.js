@@ -22,9 +22,13 @@ var stepTime;
 var currQuestion = 0;
 var wrongAnswers = 0;
 var numHints = 0;
-var questionSlideTime = 8000;
+var enterTime = 8000; // in milliseconds
+var enterStoppingPoint;
+var questionSlideTime = 8000; // in milliseconds
+var questionStoppingPoint;
 var numCs;
 var numQs;
+var allow_keys = false;
 
 $(document).ready(function(){
   $.ajax({
@@ -66,7 +70,7 @@ $(document).ready(function(){
  ********************/
 
 function showCont(container){
-  $("div:not(#"+container+")").hide();
+  $("body > div:not(#"+container+")").hide();
   $("#"+container).show();
 }
 
@@ -131,16 +135,14 @@ function nextCharacter(){
  *    CHARACTER     *
  *                  *
  ********************/
-function characterWalk(sTime, wTime){
-  var stoppingPoint = Math.ceil((wTime / sTime) / xLength) * xLength;
-
+function characterWalk(sTime, wTime, stopPoint){
   var walkingAnimation = window.setInterval(function(){
     xPos++;
 
-    if(xPos == stoppingPoint){
+    if(xPos == stopPoint){
       xPos = 0;
       clearInterval(walkingAnimation);
-      $(window).on('keyup',submitAnswer(event));
+      allow_keys = true;
     }
     
     $("#game_character").css('background-position',thisCharacter.gameBackgroundPosX[xPos % xLength] + ' ' + thisCharacter.gameBackgroundPosY);
@@ -148,7 +150,7 @@ function characterWalk(sTime, wTime){
 }
 
 function characterEnter(sTime, wTime){
-  characterWalk(sTime, wTime);
+  characterWalk(sTime, wTime, enterStoppingPoint);
   var slideCharacter = window.setInterval(function() {
     $("#game_character").css('left', '+=1');
   }, 20);
@@ -162,10 +164,12 @@ function generateCharacter(){
   //thisCharacter = chars[currCharTesting];
   xLength = thisCharacter.gameBackgroundPosX.length;
   stepTime = thisCharacter.stepTime;
-  var enterTime = 8000; // in milliseconds
+
   // Update animation time so character finishes at rest
-  var stoppingPoint = Math.ceil((enterTime / stepTime) / xLength) * xLength;
-  enterTime = stepTime * stoppingPoint;
+  enterStoppingPoint = Math.ceil((enterTime / stepTime) / xLength) * xLength;
+  enterTime = stepTime * enterStoppingPoint;
+  questionStoppingPoint = Math.ceil((questionSlideTime / stepTime) / xLength) * xLength;
+  questionSlideTime = stepTime * questionStoppingPoint;
 
   $("#game_character").css('background-image','url(img/chars/walking/' + thisCharacter.image + ')');
   $("#game_character").css('background-position',thisCharacter.gameBackgroundPosX[xPos] + ' ' + thisCharacter.gameBackgroundPosY);
@@ -206,7 +210,7 @@ function gameBackgroundScroll(bgSlideTime) {
  ********************/
 
 function nextQuestion(){
-  $(window).off('keyup')
+  allow_keys = false;
   if(currQuestion > 0){
     var user_answer = $('.answer').eq(currQuestion - 1).val().toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
     var correct_answer = questions[currQuestion - 1].answer.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
@@ -216,7 +220,7 @@ function nextQuestion(){
       document.getElementById("correct").play();
 
       if(currQuestion < numQs){
-        characterWalk(stepTime, questionSlideTime);
+        characterWalk(stepTime, questionSlideTime, questionStoppingPoint);
 
         setTimeout(function(){
           gameBackgroundScroll(questionSlideTime);
@@ -259,7 +263,8 @@ function nextQuestion(){
     $("#howto_cont").hide( questionSlideTime / 2, function() {
       $("#howto_cont").remove();
     });
-    characterWalk(stepTime, questionSlideTime);
+    console.log("stepTime: " + stepTime + ", slideTime:" + questionSlideTime);
+    characterWalk(stepTime, questionSlideTime, questionStoppingPoint);
     setTimeout(function(){
       gameBackgroundScroll(questionSlideTime);
       $('.question_box').eq(currQuestion).animate({
@@ -273,16 +278,10 @@ function nextQuestion(){
 }
 
 function addHint(){
-  currHint = questions[currQuestion - 1].hints[numHints];
+  // currHint = questions[currQuestion - 1].hints[numHints];
+  currHint = "placeholder_text";
   $("#hintbox_cont").append('<div class=\'hintbox\'>' + currHint + '</div>');
   numHints++;
-}
-
-function submitAnswer(event){
-  // Enter key = `13`
-  if(event.which == 13){
-    nextQuestion();
-  }
 }
 
 
@@ -299,7 +298,7 @@ $("#load_character_selection").on('click', function(){
   $("#load_character_selection").off();
   // Load character_selection
   showCont("character_selection_container");
-  document.getElementById("music").play();
+  $('#music')[0].play();
   nextCharacter();
 });
 
@@ -322,23 +321,16 @@ $('#character_selection_container').on('click', '#right_arrow', function(){
 });
 
 $('#character_selection_container').on('click', '#select', function(){
-    // Load confirm
-    showCont("confirm_container");
-    $("#conf_character").attr('src','img/chars/profile/' + thisCharacter.image);
-
-    // Update animation time so character finishes at rest
-    var stoppingPoint = Math.ceil((questionSlideTime / stepTime) / xLength) * xLength;
-    questionSlideTime = stepTime * stoppingPoint;
-  }
-}); 
-
-$('#confirm_container').on('click', '#yes', function(){
-  showCont("game_container");
-  $("#howto_cont").show();
+  // Load confirm
+  showCont("confirm_container");
+  $('#char_sound').attr('src','sound/char/' + thisCharacter.sound);
+  $('#conf_character').attr('src','img/chars/profile/' + thisCharacter.image);
+  $('#char_sound')[0].play();
+  // TODO: loading bar across bottom 0 -> 100% with length of audio file
   questions.forEach(function(question, index){
    var q_div = $('<div>' + 
       //'<div class=\'q_text\'>' + question.name + '</div>' + 
-      '<img class=\'q_img\' alt=\'img ' + currQuestion + '\' src=\'' + question.image + '\'>' + 
+      '<img class=\'q_img\' alt=\'img ' + currQuestion + '\' src=\'img/questions/' + question.image + '\'>' + 
       '<input class=\'answer\' placeholder=\'> Your Guess Here <\'>' + 
       '<div class=\'wrong_cont\'>' + 
       '<img src=\'img/wrong/wrong_1.png\' alt=\'wrong1\' class=\'wrong wrong1\'>' + 
@@ -351,36 +343,52 @@ $('#confirm_container').on('click', '#yes', function(){
       '<img src=\'img/lightbulb.png\' alt=\'hint3\' class=\'hint hint_avail hint3\'>' + 
       '</div>' + 
       '</div>');
-   $('#character_selection_container').append(q_div);
+   $('#game_container').append(q_div);
+   });
    q_div.addClass('question_box');
-  });
+  //document.getElementById("char_sound").play();
+}); 
+
+$('#confirm_container').on('click', '#yes', function(){
+  showCont("game_container");
+  $("#howto_cont").show();
+  $('#conf_answer > span').hide();
   generateCharacter();
 });
 
 $('#confirm_container').on('click', '#no', function(){
   // Load character_selection
   showCont("character_selection_container");
-  document.getElementById("music").play();
+  $('#conf_answer > span').hide();
   nextCharacter();
 });
 
 $('#game_container').on('mouseenter', '.hint_avail', function(){
-    $(this).attr('src','img/lightbulb_inv.png');
+  $(this).attr('src','img/lightbulb_inv.png');
 });
 
 
 $('#game_container').on('mouseleave', '.hint_avail', function(){
-    $(this).attr('src','img/lightbulb.png');
+  $(this).attr('src','img/lightbulb.png');
 });
 
-$("#game_container").on('click', '.hint_avail', function(){
-    $(this).removeClass('hint_avail');
-    $(this).attr('src','img/lightbulb_off.png');
-    addHint();
+$('#game_container').on('click', '.hint_avail', function(){
+  $(this).removeClass('hint_avail');
+  $(this).attr('src','img/lightbulb_off.png');
+  addHint();
+});
+
+$('#char_sound').on('ended', function(){
+  $('#conf_answer > span').show();
+});
+
+
+$(document).on('keydown', function(event){
+  // Enter key = `13`
+  console.log(allow_keys);
+  if(event.keyCode == '13' && allow_keys){
+    nextQuestion();
   }
-);
-
-
-
+})
 
 

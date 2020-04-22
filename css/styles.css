@@ -218,6 +218,7 @@ body {
 }
 
 #conf_answer span {
+  display: none;
   color: #000;
   text-decoration: none;
   padding: 20px;

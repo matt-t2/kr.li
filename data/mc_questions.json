@@ -1,0 +1,531 @@
+[
+	{
+		"question":"Coprastasophobia is the fear of what?",
+		"answers":
+			[
+				"Corporate Greed",
+				"Door-to-Door Vacuum Salesmen",
+				"Constipation",
+				"Public Speaking"
+			],
+		"answer":"Constipation",
+		"type":"mc"
+	}, {
+		"question":"In Minnesota, it is illegal to tease what type of animal?",
+		"answers":
+			[
+				"Skunks",
+				"Bears Fans",
+				"Moose",
+				"Small Children"
+			],
+		"answer":"Skunks",
+		"type":"mc"
+	}, {
+		"question":"In Kansas, it is illegal to put what on cherry pie?",
+		"answers":
+			[
+				"more cherry pie, forming a cherry pie sandwich",
+				"Ice Cream",
+				"Whipped Cream",
+				"Small Children"
+			],
+		"answer":"Ice Cream",
+		"type":"mc"
+	}, {
+		"question":"In North Carolina, it's illegal to hold a meeting or demonstration while...",
+		"answers":
+			[
+				"",
+				"Wearing a Mask",
+				"",
+				""
+			],
+		"answer":"Wearing a Mask",
+		"type":"mc"
+	}, {
+		"question":"In Gainesville GA, it is illegal to eat fried chicken with...",
+		"answers":
+			[
+				"Ketchup",
+				"Mayonnaise",
+				"a Fork",
+				"Unsweet Iced Tea"
+			],
+		"answer":"a Fork",
+		"type":"mc"
+	}, {
+		"question":"In Blythe CA, it is illegal to wear cowboy boots unless you own how many cows?",
+		"answers":
+			[
+				"over 9000",
+				"2",
+				"0.. what?",
+				"1"
+			],
+		"answer":"2",
+		"type":"mc"
+	}, {
+		"question":"In 1986, Clint Eastwood became mayor of Carmel-by-the-Sea in order to what?",
+		"answers":
+			[
+				"Research for an upcoming role",
+				"Think The Purge, but real life",
+				"Repeal a ban on public ice cream",
+				"Yell at an empty chair"
+			],
+		"answer":"Repeal a ban on public ice cream",
+		"type":"mc"
+	}, {
+		"question":"The electric chair was invented by...",
+		"answers":
+			[
+				"Thomas Edison",
+				"a Scientist",
+				"the Military-Industrial Complex",
+				"a Dentist"
+			],
+		"answer":"a Dentist",
+		"type":"mc"
+	}, {
+		"question":"Butterflies taste...",
+		"answers":
+			[
+				"with their feet",
+				"with their tongues",
+				"with their wings",
+				"like snozberries"
+			],
+		"answer":"with their feet",
+		"type":"mc"
+	}, {
+		"question":"Crickets hear...",
+		"answers":
+			[
+				"with their feet",
+				"with their tongues",
+				"with their wings",
+				"with their knees"
+			],
+		"answer":"with their knees",
+		"type":"mc"
+	}, {
+		"question":"What animal can't jump?",
+		"answers":
+			[
+				"Elephant",
+				"White Men",
+				"Rhino",
+				"Panda"
+			],
+		"answer":"Elephant",
+		"type":"mc"
+	}, {
+		"question":"What was the first novel written on a typewriter?",
+		"answers":
+			[
+				"Moby Dick",
+				"The Adventures of Tom Sawyer",
+				"A Tale of Two Cities",
+				"50 Shades of Grey"
+			],
+		"answer":"The Adventures of Tom Sawyer",
+		"type":"mc"
+	}, {
+		"question":"Nicolas Cage won an Academy Award for `Best Actor` for which movie?",
+		"answers":
+			[
+				"Con Air",
+				"Leaving Las Vegas",
+				"National Treasure 3 (come back to this in 5 years)",
+				"The Wicker Man"
+			],
+		"answer":"Leaving Las Vegas",
+		"type":"mc"
+	}, {
+		"question":"What city is Kansas City located in?",
+		"answers":
+			[
+				"Missouri",
+				"Kansas",
+				"The United States of America",
+				"it's not"
+			],
+		"answer":"it's not",
+		"type":"mc"
+	}, {
+		"question":"`Tina` in `Tina Fey` is short for what?",
+		"answers":
+			[
+				"Christina",
+				"Stamatina",
+				"Bettina",
+				"Martina"
+			],
+		"answer":"Stamatina",
+		"type":"mc"
+	}, {
+		"question":"What is the national animal of Colombia?",
+		"answers":
+			[
+				"Andean Condor",
+				"Jaguar",
+				"",
+				""
+			],
+		"answer":"Andean Condor",
+		"type":"mc"
+	}, {
+		"question":"The 1956 Summer Olympics were held in Australia with the exception of the equestrian events. In which European country did the equestrian events take place?",
+		"answers":
+			[
+				"France",
+				"England",
+				"The United States of America",
+				"Sweden"
+			],
+		"answer":"Sweden",
+		"type":"mc"
+	}, {
+		"question":"The Shiba Inu is a Japanese hunting doge.  Inu is Japanese for `dog`, what does Shiba mean?",
+		"answers":
+			[
+				"Brushwood",
+				"Forest",
+				"Snoop",
+				"Woodland"
+			],
+		"answer":"Brushwood",
+		"type":"mc"
+	}, {
+		"question":"In `Beauty and the Beast`, what is the name of Belle's horse?",
+		"answers":
+			[
+				"LeFou",
+				"Philippe",
+				"Maurice",
+				"Beast"
+			],
+		"answer":"Philippe",
+		"type":"mc"
+	}, {
+		"question":"In `Aladdin`, what is the name of Aladdin's monkey friend?",
+		"answers":
+			[
+				"Apu",
+				"Iago",
+				"Abu",
+				"Aladdin Jr."
+			],
+		"answer":"Abu",
+		"type":"mc"
+	}, {
+		"question":"What was the first Disney animated movie to be adapted as a Broadway show?",
+		"answers":
+			[
+				"Snow White",
+				"Beauty and the Beast",
+				"Lion King",
+				"Frozen"
+			],
+		"answer":"Snow White",
+		"type":"mc"
+	}, {
+		"question":"What is the name of the cat in Cinderella?",
+		"answers":
+			[
+				"Dog",
+				"Satan Claws",
+				"El Diablo",
+				"Lucifer"
+			],
+		"answer":"Lucifer",
+		"type":"mc"
+	}, {
+		"question":"In `Brave`, Merida uses what weapon to compete for her own hand in marriage?",
+		"answers":
+			[
+				"the Patriarchy",
+				"Friendship",
+				"Universal Suffrage",
+				"Bow and Arrow"
+			],
+		"answer":"Bow and Arrow",
+		"type":"mc"
+	}, {
+		"question":"Ouagadougou is the capital of which African country?",
+		"answers":
+			[
+				"Chad",
+				"Burkina Faso",
+				"Eritrea",
+				"Djibouti"
+			],
+		"answer":"Burkina Faso",
+		"type":"mc"
+	}, {
+		"question":"In `Charlie and the Chocolate Factory`, which character disqualification scared the absolute hell out of child-me?",
+		"answers":
+			[
+				"Augustus Gloop",
+				"Violet Beauregarde",
+				"Mike Teavee",
+				"Veruca Salt"
+			],
+		"answer":"Augustus Gloop",
+		"type":"mc"
+	}, {
+		"question":"Which animal sleeps for only five minutes a day?",
+		"answers":
+			[
+				"a koala",
+				"a giraffe",
+				"me on a workday",
+				"a beaver"
+			],
+		"answer":"a giraffe",
+		"type":"mc"
+	}, {
+		"question":"The bikini was originally called the what?",
+		"answers":
+			[
+				"Poke",
+				"Range",
+				"Half",
+				"Atom"
+			],
+		"answer":"Atom",
+		"type":"mc"
+	}, {
+		"question":"Which of these planets rotates clockwise?",
+		"answers":
+			[
+				"Uranus",
+				"Mercury",
+				"Pluto",
+				"Venus"
+			],
+		"answer":"Venus",
+		"type":"mc"
+	}, {
+		"question":"In China, why must you never stand chopsticks upgright in your rice?",
+		"answers":
+			[
+				"They resemble candles being burnt for lovers who've left",
+				"They resemble joss sticks used in rituals for the deceased",
+				"They resemble the male and female at war in families",
+				"They resemble knives pointed up towards heaven"
+			],
+		"answer":"They resemble joss sticks used in rituals for the deceased",
+		"type":"mc"
+	}, {
+		"question":"What does a pagophagiac eat?",
+		"answers":
+			[
+				"Fingernails",
+				"Ash",
+				"Pips",
+				"Ice"
+			],
+		"answer":"Ice",
+		"type":"mc"
+	}, {
+		"question":"A fysigunkus is a person who lacks what?",
+		"answers":
+			[
+				"Humor",
+				"Wisdom",
+				"Curiosity",
+				"Discipline"
+			],
+		"answer":"Curiosity",
+		"type":"mc"
+	}, {
+		"question":"What color is a newborn Dalmatian?",
+		"answers":
+			[
+				"white",
+				"black",
+				"black with white spots",
+				"white with black spots"
+			],
+		"answer":"white",
+		"type":"mc"
+	}, {
+		"question":"Which country has the lowest average ground level in the world?",
+		"answers":
+			[
+				"Republic of Mauritius",
+				"Holland",
+				"The Seychelles",
+				"Republic of the Maldives"
+			],
+		"answer":"Republic of the Maldives",
+		"type":"mc"
+	}, {
+		"question":"What is the loudest animal on Earth?",
+		"answers":
+			[
+				"Blue Whale",
+				"Elephant",
+				"Sperm Whale",
+				"Rush Limbaugh"
+			],
+		"answer":"Blue Whale",
+		"type":"mc"
+	}, {
+		"question":"Which country has a beaver as its national emblem?",
+		"answers":
+			[
+				"Kazakhstan",
+				"Poland",
+				"Canada",
+				"Beavertonfieldville"
+			],
+		"answer":"Canada",
+		"type":"mc"
+	}, {
+		"question":"True or False - white rhinos are white.",
+		"answers":
+			[
+				"True",
+				"False",
+				"Maybe",
+				"How can white rhinos be real if our eyes aren't real?"
+			],
+		"answer":"False",
+		"type":"mc"
+	}, {
+		"question":"What is the world's most venemous fish?",
+		"answers":
+			[
+				"Scorpion fish",
+				"Lion Fish",
+				"Stonefish",
+				"Poison McPoisonface"
+			],
+		"answer":"Stonefish",
+		"type":"mc"
+	}, {
+		"question":"What is the fastest swimming animal?",
+		"answers":
+			[
+				"Orca",
+				"Michael Phelps",
+				"Swordfish",
+				"Sailfish"
+			],
+		"answer":"Sailfish",
+		"type":"mc"
+	}, {
+		"question":"",
+		"answers":
+			[
+				"",
+				"",
+				"",
+				""
+			],
+		"answer":"",
+		"type":"mc"
+	}, {
+		"question":"",
+		"answers":
+			[
+				"",
+				"",
+				"",
+				""
+			],
+		"answer":"",
+		"type":"mc"
+	}, {
+		"question":"",
+		"answers":
+			[
+				"",
+				"",
+				"",
+				""
+			],
+		"answer":"",
+		"type":"mc"
+	}, {
+		"question":"",
+		"answers":
+			[
+				"",
+				"",
+				"",
+				""
+			],
+		"answer":"",
+		"type":"mc"
+	}, {
+		"question":"",
+		"answers":
+			[
+				"",
+				"",
+				"",
+				""
+			],
+		"answer":"",
+		"type":"mc"
+	}, {
+		"question":"",
+		"answers":
+			[
+				"",
+				"",
+				"",
+				""
+			],
+		"answer":"",
+		"type":"mc"
+	}, {
+		"question":"",
+		"answers":
+			[
+				"",
+				"",
+				"",
+				""
+			],
+		"answer":"",
+		"type":"mc"
+	}, {
+		"question":"",
+		"answers":
+			[
+				"",
+				"",
+				"",
+				""
+			],
+		"answer":"",
+		"type":"mc"
+	}, {
+		"question":"",
+		"answers":
+			[
+				"",
+				"",
+				"",
+				""
+			],
+		"answer":"",
+		"type":"mc"
+	}, {
+		"question":"",
+		"answers":
+			[
+				"",
+				"",
+				"",
+				""
+			],
+		"answer":"",
+		"type":"mc"
+	}
+]
