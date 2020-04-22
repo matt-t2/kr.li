@@ -393,16 +393,14 @@ body {
 #hintbox_cont {
 	font-size: 20px;
 	position: fixed;
-	top: 10px;
-	left: 10px;
 }
 
 .hintbox {
 	background-color: #aedecb;
 	width: 50vw;
-	line-height: 20px;
-	margin: 5%;
-	padding: 10px;
+	line-height: 30px;
+	margin: 2vw 2vw 0 2vw;
+	padding: 1vw;
 }
 
 /********************

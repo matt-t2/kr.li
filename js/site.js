@@ -32,6 +32,19 @@ var allow_keys = false;
 
 $(document).ready(function(){
   $.ajax({
+    url: "data/questions.json",
+    dataType: "json",
+    success: function(data) {
+      $.each(data, function(key, value){
+        questions.push(value);
+      });
+    },
+    complete: function(data) {
+      numQs = questions.length;
+    }
+  });
+
+  $.ajax({
     url: "data/chars.json",
     dataType: "json",
     success: function(data) {
@@ -42,19 +55,6 @@ $(document).ready(function(){
     complete: function(data) {
       numCs = chars.length;
       nextCharacter();
-    }
-  });
-
-  $.ajax({
-    url: "data/questions.json",
-    dataType: "json",
-    success: function(data) {
-      $.each(data, function(key, value){
-        questions.push(value);
-      });
-    },
-    complete: function(data) {
-      numQs = questions.length;
     }
   });
 });
@@ -136,6 +136,7 @@ function nextCharacter(){
  *                  *
  ********************/
 function characterWalk(sTime, wTime, stopPoint){
+  allow_keys = false;
   var walkingAnimation = window.setInterval(function(){
     xPos++;
 
@@ -210,7 +211,7 @@ function gameBackgroundScroll(bgSlideTime) {
  ********************/
 
 function nextQuestion(){
-  allow_keys = false;
+  
   if(currQuestion > 0){
     var user_answer = $('.answer').eq(currQuestion - 1).val().toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
     var correct_answer = questions[currQuestion - 1].answer.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
@@ -243,13 +244,21 @@ function nextQuestion(){
             queue: false,
             duration: questionSlideTime
           });
+
+          $('#hintbox_cont').animate({
+            left: "-98vw"
+          }, {
+            queue: false,
+            duration: questionSlideTime
+            complete: function() {
+              $("#hintbox_cont").empty();
+              $("#hintbox_cont").css('left','0');
+            }
+          });
         }, 500);
       } else {
       	// TODO: trigger victory
       }
-      $(".hintbox").hide( questionSlideTime / 2, function() {
-        $("#hintbox_cont").empty();
-      });
     } else {
       wrongAnswers++;
       $('.question_box').eq(currQuestion - 1).children('.wrong_cont').children('.wrong' + wrongAnswers).css('display','inline');
@@ -260,10 +269,6 @@ function nextQuestion(){
       }
     }
   } else {
-    $("#howto_cont").hide( questionSlideTime / 2, function() {
-      $("#howto_cont").remove();
-    });
-    console.log("stepTime: " + stepTime + ", slideTime:" + questionSlideTime);
     characterWalk(stepTime, questionSlideTime, questionStoppingPoint);
     setTimeout(function(){
       gameBackgroundScroll(questionSlideTime);
@@ -272,6 +277,13 @@ function nextQuestion(){
       }, questionSlideTime, function() {
         // Animation complete
         currQuestion++;
+      });
+
+      $('#howto_cont').animate({
+        left: "-30vw"
+      }, {
+        queue: false,
+        duration: questionSlideTime
       });
     }, 500);
   }
@@ -344,8 +356,8 @@ $('#character_selection_container').on('click', '#select', function(){
       '</div>' + 
       '</div>');
    $('#game_container').append(q_div);
-   });
    q_div.addClass('question_box');
+  });
   //document.getElementById("char_sound").play();
 }); 
 
