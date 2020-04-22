@@ -14,7 +14,7 @@ var chars;
 var questions;
 
 $.ajax({
-  url: "json/chars.json",
+  url: "js/json/chars.json",
   dataType: "json",
   success: function(data) {
   	$.each(data, function(item){
@@ -24,7 +24,7 @@ $.ajax({
 });
 
 $.ajax({
-  url: "json/questions.json",
+  url: "js/json/questions.json",
   dataType: "json",
   success: function(data) {
   	$.each(data, function(item){
