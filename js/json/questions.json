@@ -1,0 +1,83 @@
+[
+  {
+    "name":"Santa has hidden a secret message on one of the escape room presents. Can you find a clue hidden on the package? What is the secret message?",
+    "answer":"merryxmas",
+    "image":"img/questions/christmas.jpg",
+    "hints":["This is the easiest one if you need a hint this could be a rough time","Seriously this is going to be a grind if you're struggling already","I can just give you the final code it's no big deal"]
+  }, {
+    "name":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"aninsideman",
+    "image":"img/questions/inside_man.gif",
+    "hints":["Hopefully you like Rebus puzzles because I leaned into this","The color is unimportant","movie starring Jodie Foster: cover model of Coppertone & the inspiration of Reagan shooters"]
+  }, {
+    "name":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"foreignfilm",
+    "image":"img/questions/foreign.gif",
+    "hints":["Samarth couldn't solve this but he also didn't know how to spell the word","Parasite is one","City of God is another"]
+  }, {
+    "name":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"foronceinmylife",
+    "image":"img/questions/my_life.jpg",
+    "hints":["Count the number of numbers","Stevie Wonder song","Michael Buble did a cover but AFAIK it's not a Christmas song"]
+  }, {
+    "name":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"forbiddenfruit",
+    "image":"img/questions/forbidden_fruit.png",
+    "hints":["It's 'bidden' not 'Biden'","they're grapes but more generically they are...","apples, snakes, etc."]
+  }, {
+    "name":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"topsecret",
+    "image":"img/questions/top_secret.jpg",
+    "hints":["not middle","not bottom","Great Val Kilmer parody movie"]
+  }, {
+    "name":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"afriendinneedisafriendindeed",
+    "image":"img/questions/friend_in_need.jpg",
+    "hints":["includes pronouns of course","sort of a glass-half-full kind of expression","https://gogetfunding.com/wp-content/uploads/2017/04/5193622/img/IMG_1553.JPG"]
+  }, {
+    "name":"Almost done!!",
+    "answer":"forthecommondefense",
+    "image":"img/questions/forthecommondefense.gif",
+    "hints":["lawyers would know this","maybe criminals too","geez read To Kill A Mockingbird or something"]
+  }, {
+    "name":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"onceinabluemoon",
+    "image":"img/questions/once_in_a_blue_moon.jpg",
+    "hints":["color","for those speaking the Queen's English, colour","think of a certain Belgian-style witbier"]
+  }, {
+    "name":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"whatgoesupmustcomedown",
+    "image":"img/questions/what_goes_up.jpg",
+    "hints":["this is in a song","would be an appropriate if unexpected song to be used for elevator music","you should probably give up if you can't solve this"]
+  }, {
+    "name":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"greenpeace",
+    "image":"img/questions/greenpeace.jpg",
+    "hints":["like Green Day but also not","it's a humanitarian group","hint 3"]
+  }, {
+    "name":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"nowayjose",
+    "image":"img/questions/no_way_jose.jpg",
+    "hints":["I think going right-to-left is easier?","the first part is the toughest","it's a `no way` sign"]
+  }, {
+    "name":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"birdseyeview",
+    "image":"img/questions/birdseyeview.jpg",
+    "hints":["not Twitter-related","bird's the word","BIIIIIIIIRD"]
+  }, {
+    "name":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"istandcorrected",
+    "image":"img/questions/i_stand_corrected.jpg",
+    "hints":["when you've been proven wrong","i don't know a second hint","https://giphy.com/gifs/season-3-the-simpsons-3x24-xT5LMLpjVEE0kOoPyo"]
+  }, {
+    "name":"Which school has a better alma mater - UNC or Cornell?",
+    "answer":"they're the same",
+    "image":"img/questions/unc.png",
+    "hints":["Admiral Ackbar","IT'S A TRAP","the answer is: (THEY'RE THE SAME)"]
+  }, {
+    "name":"You find a riddle and know its answer may hold a clue to the key to your escape. The riddle reveals a story that seems to be an impossibility. How could all the players gain and none of them lose?",
+    "answer":"musicians",
+    "image":"img/questions/four_jolly_men.jpg",
+    "hints":["the background will throw you off","what were they playing?","they were playing, but not a game"]
+  }
+]

@@ -3,3 +3,7 @@
 old/*
 *.bk/*
 *jquery*
+sound/music.mp4
+js/character_selection.js
+js/confirm.js
+js/game.js
