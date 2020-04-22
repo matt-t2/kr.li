@@ -64,7 +64,8 @@ $(document).ready(function(){
  ********************/
 
 $("#load_character_selection").on('click', function(){
-  $("#load_character_selection").off();
+
+  // Load character_selection
   $('#container').html(character_selection);
   document.getElementById("music").play();
   nextCharacter();
@@ -97,8 +98,24 @@ $("#load_character_selection").on('click', function(){
 
   $("#select").on({
   	click: function(){
+      // Load confirm
   		$('#container').html(confirm);
+      $("#conf_character").attr('src','img/chars/profile/' + thisCharacter.image);
   		$("#left_arrow,#right_arrow,#select").off();
+
+      // // Update animation time so character finishes at rest
+      // var stoppingPoint = Math.ceil((questionSlideTime / stepTime) / xLength) * xLength;
+      // questionSlideTime = stepTime * stoppingPoint;
+
+      // $("#yes").on('click', function(){
+      //   window.location.href = "game?char=" + name;
+      // });
+
+      // $("#no").on('click', function(){
+      //   window.location.href = "character_selection";
+      // });
+
+
   	}
   });
 });
