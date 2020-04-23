@@ -1,7 +1,7 @@
 [
 	{
 		"question":"Coprastasophobia is the fear of what?",
-		"answers":
+		"choices":
 			[
 				"Corporate Greed",
 				"Door-to-Door Vacuum Salesmen",
@@ -12,7 +12,7 @@
 		"type":"mc"
 	}, {
 		"question":"In Minnesota, it is illegal to tease what type of animal?",
-		"answers":
+		"choices":
 			[
 				"Skunks",
 				"Bears Fans",
@@ -23,7 +23,7 @@
 		"type":"mc"
 	}, {
 		"question":"In Kansas, it is illegal to put what on cherry pie?",
-		"answers":
+		"choices":
 			[
 				"more cherry pie, forming a cherry pie sandwich",
 				"Ice Cream",
@@ -34,7 +34,7 @@
 		"type":"mc"
 	}, {
 		"question":"In North Carolina, it's illegal to hold a meeting or demonstration while...",
-		"answers":
+		"choices":
 			[
 				"",
 				"Wearing a Mask",
@@ -45,7 +45,7 @@
 		"type":"mc"
 	}, {
 		"question":"In Gainesville GA, it is illegal to eat fried chicken with...",
-		"answers":
+		"choices":
 			[
 				"Ketchup",
 				"Mayonnaise",
@@ -56,7 +56,7 @@
 		"type":"mc"
 	}, {
 		"question":"In Blythe CA, it is illegal to wear cowboy boots unless you own how many cows?",
-		"answers":
+		"choices":
 			[
 				"over 9000",
 				"2",
@@ -67,10 +67,10 @@
 		"type":"mc"
 	}, {
 		"question":"In 1986, Clint Eastwood became mayor of Carmel-by-the-Sea in order to what?",
-		"answers":
+		"choices":
 			[
 				"Research for an upcoming role",
-				"Think The Purge, but real life",
+				"Think `The Purge`, but real life",
 				"Repeal a ban on public ice cream",
 				"Yell at an empty chair"
 			],
@@ -78,7 +78,7 @@
 		"type":"mc"
 	}, {
 		"question":"The electric chair was invented by...",
-		"answers":
+		"choices":
 			[
 				"Thomas Edison",
 				"a Scientist",
@@ -89,7 +89,7 @@
 		"type":"mc"
 	}, {
 		"question":"Butterflies taste...",
-		"answers":
+		"choices":
 			[
 				"with their feet",
 				"with their tongues",
@@ -100,7 +100,7 @@
 		"type":"mc"
 	}, {
 		"question":"Crickets hear...",
-		"answers":
+		"choices":
 			[
 				"with their feet",
 				"with their tongues",
@@ -111,18 +111,18 @@
 		"type":"mc"
 	}, {
 		"question":"What animal can't jump?",
-		"answers":
+		"choices":
 			[
 				"Elephant",
 				"White Men",
-				"Rhino",
+				"Penguin",
 				"Panda"
 			],
 		"answer":"Elephant",
 		"type":"mc"
 	}, {
 		"question":"What was the first novel written on a typewriter?",
-		"answers":
+		"choices":
 			[
 				"Moby Dick",
 				"The Adventures of Tom Sawyer",
@@ -133,7 +133,7 @@
 		"type":"mc"
 	}, {
 		"question":"Nicolas Cage won an Academy Award for `Best Actor` for which movie?",
-		"answers":
+		"choices":
 			[
 				"Con Air",
 				"Leaving Las Vegas",
@@ -143,8 +143,8 @@
 		"answer":"Leaving Las Vegas",
 		"type":"mc"
 	}, {
-		"question":"What city is Kansas City located in?",
-		"answers":
+		"question":"Which city is Kansas City located in?",
+		"choices":
 			[
 				"Missouri",
 				"Kansas",
@@ -155,7 +155,7 @@
 		"type":"mc"
 	}, {
 		"question":"`Tina` in `Tina Fey` is short for what?",
-		"answers":
+		"choices":
 			[
 				"Christina",
 				"Stamatina",
@@ -166,7 +166,7 @@
 		"type":"mc"
 	}, {
 		"question":"What is the national animal of Colombia?",
-		"answers":
+		"choices":
 			[
 				"Andean Condor",
 				"Jaguar",
@@ -177,7 +177,7 @@
 		"type":"mc"
 	}, {
 		"question":"The 1956 Summer Olympics were held in Australia with the exception of the equestrian events. In which European country did the equestrian events take place?",
-		"answers":
+		"choices":
 			[
 				"France",
 				"England",
@@ -188,7 +188,7 @@
 		"type":"mc"
 	}, {
 		"question":"The Shiba Inu is a Japanese hunting doge.  Inu is Japanese for `dog`, what does Shiba mean?",
-		"answers":
+		"choices":
 			[
 				"Brushwood",
 				"Forest",
@@ -199,7 +199,7 @@
 		"type":"mc"
 	}, {
 		"question":"In `Beauty and the Beast`, what is the name of Belle's horse?",
-		"answers":
+		"choices":
 			[
 				"LeFou",
 				"Philippe",
@@ -210,7 +210,7 @@
 		"type":"mc"
 	}, {
 		"question":"In `Aladdin`, what is the name of Aladdin's monkey friend?",
-		"answers":
+		"choices":
 			[
 				"Apu",
 				"Iago",
@@ -221,7 +221,7 @@
 		"type":"mc"
 	}, {
 		"question":"What was the first Disney animated movie to be adapted as a Broadway show?",
-		"answers":
+		"choices":
 			[
 				"Snow White",
 				"Beauty and the Beast",
@@ -232,7 +232,7 @@
 		"type":"mc"
 	}, {
 		"question":"What is the name of the cat in Cinderella?",
-		"answers":
+		"choices":
 			[
 				"Dog",
 				"Satan Claws",
@@ -243,7 +243,7 @@
 		"type":"mc"
 	}, {
 		"question":"In `Brave`, Merida uses what weapon to compete for her own hand in marriage?",
-		"answers":
+		"choices":
 			[
 				"the Patriarchy",
 				"Friendship",
@@ -254,7 +254,7 @@
 		"type":"mc"
 	}, {
 		"question":"Ouagadougou is the capital of which African country?",
-		"answers":
+		"choices":
 			[
 				"Chad",
 				"Burkina Faso",
@@ -265,7 +265,7 @@
 		"type":"mc"
 	}, {
 		"question":"In `Charlie and the Chocolate Factory`, which character disqualification scared the absolute hell out of child-me?",
-		"answers":
+		"choices":
 			[
 				"Augustus Gloop",
 				"Violet Beauregarde",
@@ -276,7 +276,7 @@
 		"type":"mc"
 	}, {
 		"question":"Which animal sleeps for only five minutes a day?",
-		"answers":
+		"choices":
 			[
 				"a koala",
 				"a giraffe",
@@ -287,7 +287,7 @@
 		"type":"mc"
 	}, {
 		"question":"The bikini was originally called the what?",
-		"answers":
+		"choices":
 			[
 				"Poke",
 				"Range",
@@ -298,7 +298,7 @@
 		"type":"mc"
 	}, {
 		"question":"Which of these planets rotates clockwise?",
-		"answers":
+		"choices":
 			[
 				"Uranus",
 				"Mercury",
@@ -309,7 +309,7 @@
 		"type":"mc"
 	}, {
 		"question":"In China, why must you never stand chopsticks upgright in your rice?",
-		"answers":
+		"choices":
 			[
 				"They resemble candles being burnt for lovers who've left",
 				"They resemble joss sticks used in rituals for the deceased",
@@ -320,7 +320,7 @@
 		"type":"mc"
 	}, {
 		"question":"What does a pagophagiac eat?",
-		"answers":
+		"choices":
 			[
 				"Fingernails",
 				"Ash",
@@ -331,7 +331,7 @@
 		"type":"mc"
 	}, {
 		"question":"A fysigunkus is a person who lacks what?",
-		"answers":
+		"choices":
 			[
 				"Humor",
 				"Wisdom",
@@ -342,7 +342,7 @@
 		"type":"mc"
 	}, {
 		"question":"What color is a newborn Dalmatian?",
-		"answers":
+		"choices":
 			[
 				"white",
 				"black",
@@ -353,7 +353,7 @@
 		"type":"mc"
 	}, {
 		"question":"Which country has the lowest average ground level in the world?",
-		"answers":
+		"choices":
 			[
 				"Republic of Mauritius",
 				"Holland",
@@ -364,7 +364,7 @@
 		"type":"mc"
 	}, {
 		"question":"What is the loudest animal on Earth?",
-		"answers":
+		"choices":
 			[
 				"Blue Whale",
 				"Elephant",
@@ -375,7 +375,7 @@
 		"type":"mc"
 	}, {
 		"question":"Which country has a beaver as its national emblem?",
-		"answers":
+		"choices":
 			[
 				"Kazakhstan",
 				"Poland",
@@ -386,7 +386,7 @@
 		"type":"mc"
 	}, {
 		"question":"True or False - white rhinos are white.",
-		"answers":
+		"choices":
 			[
 				"True",
 				"False",
@@ -397,7 +397,7 @@
 		"type":"mc"
 	}, {
 		"question":"What is the world's most venemous fish?",
-		"answers":
+		"choices":
 			[
 				"Scorpion fish",
 				"Lion Fish",
@@ -408,7 +408,7 @@
 		"type":"mc"
 	}, {
 		"question":"What is the fastest swimming animal?",
-		"answers":
+		"choices":
 			[
 				"Orca",
 				"Michael Phelps",
@@ -419,7 +419,7 @@
 		"type":"mc"
 	}, {
 		"question":"",
-		"answers":
+		"choices":
 			[
 				"",
 				"",
@@ -430,7 +430,7 @@
 		"type":"mc"
 	}, {
 		"question":"",
-		"answers":
+		"choices":
 			[
 				"",
 				"",
@@ -441,7 +441,7 @@
 		"type":"mc"
 	}, {
 		"question":"",
-		"answers":
+		"choices":
 			[
 				"",
 				"",
@@ -452,7 +452,7 @@
 		"type":"mc"
 	}, {
 		"question":"",
-		"answers":
+		"choices":
 			[
 				"",
 				"",
@@ -463,7 +463,7 @@
 		"type":"mc"
 	}, {
 		"question":"",
-		"answers":
+		"choices":
 			[
 				"",
 				"",
@@ -474,7 +474,7 @@
 		"type":"mc"
 	}, {
 		"question":"",
-		"answers":
+		"choices":
 			[
 				"",
 				"",
@@ -485,7 +485,7 @@
 		"type":"mc"
 	}, {
 		"question":"",
-		"answers":
+		"choices":
 			[
 				"",
 				"",
@@ -496,7 +496,7 @@
 		"type":"mc"
 	}, {
 		"question":"",
-		"answers":
+		"choices":
 			[
 				"",
 				"",
@@ -507,7 +507,7 @@
 		"type":"mc"
 	}, {
 		"question":"",
-		"answers":
+		"choices":
 			[
 				"",
 				"",
@@ -518,7 +518,7 @@
 		"type":"mc"
 	}, {
 		"question":"",
-		"answers":
+		"choices":
 			[
 				"",
 				"",
