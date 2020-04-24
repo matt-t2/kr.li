@@ -1,9 +1,4 @@
 .htaccess
 .DS_Store
-old/*
-*.bk/*
-*jquery*
+js/library/*
 sound/music.mp4
-js/character_selection.js
-js/confirm.js
-js/game.js

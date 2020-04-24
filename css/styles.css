@@ -69,6 +69,7 @@ body {
 
 #character_selection_container {
 	display:none;
+	overflow: hidden;
  	position: absolute;
  	margin: 0;
  	width: 100%;
@@ -113,7 +114,7 @@ body {
 	text-align: center;
 }
 
-#name, #select {
+#name, .select {
 	font-family: 'Zelda';
 	text-align: center;
 	box-sizing: border-box;
@@ -132,7 +133,7 @@ body {
 	width: 100%;
 }
 
-#select {
+.select {
 	height: 15%;
 	font-size: 10vh;
 	color: #333;
@@ -140,14 +141,14 @@ body {
 	box-shadow: 0 0 0 4px #2b5754;
 }
 
-#select:hover {
+.select:hover {
 	color: #000;
 	background: #4b948f;
 	border: 2px dashed #333;
 	box-shadow: 0 0 0 4px #4b948f, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
 }
 
-#select:hover, #left_arrow:hover, #right_arrow:hover {
+.select:hover, #left_arrow:hover, #right_arrow:hover {
 	cursor: pointer;
 }
 
@@ -208,6 +209,11 @@ body {
   height: 100%;
   position: fixed;
   background-color: #2b5754;
+  overflow: hidden;
+}
+
+#confirm_container > * {
+  position: relative;
 }
 
 #prompt {
@@ -218,8 +224,15 @@ body {
   line-height: 20vh;
 }
 
+#conf_inner_container {
+	height: 45vh;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+}
+
 #conf_character {
-  height: 40vh;
+  height: 100%;
 }
 
 #conf_answer span {
@@ -245,6 +258,42 @@ body {
 	bottom: 0;
 }
 
+#conf_inner_container > div {
+	float: left;
+	box-sizing: content-box;
+	font-size: 16px;
+	/*height: 100%;
+	box-sizing: border-box;
+	padding: 0 5vw;*/
+	padding: 0 3vw;
+}
+
+#conf_inner_container > #cicd_1 {
+	width: 50%;
+	text-align: right;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 5vh 3vw 0 3vw;
+}
+
+#conf_inner_container > #cicd_2 {
+  text-align: left;
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+  /* font-family: 'Alegreya'; */
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+  font-size: 30px;
+  width: 25%;
+}
+
+#cicd_2 > p {
+  line-height: 30px;
+  font-size: 16px;
+  /* margin: 10vh 0 0 0; */
+}
+
+
+
+
  /********************
  *                  *
  *     GAMEPLAY     *
@@ -259,7 +308,8 @@ body {
 	height: 100%;
 	margin: 0;
 	position: absolute;
-	font-family: 'Alegreya';
+	/* font-family: 'Alegreya'; */
+	font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
 	z-index: 1;
 }
 
@@ -310,7 +360,7 @@ body {
 #ground-over {
 	height: 10%;
 	bottom: 0px;
-	z-index: 3;
+	z-index: 4;
 	background-image: url('../img/background/jungle-tileset-over.png');
 }
 
@@ -325,7 +375,7 @@ body {
 	position: fixed;
 	background-repeat: no-repeat;
 	bottom: 5%;
-	z-index: 2;
+	z-index: 3;
 }
 
 /********************
@@ -340,12 +390,7 @@ body {
 	width: 25vw;
 	background-color: #65ada060;
 	position: fixed;
-	padding-top: 25px;
 	left: 170vw;
-}
-
-.question_box div {
-	margin: 15px;
 }
 
 .question_box .question {
@@ -364,40 +409,65 @@ body {
 
 .answer {
 	display: block;
-	width: 90%;
-	margin: 5%;
+	height: 20%;
+	width: 100%;
 	font-size: 20px;
 	background-color: #aedecb;
 	text-align: center;
-	font-family: 'Alegreya';
+	/* font-family: 'Alegreya'; */
+	font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
 	position: absolute;
 	top: 50%;
-	border: 1px #aedecb solid;
 	box-sizing: border-box;
+	background-clip: padding-box;
+	border: 2px #aedecb solid;
 }
 
-.choice_container {
+.answer:hover {
+	background-color: #c9ffea !important;
+	border-color: #c9ffea !important;
+}
+
+.question_box .choice_container {
 	height: 70%;
-	margin: 0 5%;
-	width: 90%;
+	margin: 0;
+	width: 100%;
+}
+
+.question_box .choice_divider {
+	display: block;
+	height: 2%;
+	width: 100%;
+	margin: 0;
+}
+
+#howto_cont .howto_divider {
+	display: block;
+	height: 1vh;
+	width: 100%;
+	margin: 0;
 }
 
 .question_box .choice {
-	display: block;
+	display: flex;
+	height: 23%;
 	width: 100%;
-	margin: 0 auto 10% auto;
+	margin: 0;
 	font-size: 20px;
 	background-color: #aedecb;
-	text-align: center;
-	font-family: 'Alegreya';
+	align-items: center;
+	justify-content: center;
+	/* font-family: 'Alegreya'; */
+	font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
 	padding: 10px 5px;
-	border: 2px #aedecb solid;
+	border: 2px #65ada000 solid;
 	box-sizing: border-box;
+	/* background-clip: padding-box; */
 }
 
 .question_box .choice:hover {
-	background-color: #c9ffea;
-	border-color: #c9ffea;
+	background-color: #c9ffea !important;
+	border-color: #c9ffea !important;
 	cursor: pointer;
 }
 
@@ -424,9 +494,9 @@ body {
 }
 
 .wrong_cont {
-	height: 15%;
+	height: 10vh;
 	position: absolute;
-	bottom: 15%;
+	bottom: 11vh;
 	width: 100%;
 	margin: 0;
 }
@@ -453,7 +523,7 @@ body {
 }
 
 .hint_cont {
-	height: 15%;
+	height: 11vh;
 	position: absolute;
 	bottom: 0;
 	width: 100%;
@@ -487,6 +557,7 @@ body {
 #hintbox_cont {
 	font-size: 20px;
 	position: fixed;
+	top: 4vw;
 }
 
 .hintbox {
@@ -510,24 +581,54 @@ body {
 	height: 80vh;
 	width: 25vw;
 	background-color: #65ada060;
-	position: fixed;
-	padding-top: 25px;
+	position: absolute;
 	left: 70vw;
 	text-align: center;
-	padding: 2vw;
 	box-sizing: border-box;
 }
 
 #howto_cont > span {
-	display: inline-block;
-	margin-top: 30%;
-	margin-bottom: 10%;
+	display: none;
+	color: #252525;
+	width: 25vw;
+	box-sizing: border-box;
+	height: 24vh;
+	vertical-align: middle;
+	padding: 0 2vw;
+}
+
+#howto_cont > #enter {
+	font-size: 40px;
+	border: 1px #65ada000 solid;
+	height: 30vh;
+}
+
+#howto_cont > span:hover {
+	background-color: #c9ffea !important;
+	color: #000 !important;
+}
+
+#howto_cont > #enter:hover {
+	cursor: pointer;
 }
 
 #howto_cont:nth-child(2) {
 	font-size: 40px;
 }
 
+#display_lives {
+	height: 4vw;
+	width: 100%;
+	position: fixed;
+	z-index: 3;
+}
+
+.charLifeImage {
+	position: relative;
+	top: -129px; /* I don't know why this element is being pushed down 129 pixels with pos: relative */
+	max-height: 100%;
+	margin-left: 2vw;
+}
 
 /********************
  *                  *
@@ -540,8 +641,229 @@ body {
 	display: none;
 }
 
+/********************
+ *                  *
+ *       DEATH      *
+ *                  *
+ *                  *
+ ********************/
+
+#death_container {
+	display: none;
+}
 
 
 
+/********************
+ *                  *
+ *    DIFFICULTY    *
+ *      SLIDER      *
+ *                  *
+ ********************/
 
+/* Credit: Andre Ruffert at https://codepen.io/collection/oeBwH */
 
+#difficultySlider {
+  vertical-align: middle;
+  width: 100%;
+}
+
+#slider_tooltip {
+  display: block;
+  line-height: 30px;
+  height: 30px;
+  margin: 16px 0;
+  font-size: 16px;
+  text-align: right;
+}
+
+/*.rangeslider__tooltip {
+  display: block;
+  margin-top: 2.5em;
+  font-size: 12px;
+  color: #a59eb5;
+}*/
+
+.rangeslider__handle {
+  border-radius: 22px;
+  line-height: 42px;
+  text-align: center;
+  font-size: 18px;
+}
+.rangeslider__handle:after {
+  background: 0;
+}
+
+.rangeslider,
+.rangeslider__fill {
+  display: block;
+  border-radius: 10px;
+}
+
+.rangeslider {
+  background: #e6e5ea;
+  background-image: linear-gradient(to right, #4bc67d 30%, #f1c40f 45%, #b94a48 99%);
+  position: relative;
+}
+
+.rangeslider--horizontal {
+  height: 10px;
+  width: 100%;
+}
+
+.rangeslider--vertical {
+  width: 20px;
+  min-height: 150px;
+  max-height: 100%;
+}
+
+.rangeslider--disabled {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  opacity: 0.4;
+}
+
+.rangeslider__fill {
+  position: absolute;
+}
+
+.rangeslider--horizontal .rangeslider__fill {
+  top: 0;
+  height: 100%;
+}
+
+.rangeslider--vertical .rangeslider__fill {
+  bottom: 0;
+  width: 100%;
+}
+
+.rangeslider__handle {
+  background: white;
+  border: 6px solid #4bc67d;
+  cursor: pointer;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.rangeslider__handle.js-low {
+  border-color: #4bc67d;
+}
+.rangeslider__handle.js-med {
+  border-color: #f1c40f;
+}
+.rangeslider__handle.js-high {
+  border-color: #b94a48;
+}
+
+.rangeslider__handle:after {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.rangeslider--horizontal .rangeslider__handle {
+  top: -20px;
+  touch-action: pan-y;
+  -ms-touch-action: pan-y;
+}
+
+.rangeslider--vertical .rangeslider__handle {
+  left: -10px;
+  touch-action: pan-x;
+  -ms-touch-action: pan-x;
+}
+
+input[type="range"]:focus + .rangeslider .rangeslider__handle {
+  -moz-box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+  -webkit-box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+  box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+}
+
+/********************
+ *                  *
+ *    PLAY AGAIN    *
+ *      TIMER       *
+ *                  *
+ ********************/
+
+/* Credit: Mateusz Rybczonec at https://css-tricks.com/how-to-create-an-animated-countdown-timer-with-html-css-and-javascript/ */
+
+.base-timer {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.base-timer__svg {
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+  z-index: 2;
+  position: absolute;
+}
+
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+}
+
+.base-timer__path-remaining {
+  stroke-width: 7px;
+  stroke-linecap: round;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transition: 1s linear all;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+  color: rgb(65, 184, 131);
+}
+
+.base-timer__path-remaining.orange {
+  color: orange;
+}
+
+.base-timer__path-remaining.red {
+  color: red;
+}
+
+.base-timer__label {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 0;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  font-size: 36px;
+  z-index: 1;
+}
+
+svg:hover + #base-timer-label {
+  color: #333333;
+  /* change change fill of svg, but will need it semi-transparent to leave label visible */
+}

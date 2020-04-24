@@ -6,9 +6,11 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Puzzle 5</title>
 		<meta name="author" content="Matt Tomlinson">
-		<!-- Date: 2013-09-06 -->
-		<!-- <script src="jquery-1.5.1.min.js" type="text/javascript" charset="utf-8"></script> -->
-		<script src="js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/library/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/library/jquery.color.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src='js/library/pen.js' type="text/javascript" charset="utf-8"></script>
+		<script src="js/library/rangeslider.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/library/underscore-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
 		<link href='css/styles.css' rel='stylesheet' type='text/css'>
 		<link rel="shortcut icon" href="">
 	</head>
@@ -28,6 +30,16 @@ ANSWER / DEATH / VICTORY CONTAINER
 -->
 		<div id="other_container">
 			<div id="title"></div>
+			<div class="select">SELECT</div>
+		</div>
+
+<!--
+DEATH CONTAINER
+
+-->
+		<div id="death_container">
+			<div id="title"><span>YOU LOSE</span></div>
+			<div id="death_timer"></div>
 		</div>
 
 <!--
@@ -55,7 +67,7 @@ CHARACTER SELECTION CONTAINER
 					</div>
 					<div id="character_container">
 						<div id="sel_character"></div>
-						<div id="select">SELECT</div>
+						<div class="select">SELECT</div>
 					</div>
 					<img id="right_arrow" alt="right_arrow" src="img/arrow.png">
 				</div>
@@ -68,8 +80,21 @@ CONFIRM CONTAINER
 -->
 
 		<div id="confirm_container">
-			<div id="prompt">Are you sure?</div>
-			<img alt="character" id="conf_character">
+			<div id="conf_inner_container">
+				<div id="cicd_1"><img alt="character" id="conf_character"></div>
+				<div id="cicd_2">
+					<p>difficulty:</p>
+					<input 
+						type="range"
+						min="1"
+						max="10"
+						value="5"
+						id="difficultySlider"
+					>
+					<span id="slider_tooltip"></span>
+				</div>
+			</div>
+			<div id="prompt">Continue?</div>
 			<div id="conf_answer">
 				<span id="yes">Yes</span>
 				&nbsp; &nbsp; &nbsp; &nbsp;
@@ -91,11 +116,14 @@ GAME CONTAINER
 			<div class="bg" id="bg5"></div>
 			<div class="bg" id="ground"></div>
 			<div class="bg" id="ground-over"></div>
-			<div id="game_character"></div>			
+			<div id="game_character"></div>
+			<div id="display_lives"></div>			
 			<div id="hintbox_cont"></div>
 			<div id="howto_cont">
-				<span>Skins don't affect gameplay and are purely cosmetic</span>
-				<span>Press Enter<br>to Begin</span>
+				<div class='howto_divider'></div>
+				<span>each character has its own set of questions</span>
+				<div class='howto_divider'></div>
+				<span id="enter">press enter<br>to begin</span>
 			</div>
 		</div>
 
