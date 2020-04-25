@@ -139,14 +139,6 @@ function showConts(cont1, cont2){
   $("#"+cont1+",#"+cont2).show();
 }
 
-function updateOther(other_type){
-  if(other_type == 'victory'){
-    $('#title').html('<span>VICTORY!</span>');
-  } else if(other_type == 'answer'){
-    $('#title').html('<span>1-2-3</span>');
-  }
-}
-
 function startCharSelection(){
   // Load character_selection
   showCont("character_selection_container");
@@ -557,8 +549,7 @@ function nextQuestion(){
           });
         }, 500);
       } else {
-        updateOther('victory');
-        showCont("other_container");
+        showCont("victory_container");
       }
     } else {
       wrongAnswers++;
@@ -631,6 +622,28 @@ $("#load_character_selection").on('click', function(){
   startCharSelection();
 });
 
+$('#enter_code span').on('click', function(){
+  showCont("enter_code_container");
+}); 
+
+$('#enter_code_container').on('keyup', '.final_solution', function () {
+    if (this.value.length == this.maxLength) {
+      if($(this).not(':last-child')){
+        $(this).next('.final_solution').focus();
+      }
+      // TODO: compare to correct code
+      if(false){
+        showCont("answer_container");
+      } else {
+        console.log("Donald Trump: \"WRONG!\"");
+      }
+    }
+});
+
+$('#enter_code_container').on('click', '#return', function(){
+  showCont("start_container");
+});
+
 $('#character_selection_container').on('mouseenter', '#left_arrow,#right_arrow', function(){
     $(this).attr('src','img/arrow_hover.png');
 });
@@ -649,7 +662,7 @@ $('#character_selection_container').on('click', '#right_arrow', function(){
     nextCharacter();
 });
 
-$('#character_selection_container').on('click', '.select', function(){
+$('#character_selection_container').on('click', '#select', function(){
   startConfirmation();
 }); 
 

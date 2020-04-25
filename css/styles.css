@@ -31,12 +31,14 @@ body {
  ********************/
 
 #start_container {
-
+  overflow: hidden;
 }
 
 #start_title {
   text-align: center;
-  line-height: 80vh;
+  line-height: 40vh;
+  height: 80vh;
+  margin-top: 5vh;
 }
 
 #start_title span {
@@ -53,12 +55,62 @@ body {
 
 #extra {
   font-size: 20px;
-  font-family: 'Droid Sans';
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
   position: absolute;
   text-align: center;
   width: 100%;
   font-style: italic;
 }
+
+#enter_code, #return {
+	height: 15%;
+	font-size: 10vh;
+	color: #333;
+	font-family: 'Zelda';
+	text-align: center;
+	box-sizing: border-box;
+	width: 100%;
+	border: 2px solid #2b5754;
+}
+
+#enter_code span, #return span {
+	border: 2px dashed #333;
+	box-shadow: 0 0 0 4px #2b5754;
+	display: inline-block;
+	width: 600px;
+}
+
+#enter_code span:hover, #return span:hover {
+	color: #000;
+	background: #4b948f;
+	border: 2px dashed #333;
+	box-shadow: 0 0 0 4px #4b948f, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+	cursor: pointer;
+}
+
+/********************
+ *                  *
+ *       ENTER      *
+ *       CODE       *
+ *                  *
+ ********************/
+
+#enter_code_title {
+	text-align: center;
+	height: 60vh;
+	margin: 20vh 0 5vh 0;
+}
+
+.final_solution {
+	font-size: 40px;
+  	font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+  	width: 60px;
+  	height: 60px;
+  	line-height: 60px;
+  	text-align: center;
+}
+
+
 
 /********************
  *                  *
@@ -68,7 +120,7 @@ body {
  ********************/
 
 #character_selection_container {
-	display:none;
+	display: none;
 	overflow: hidden;
  	position: absolute;
  	margin: 0;
@@ -114,7 +166,7 @@ body {
 	text-align: center;
 }
 
-#name, .select {
+#name, #select {
 	font-family: 'Zelda';
 	text-align: center;
 	box-sizing: border-box;
@@ -133,7 +185,7 @@ body {
 	width: 100%;
 }
 
-.select {
+#select {
 	height: 15%;
 	font-size: 10vh;
 	color: #333;
@@ -141,14 +193,14 @@ body {
 	box-shadow: 0 0 0 4px #2b5754;
 }
 
-.select:hover {
+#select:hover {
 	color: #000;
 	background: #4b948f;
 	border: 2px dashed #333;
 	box-shadow: 0 0 0 4px #4b948f, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
 }
 
-.select:hover, #left_arrow:hover, #right_arrow:hover {
+#select:hover, #left_arrow:hover, #right_arrow:hover {
 	cursor: pointer;
 }
 
@@ -303,7 +355,7 @@ body {
 
 #game_container {
 	display: none;
-	overflow-x: hidden;
+	overflow: hidden;
 	width: 100%;
 	height: 100%;
 	margin: 0;
@@ -457,6 +509,8 @@ body {
 	background-color: #aedecb;
 	align-items: center;
 	justify-content: center;
+	flex: 1;
+	text-align: center;
 	/* font-family: 'Alegreya'; */
 	font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
 	padding: 10px 5px;
@@ -637,8 +691,9 @@ body {
  *                  *
  ********************/
 
-#other_container {
+#enter_code_container, #answer_container, #victory_container {
 	display: none;
+	overflow: hidden;
 }
 
 /********************
@@ -650,6 +705,7 @@ body {
 
 #death_container {
 	display: none;
+	overflow: hidden;
 }
 
 

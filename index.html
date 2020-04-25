@@ -20,17 +20,45 @@ START CONTAINER
 
 -->
 		<div id="start_container">
-			<div id="start_title"><span id="load_character_selection">START</span></div>
-			<div id="extra">for best experience, view full screen</div>
+			<div id="start_title">
+				<span id="load_character_selection">START</span>
+				<div id="extra">for best experience, view full screen</div>
+			</div>
+			<div id="enter_code"><span>ENTER CODE</span></div>
 		</div>
 
 <!--
-ANSWER / DEATH / VICTORY CONTAINER
+ENTER CODE CONTAINER
 
 -->
-		<div id="other_container">
-			<div id="title"></div>
-			<div class="select">SELECT</div>
+		<div id="enter_code_container">
+			<div id="enter_code_title">
+				<span>
+					<input type="text" class="final_solution" maxlength="1" />
+					<input type="text" class="final_solution" maxlength="1" />
+					<input type="text" class="final_solution" maxlength="1" />
+					<input type="text" class="final_solution" maxlength="1" />
+					<input type="text" class="final_solution" maxlength="1" />
+					<input type="text" class="final_solution" maxlength="1" />
+				</span>
+			</div>
+			<div id="return"><span>RETURN</span></div>
+		</div>
+
+<!--
+ANSWER CONTAINER
+
+-->
+		<div id="answer_container">
+			<div id="answer_title"></div>
+		</div>
+
+<!--
+VICTORY CONTAINER
+
+-->
+		<div id="victory_container">
+			<div id="victory_title"></div>
 		</div>
 
 <!--
@@ -38,7 +66,7 @@ DEATH CONTAINER
 
 -->
 		<div id="death_container">
-			<div id="title"><span>YOU LOSE</span></div>
+			<div id="death_title"><span>YOU LOSE</span></div>
 			<div id="death_timer"></div>
 		</div>
 
@@ -67,7 +95,7 @@ CHARACTER SELECTION CONTAINER
 					</div>
 					<div id="character_container">
 						<div id="sel_character"></div>
-						<div class="select">SELECT</div>
+						<div id="select">SELECT</div>
 					</div>
 					<img id="right_arrow" alt="right_arrow" src="img/arrow.png">
 				</div>

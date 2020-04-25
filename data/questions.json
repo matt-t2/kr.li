@@ -1,14 +1,125 @@
 [
   {
-    "question":"Santa has hidden a secret message on one of the escape room presents. Can you find a clue hidden on the package? What is the secret message?",
-    "answer":"merry xmas",
-    "image":"christmas.jpg",
-    "hints":[
-      "This is the easiest one if you need a hint this could be a rough time",
-      "Seriously this is going to be a grind if you're struggling already",
-      "I can just give you the final code it's no big deal"
-    ],
-    "type":"text"
+    "question":"In Minnesota, it is illegal to tease what type of animal?",
+    "choices":
+      [
+        "Skunks",
+        "Bears Fans",
+        "Moose",
+        "Small Children"
+      ],
+    "answer":"Skunks",
+    "type":"mc"
+  }, {
+    "question":"Butterflies taste...",
+    "choices":
+      [
+        "with their feet",
+        "with their tongues",
+        "with their wings",
+        "like snozberries"
+      ],
+    "answer":"with their feet",
+    "type":"mc"
+  }, {
+    "question":"Which of these is a species of insect?",
+    "choices":
+      [
+        "Harpymidge",
+        "Gorgonbug",
+        "Dragonfly",
+        "Minotaurgnat"
+      ],
+    "answer":"Dragonfly",
+    "type":"mc"
+  }, {
+  	"question":"The bikini was originally called the what?",
+    "choices":
+      [
+        "Poke",
+        "Range",
+        "Half",
+        "Atom"
+      ],
+    "answer":"Atom",
+    "type":"mc"
+  }, {
+    "question":"In `Beauty and the Beast`, what is the name of Belle's horse?",
+    "choices":
+      [
+        "LeFou",
+        "Philippe",
+        "Maurice",
+        "Beast"
+      ],
+    "answer":"Philippe",
+    "type":"mc"
+  }, {
+    "question":"Adjusting for inflation, which movie (to date) has the most expensive production cost of all time?",
+    "choices":
+      [
+        "Waterworld",
+        "Avengers: Endgame",
+        "Pirates of the Caribbean: On Stranger Tides",
+        "Apocalypse Now"
+      ],
+    "answer":"Pirates of the Caribbean: On Stranger Tides",
+    "type":"mc"
+  }, {
+    "question":"`Tina` in `Tina Fey` is short for what?",
+    "choices":
+      [
+        "Christina",
+        "Stamatina",
+        "Bettina",
+        "Martina"
+      ],
+    "answer":"Stamatina",
+    "type":"mc"
+  }, {
+    "question":"The 1956 Summer Olympics were held in Australia with the exception of the equestrian events. In which European country did the equestrian events take place?",
+    "choices":
+      [
+        "France",
+        "England",
+        "The United States of America",
+        "Sweden"
+      ],
+    "answer":"Sweden",
+    "type":"mc"
+  }, {
+    "question":"The electric chair was invented by...",
+    "choices":
+      [
+        "Thomas Edison",
+        "a Scientist",
+        "the Military-Industrial Complex",
+        "a Dentist"
+      ],
+    "answer":"a Dentist",
+    "type":"mc"
+  }, {
+    "question":"Which of these planets rotates clockwise?",
+    "choices":
+      [
+        "Uranus",
+        "Mercury",
+        "Pluto",
+        "Venus"
+      ],
+    "answer":"Venus",
+    "type":"mc"
+  }, {
+    "question":"In China, why must you never stand chopsticks upgright in your rice?",
+    "choices":
+      [
+        "They resemble candles being burnt for lovers who've left",
+        "They resemble joss sticks used in rituals for the deceased",
+        "They resemble the male and female at war in families",
+        "They resemble knives pointed up towards heaven"
+      ],
+    "answer":"They resemble joss sticks used in rituals for the deceased",
+    "type":"mc"
   }, {
     "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
     "answer":"an inside man",
@@ -50,15 +161,137 @@
     ],
     "type":"text"
   }, {
-    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
-    "answer":"top secret",
-    "image":"top_secret.jpg",
-    "hints":[
-      "not middle",
-      "not bottom",
-      "Great Val Kilmer parody movie"
-    ],
-    "type":"text"
+    "question":"In Kansas, it is illegal to put what on cherry pie?",
+    "choices":
+      [
+        "more cherry pie, forming a cherry pie sandwich",
+        "Ice Cream",
+        "Whipped Cream",
+        "Small Children"
+      ],
+    "answer":"Ice Cream",
+    "type":"mc"
+  }, {
+    "question":"Crickets hear...",
+    "choices":
+      [
+        "with their feet",
+        "with their tongues",
+        "with their wings",
+        "with their knees"
+      ],
+    "answer":"with their knees",
+    "type":"mc"
+  }, {
+    "question":"The country/continent of Australia fought and lost a war against what animal?",
+    "choices":
+      [
+        "Magpies",
+        "Drop Bears",
+        "Emus",
+        "Rabid Koalas"
+      ],
+    "answer":"Emus",
+    "type":"mc"
+  }, {
+    "question":"What does a pagophagiac eat?",
+    "choices":
+      [
+        "Fingernails",
+        "Ash",
+        "Pips",
+        "Ice"
+      ],
+    "answer":"Ice",
+    "type":"mc"
+  }, {
+    "question":"What was the first Disney animated movie to be adapted as a Broadway show?",
+    "choices":
+      [
+        "Snow White",
+        "Beauty and the Beast",
+        "Lion King",
+        "Frozen on Ice"
+      ],
+    "answer":"Snow White",
+    "type":"mc"
+  }, {
+    "question":"In `Charlie and the Chocolate Factory`, which character disqualification scared the absolute hell out of child-me?",
+    "choices":
+      [
+        "Augustus Gloop",
+        "Violet Beauregarde",
+        "Mike Teavee",
+        "Veruca Salt"
+      ],
+    "answer":"Augustus Gloop",
+    "type":"mc"
+  }, {
+    "question":"Which actor was born `Mark Sinclair`?",
+    "choices":
+      [
+        "Ben Kingsley",
+        "Vin Diesel",
+        "Mark Ruffalo",
+        "Ice Cube"
+      ],
+    "answer":"Vin Diesel",
+    "type":"mc"
+  }, {
+    "question":"In 1999, who did Sports Illustrated name `Sportsman of the Century`?",
+    "choices":
+      [
+        "Muhammad Ali",
+        "Michael Jeffery Jordan",
+        "Babe Ruth",
+        "Wayne Gretzky"
+      ],
+    "answer":"Muhammad Ali",
+    "type":"mc"
+  }, {
+    "question":"What was the first novel written on a typewriter?",
+    "choices":
+      [
+        "Moby Dick",
+        "The Adventures of Tom Sawyer",
+        "A Tale of Two Cities",
+        "50 Shades of Grey"
+      ],
+    "answer":"The Adventures of Tom Sawyer",
+    "type":"mc"
+  }, {
+    "question":"Which planet can experience a double-sunrise?",
+    "choices":
+      [
+        "Neptune",
+        "Mercury",
+        "Venus",
+        "Pluto (IT IS A PLANET)"
+      ],
+    "answer":"Mercury",
+    "type":"mc"
+  }, {
+    "question":"What is the main ingredient of black pudding?",
+    "choices":
+      [
+        "Milk",
+        "Black",
+        "BLOOD",
+        "Sugar... at least the way I would make it this is correct"
+      ],
+    "answer":"BLOOD",
+    "type":"mc"
+  }, {
+    "question":"Before forming the Beatles, John Lennon, Paul McCartney and George Harrison were originally members of which group?",
+    "choices":
+      [
+        "The Quarrymen",
+        "Wings",
+        "The Fireman",
+        "None- Paul McCartney died and was replaced by a look-alike long before"
+      ],
+    "answer":"The Quarrymen",
+    "type":"mc"
   }, {
     "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
     "answer":"a friend in need is a friend indeed",
@@ -90,35 +323,126 @@
     ],
     "type":"text"
   }, {
-    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
-    "answer":"what goes up must come down",
-    "image":"what_goes_up.jpg",
-    "hints":[
-      "this is in a song",
-      "would be an appropriate if unexpected song to be used for elevator music",
-      "you should probably give up if you can't solve this"
-    ],
-    "type":"text"
+    "question":"In North Carolina, it's illegal to hold a meeting or demonstration while...",
+    "choices":
+      [
+        "drinking unsweet iced tea",
+        "wearing a mask",
+        "there's ice on the roads",
+        "intoxicated"
+      ],
+    "answer":"Wearing a Mask",
+    "type":"mc"
   }, {
-    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
-    "answer":"greenpeace",
-    "image":"greenpeace.jpg",
-    "hints":[
-      "like Green Day but also not",
-      "it's a humanitarian group",
-      "hint 3"
-    ],
-    "type":"text"
+    "question":"What animal can't jump?",
+    "choices":
+      [
+        "Elephant",
+        "White Men",
+        "Penguin",
+        "Panda"
+      ],
+    "answer":"Elephant",
+    "type":"mc"
   }, {
-    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
-    "answer":"no way jose",
-    "image":"no_way_jose.jpg",
-    "hints":[
-      "I think going right-to-left is easier?",
-      "the first part is the toughest",
-      "it's a `no way` sign"
-    ],
-    "type":"text"
+    "question":"Which animal kills the *fewest* humans per year?",
+    "choices":
+      [
+        "Assassin Bugs.  ASSASSIN.  BUGS.",
+        "Freshwater Snails",
+        "Cows - the darker side of Chick-fil-A advertising campaigns",
+        "Sharks"
+      ],
+    "answer":"Sharks",
+    "type":"mc"
+  }, {
+    "question":"What is the name of the cat in Cinderella?",
+    "choices":
+      [
+        "Dog",
+        "Gerard",
+        "Percival",
+        "Lucifer"
+      ],
+    "answer":"Lucifer",
+    "type":"mc"
+  }, {
+    "question":"In `The Waterboy`, which bowl game did the Mud Dogs play in and (*SPOILERS*) win?",
+    "choices":
+      [
+        "Chick-fil-A Peach Bowl",
+        "Sugar Bowl",
+        "Bourbon Bowl",
+        "Cotton Bowl"
+      ],
+    "answer":"Bourbon Bowl",
+    "type":"mc"
+  }, {
+    "question":"Which actor was born `Carlos Estévez`?",
+    "choices":
+      [
+        "Charlie Sheen",
+        "Ice Cube",
+        "Antonio Banderas",
+        "Andy Garcia"
+      ],
+    "answer":"Charlie Sheen",
+    "type":"mc"
+  }, {
+    "question":"Which tennis player did not win multiple Grand Slams in one year five different times?",
+    "choices":
+      [
+        "Chris Evert",
+        "Serena Williams",
+        "Billie Jean King",
+        "Steffi Graf"
+      ],
+    "answer":"Billie Jean King",
+    "type":"mc"
+  }, {
+    "question":"In 1896, Walter Arnold received the first speeding ticket, traveling at what speed?",
+    "choices":
+      [
+        "61 in a 45 coming back from Chick-fil-A",
+        "24 mph",
+        "12 mph",
+        "8 mph"
+      ],
+    "answer":"8 mph",
+    "type":"mc"
+  }, {
+    "question":"Who (to date?) discovered the most elements?",
+    "choices":
+      [
+        "Sir Humphry Davy",
+        "Yuri Oganessian",
+        "Albert Ghiorso",
+        "Sir Isaac Newton"
+      ],
+    "answer":"Albert Ghiorso",
+    "type":"mc"
+  }, {
+    "question":"What type of milk was mozzarella cheese originally made from?",
+    "choices":
+      [
+        "Cow - I know what you're thinking- this is too obvious to be correct.  OR IS IT?",
+        "Goat",
+        "Buffalo",
+        "Milk of the Poppy"
+      ],
+    "answer":"Buffalo",
+    "type":"mc"
+  }, {
+    "question":"In Quitman, Georgia, it is illegal for ____ to cross the road",
+    "choices":
+      [
+        "chickens",
+        "unaccompanied minors",
+        "filthy Yankees",
+        "anyone in a Bama jersey"
+      ],
+    "answer":"chickens",
+    "type":"mc"
   }, {
     "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
     "answer":"bird's eye view",
@@ -150,35 +474,114 @@
     ],
     "type":"text"
   }, {
-    "question":"You find a riddle and know its answer may hold a clue to the key to your escape. The riddle reveals a story that seems to be an impossibility. How could all the players gain and none of them lose?",
-    "answer":"musicians",
-    "image":"four_jolly_men.jpg",
+    "question":"Sudoku on steroids",
+    "answer":"1",
+    "image":"supersudoku.png",
     "hints":[
-      "the background will throw you off",
-      "what were they playing?",
-      "they were playing, but not a game"
+      "What number goes in the bottom right square?",
+      "This follows basic Sudoku rules, with the additional criteria that any connected squares must also include the same digit",
+      "It's *not* 5"
     ],
     "type":"text"
   }, {
-    "question":"rebus puzzle",
-    "answer":"space invaders",
-    "image":"space_invaders.gif",
-    "hints":[
-      "Zim, for one",
-      "an old arcade game",
-      "Insert Coins to Continue"
-    ],
-    "type":"text"
+    "question":"In Gainesville GA, it is illegal to eat fried chicken with...",
+    "choices":
+      [
+        "Ketchup",
+        "Mayonnaise",
+        "a Fork",
+        "Unsweet Iced Tea"
+      ],
+    "answer":"a Fork",
+    "type":"mc"
   }, {
-    "question":"rebus puzzle",
-    "answer":"in between jobs",
-    "image":"in_between_jobs.gif",
-    "hints":[
-      "They Took Our Jobs",
-      "They Turk Err Jerbs",
-      "DEY TURKER JERRRB"
-    ],
-    "type":"text"
+    "question":"What is the world's most venemous fish?",
+    "choices":
+      [
+        "Scorpion fish",
+        "Lion Fish",
+        "Stonefish",
+        "Poison McPoisonface"
+      ],
+    "answer":"Stonefish",
+    "type":"mc"
+  }, {
+  "question":"What is the national animal of Colombia?",
+    "choices":
+      [
+        "Andean Condor",
+        "Jaguar",
+        "Alpaca",
+        "Chupacabra"
+      ],
+    "answer":"Andean Condor",
+    "type":"mc"
+  }, {
+    "question":"Which of these is/was another term for tomato?",
+    "choices":
+      [
+        "Saucy banana",
+        "Darling cherry",
+        "Dream orange",
+        "Love apple"
+      ],
+    "answer":"Love apple",
+    "type":"mc"
+  }, {
+    "question":"In `Brave`, Merida uses what weapon to compete for her own hand in marriage?",
+    "choices":
+      [
+        "the Patriarchy",
+        "Friendship",
+        "Universal Suffrage",
+        "Bow and Arrow"
+      ],
+    "answer":"Bow and Arrow",
+    "type":"mc"
+  }, {
+    "question":"Who voiced Maggie Simpson for her first word?",
+    "choices":
+      [
+        "Elizabeth Taylor",
+        "Yeardley Smith",
+        "Nancy Cartwright",
+        "Condoleezza Rice"
+      ],
+    "answer":"Elizabeth Taylor",
+    "type":"mc"
+  }, {
+    "question":"The Anglo-Zanzibar War - the shortest war in history - lasted how long?",
+    "choices":
+      [
+        "3 days",
+        "38 minutes",
+        "11 minutes",
+        "17 hours"
+      ],
+    "answer":"38 minutes",
+    "type":"mc"
+  }, {
+    "question":"What is the only internal organ that has the ability to regenerate itself?",
+    "choices":
+      [
+        "The liver",
+        "The gallbladder",
+        "The small intestine",
+        "The other intestine- the one that's not small... big intestine?"
+      ],
+    "answer":"The liver",
+    "type":"mc"
+  }, {
+    "question":"Cinnamon comes from what?",
+    "choices":
+      [
+        "Cinnamomum seeds",
+        "Cinnamomum roots",
+        "Cinnamomum tree inner bark",
+        "It's a made-up spice to confuse kids who have trouble pronouncing `synominynoms`"
+      ],
+    "answer":"Cinnamomum tree inner bark",
+    "type":"mc"
   }, {
     "question":"rebus puzzle",
     "answer":"night on the town",
@@ -240,6 +643,105 @@
     ],
     "type":"text"
   }, {
+    "question":"In Blythe CA, it is illegal to wear cowboy boots unless you own how many cows?",
+    "choices":
+      [
+        "over 9000",
+        "2",
+        "0.. what?",
+        "1"
+      ],
+    "answer":"2",
+    "type":"mc"
+  }, {
+    "question":"The Shiba Inu is a Japanese hunting doge.  Inu is Japanese for `dog`, what does Shiba mean?",
+    "choices":
+      [
+        "Brushwood",
+        "Forest",
+        "Snoop",
+        "Woodland"
+      ],
+    "answer":"Brushwood",
+    "type":"mc"
+  }, {
+    "question":"How many eyes does a caterpillar have?",
+    "choices":
+      [
+        "Two eyes",
+        "Twelve eyes",
+        "Four eyes.. heh",
+        "They don't.  They see with their knees because bug evolution is stupid."
+      ],
+    "answer":"Twelve eyes",
+    "type":"mc"
+  }, {
+    "question":"_____ is the fear of peanut butter sticking to the roof of your mouth?  (This is a legitimate fear that I have)",
+    "choices":
+      [
+        "Alektorophobia",
+        "Mycophobia",
+        "Arachibutyrophobia",
+        "Alliumphobia"
+      ],
+    "answer":"Arachibutyrophobia",
+    "type":"mc"
+  }, {
+    "question":"Finally taking a step towards gender equality, which Disney movie was the first to name its prince?",
+    "choices":
+      [
+        "Cinderella",
+        "Sleeping Beauty",
+        "Snow White",
+        "*sigh* the oppression continues to this day"
+      ],
+    "answer":"Sleeping Beauty",
+    "type":"mc"
+  }, {
+    "question":"Which swimming stroke is considered the slowest of any competitive stroke?",
+    "choices":
+      [
+        "Doggy Paddle",
+        "Breaststroke",
+        "Backstroke",
+        "Butterfly"
+      ],
+    "answer":"Breaststroke",
+    "type":"mc"
+  }, {
+    "question":"In 1945, what caused a 5 minute delay to London's Big Ben?",
+    "choices":
+      [
+        "It was struck by lightning, `Back to the Future` style",
+        "A flock of birds landing on the minute hand",
+        "The Queen wanted to sleep in",
+        "Daylight Savings Time is very confusing"
+      ],
+    "answer":"A flock of birds landing on the minute hand",
+    "type":"mc"
+  }, {
+    "question":"What was the name given to Hawaii by Captain James Cook in 1778?",
+    "choices":
+      [
+        "Sandwich Islands",
+        "Snack Islands",
+        "Lunch Islands",
+        "Pineapple Islands"
+      ],
+    "answer":"Sandwich Islands",
+    "type":"mc"
+  }, {
+    "question":"It's illegal to possess 50 kilograms of this food in Western Australia:",
+    "choices":
+      [
+        "Kangaroo Steak",
+        "Vegemite",
+        "Potatoes",
+        "Eggs"
+      ],
+    "answer":"Potatoes",
+    "type":"mc"
+  }, {
     "question":"rebus puzzle",
     "answer":"tennis shoes",
     "image":"tennis_shoes.png",
@@ -299,6 +801,105 @@
       "they're characters in Shrek"
     ],
     "type":"text"
+  }, {
+    "question":"In 1986, Clint Eastwood became mayor of Carmel-by-the-Sea in order to what?",
+    "choices":
+      [
+        "Research for an upcoming role",
+        "Think `The Purge`, but real life",
+        "Repeal a ban on public ice cream",
+        "Yell at an empty chair"
+      ],
+    "answer":"Repeal a ban on public ice cream",
+    "type":"mc"
+  }, {
+    "question":"Which animal sleeps for only five minutes a day?",
+    "choices":
+      [
+        "a koala",
+        "a giraffe",
+        "me on a workday",
+        "a beaver"
+      ],
+    "answer":"a giraffe",
+    "type":"mc"
+  }, {
+    "question":"What is stored in camel humps?",
+    "choices":
+      [
+        "Fat",
+        "Water",
+        "It's not a hump they're just big boned",
+        "Their enemies"
+      ],
+    "answer":"Fat",
+    "type":"mc"
+  }, {
+    "question":"Coprastasophobia is the fear of what?",
+    "choices":
+      [
+        "Corporate Greed",
+        "Door-to-Door Vacuum Salesmen",
+        "Constipation",
+        "Public Speaking"
+      ],
+    "answer":"Constipation",
+    "type":"mc"
+  }, {
+    "question":"In `Aladdin`, what is the name of Aladdin's monkey friend?",
+    "choices":
+      [
+        "Apu",
+        "Iago",
+        "Abu",
+        "Aladdin Jr."
+      ],
+    "answer":"Abu",
+    "type":"mc"
+  }, {
+    "question":"Which of the following did *not* star in unquestionably the greatest horse racing movie ever made?",
+    "choices":
+      [
+        "Jeff Bridges",
+        "Elizabeth Banks",
+        "Diane Lane",
+        "Tobey `Player X` Maguire"
+      ],
+    "answer":"Diane Lane",
+    "type":"mc"
+  }, {
+    "question":"What do these words have in common- Gold, Omaha, Juno, Utah, Sword?",
+    "choices":
+      [
+        "type of steak",
+        "things Peyton Manning shouts at the line of scrimmage",
+        "last names of Keanu Reeves characters",
+        "French beaches"
+      ],
+    "answer":"French beaches",
+    "type":"mc"
+  }, {
+    "question":"Venetian blinds originated in which country?",
+    "choices":
+      [
+        "Venetia",
+        "Italy",
+        "The United States of America",
+        "Persia"
+      ],
+    "answer":"Persia",
+    "type":"mc"
+  }, {
+    "question":"It is illegal to enter a movie theater in Gary, Indiana within four hours of what?",
+    "choices":
+      [
+        "Eating garlic",
+        "Consuming alcohol",
+        "Being discharged from a hospital",
+        "kickoff at a Colts game"
+      ],
+    "answer":"Eating garlic",
+    "type":"mc"
   }, {
     "question":"rebus puzzle",
     "answer":"Forrest Gump",
@@ -360,6 +961,83 @@
     ],
     "type":"text"
   }, {
+    "question":"It is illegal to feed ____ in Venice.",
+    "choices":
+      [
+        "gremlins after midnight",
+        "another person's dog without permission",
+        "pigeons",
+        "the Dutch"
+      ],
+    "answer":"pigeons",
+    "type":"mc"
+  }, {
+    "question":"What color is a newborn Dalmatian?",
+    "choices":
+      [
+        "white",
+        "black",
+        "black with white spots",
+        "white with black spots"
+      ],
+    "answer":"white",
+    "type":"mc"
+  }, {
+    "question":"Which creature has the largest eyes in the animal kingdom?",
+    "choices":
+      [
+        "a pet dog while you're eating dinner",
+        "Colossal Squid",
+        "African Elephant",
+        "Blue Whale"
+      ],
+    "answer":"Colossal Squid",
+    "type":"mc"
+  }, {
+    "question":"Who originally coined the word `bump`?",
+    "choices":
+      [
+        "The Commodores",
+        "The Black Eyed Peas",
+        "William Shakespeare (probably plagiarized)",
+        "Mark Twain"
+      ],
+    "answer":"William Shakespeare (probably plagiarized)",
+    "type":"mc"
+  }, {
+    "question":"Who played Elliot's younger sister in the movie about a Reese's Pieces-loving alien?",
+    "choices":
+      [
+        "Dakota Fanning",
+        "Lindsay Lohan pre-breakdown",
+        "Drew Barrymore",
+        "Abigail Breslin"
+      ],
+    "answer":"Drew Barrymore",
+    "type":"mc"
+  }, {
+  "question":"To whom is the phrase `Knowledge is Power` attributed?",
+    "choices":
+      [
+        "Albert Einstein",
+        "Sir Francis Bacon",
+        "Sir Isaac Newton",
+        "Jimmy Neutron"
+      ],
+    "answer":"Sir Francis Bacon",
+    "type":"mc"
+  }, {
+    "question":"Which of these rivers crosses the equator twice?",
+    "choices":
+      [
+        "Congo",
+        "Nile",
+        "Amazon",
+        "Ganges"
+      ],
+    "answer":"Congo",
+    "type":"mc"
+  }, {
     "question":"rebus puzzle",
     "answer":"travel overseas",
     "image":"travel_overseas.gif",
@@ -420,367 +1098,36 @@
     ],
     "type":"text"
   }, {
-    "question":"Coprastasophobia is the fear of what?",
-    "choices":
-      [
-        "Corporate Greed",
-        "Door-to-Door Vacuum Salesmen",
-        "Constipation",
-        "Public Speaking"
-      ],
-    "answer":"Constipation",
-    "type":"mc"
+    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"top secret",
+    "image":"top_secret.jpg",
+    "hints":[
+      "not middle",
+      "not bottom",
+      "Great Val Kilmer parody movie"
+    ],
+    "type":"text"
   }, {
-    "question":"In Minnesota, it is illegal to tease what type of animal?",
-    "choices":
-      [
-        "Skunks",
-        "Bears Fans",
-        "Moose",
-        "Small Children"
-      ],
-    "answer":"Skunks",
-    "type":"mc"
+    "question":"Animal Hybrids",
+    "image_caption":"Like the might Liger and the less-mighty Beefalo, ____ is a hybrid offspring, in this case the hybrid of a bottlenose dolphin and a false killer whale.",
+    "answer":"wholphin",
+    "image":"liger.pngg",
+    "hints":[
+      "Killer whales aren't actually whales",
+      "And fake killer whales aren't actually killer whales",
+      "So despite the somwhat misleading name of this hybrid, it's actually a cross between a dolphin and an animal that is the fake of the fake of a whale."
+    ],
+    "type":"text"
   }, {
-    "question":"In Kansas, it is illegal to put what on cherry pie?",
+    "question":"What clothing item is banned at the Acropolis?",
     "choices":
       [
-        "more cherry pie, forming a cherry pie sandwich",
-        "Ice Cream",
-        "Whipped Cream",
-        "Small Children"
+        "High Heels",
+        "A Suit of Armor",
+        "Crocs",
+        "Livestrong bracelets"
       ],
-    "answer":"Ice Cream",
-    "type":"mc"
-  }, {
-    "question":"In North Carolina, it's illegal to hold a meeting or demonstration while...",
-    "choices":
-      [
-        "",
-        "Wearing a Mask",
-        "",
-        ""
-      ],
-    "answer":"Wearing a Mask",
-    "type":"mc"
-  }, {
-    "question":"In Gainesville GA, it is illegal to eat fried chicken with...",
-    "choices":
-      [
-        "Ketchup",
-        "Mayonnaise",
-        "a Fork",
-        "Unsweet Iced Tea"
-      ],
-    "answer":"a Fork",
-    "type":"mc"
-  }, {
-    "question":"In Blythe CA, it is illegal to wear cowboy boots unless you own how many cows?",
-    "choices":
-      [
-        "over 9000",
-        "2",
-        "0.. what?",
-        "1"
-      ],
-    "answer":"2",
-    "type":"mc"
-  }, {
-    "question":"In 1986, Clint Eastwood became mayor of Carmel-by-the-Sea in order to what?",
-    "choices":
-      [
-        "Research for an upcoming role",
-        "Think `The Purge`, but real life",
-        "Repeal a ban on public ice cream",
-        "Yell at an empty chair"
-      ],
-    "answer":"Repeal a ban on public ice cream",
-    "type":"mc"
-  }, {
-    "question":"The electric chair was invented by...",
-    "choices":
-      [
-        "Thomas Edison",
-        "a Scientist",
-        "the Military-Industrial Complex",
-        "a Dentist"
-      ],
-    "answer":"a Dentist",
-    "type":"mc"
-  }, {
-    "question":"Butterflies taste...",
-    "choices":
-      [
-        "with their feet",
-        "with their tongues",
-        "with their wings",
-        "like snozberries"
-      ],
-    "answer":"with their feet",
-    "type":"mc"
-  }, {
-    "question":"Crickets hear...",
-    "choices":
-      [
-        "with their feet",
-        "with their tongues",
-        "with their wings",
-        "with their knees"
-      ],
-    "answer":"with their knees",
-    "type":"mc"
-  }, {
-    "question":"What animal can't jump?",
-    "choices":
-      [
-        "Elephant",
-        "White Men",
-        "Penguin",
-        "Panda"
-      ],
-    "answer":"Elephant",
-    "type":"mc"
-  }, {
-    "question":"What was the first novel written on a typewriter?",
-    "choices":
-      [
-        "Moby Dick",
-        "The Adventures of Tom Sawyer",
-        "A Tale of Two Cities",
-        "50 Shades of Grey"
-      ],
-    "answer":"The Adventures of Tom Sawyer",
-    "type":"mc"
-  }, {
-    "question":"Nicolas Cage won an Academy Award for `Best Actor` for which movie?",
-    "choices":
-      [
-        "Con Air",
-        "Leaving Las Vegas",
-        "National Treasure 3 (come back to this in 5 years)",
-        "The Wicker Man"
-      ],
-    "answer":"Leaving Las Vegas",
-    "type":"mc"
-  }, {
-    "question":"Which city is Kansas City located in?",
-    "choices":
-      [
-        "Missouri",
-        "Kansas",
-        "The United States of America",
-        "it's not"
-      ],
-    "answer":"it's not",
-    "type":"mc"
-  }, {
-    "question":"`Tina` in `Tina Fey` is short for what?",
-    "choices":
-      [
-        "Christina",
-        "Stamatina",
-        "Bettina",
-        "Martina"
-      ],
-    "answer":"Stamatina",
-    "type":"mc"
-  }, {
-    "question":"What is the national animal of Colombia?",
-    "choices":
-      [
-        "Andean Condor",
-        "Jaguar",
-        "",
-        "Chupacabra"
-      ],
-    "answer":"Andean Condor",
-    "type":"mc"
-  }, {
-    "question":"The 1956 Summer Olympics were held in Australia with the exception of the equestrian events. In which European country did the equestrian events take place?",
-    "choices":
-      [
-        "France",
-        "England",
-        "The United States of America",
-        "Sweden"
-      ],
-    "answer":"Sweden",
-    "type":"mc"
-  }, {
-    "question":"The Shiba Inu is a Japanese hunting doge.  Inu is Japanese for `dog`, what does Shiba mean?",
-    "choices":
-      [
-        "Brushwood",
-        "Forest",
-        "Snoop",
-        "Woodland"
-      ],
-    "answer":"Brushwood",
-    "type":"mc"
-  }, {
-    "question":"In `Beauty and the Beast`, what is the name of Belle's horse?",
-    "choices":
-      [
-        "LeFou",
-        "Philippe",
-        "Maurice",
-        "Beast"
-      ],
-    "answer":"Philippe",
-    "type":"mc"
-  }, {
-    "question":"In `Aladdin`, what is the name of Aladdin's monkey friend?",
-    "choices":
-      [
-        "Apu",
-        "Iago",
-        "Abu",
-        "Aladdin Jr."
-      ],
-    "answer":"Abu",
-    "type":"mc"
-  }, {
-    "question":"What was the first Disney animated movie to be adapted as a Broadway show?",
-    "choices":
-      [
-        "Snow White",
-        "Beauty and the Beast",
-        "Lion King",
-        "Frozen"
-      ],
-    "answer":"Snow White",
-    "type":"mc"
-  }, {
-    "question":"What is the name of the cat in Cinderella?",
-    "choices":
-      [
-        "Dog",
-        "Satan Claws",
-        "El Diablo",
-        "Lucifer"
-      ],
-    "answer":"Lucifer",
-    "type":"mc"
-  }, {
-    "question":"In `Brave`, Merida uses what weapon to compete for her own hand in marriage?",
-    "choices":
-      [
-        "the Patriarchy",
-        "Friendship",
-        "Universal Suffrage",
-        "Bow and Arrow"
-      ],
-    "answer":"Bow and Arrow",
-    "type":"mc"
-  }, {
-    "question":"Ouagadougou is the capital of which African country?",
-    "choices":
-      [
-        "Chad",
-        "Burkina Faso",
-        "Eritrea",
-        "Djibouti"
-      ],
-    "answer":"Burkina Faso",
-    "type":"mc"
-  }, {
-    "question":"In `Charlie and the Chocolate Factory`, which character disqualification scared the absolute hell out of child-me?",
-    "choices":
-      [
-        "Augustus Gloop",
-        "Violet Beauregarde",
-        "Mike Teavee",
-        "Veruca Salt"
-      ],
-    "answer":"Augustus Gloop",
-    "type":"mc"
-  }, {
-    "question":"Which animal sleeps for only five minutes a day?",
-    "choices":
-      [
-        "a koala",
-        "a giraffe",
-        "me on a workday",
-        "a beaver"
-      ],
-    "answer":"a giraffe",
-    "type":"mc"
-  }, {
-    "question":"The bikini was originally called the what?",
-    "choices":
-      [
-        "Poke",
-        "Range",
-        "Half",
-        "Atom"
-      ],
-    "answer":"Atom",
-    "type":"mc"
-  }, {
-    "question":"Which of these planets rotates clockwise?",
-    "choices":
-      [
-        "Uranus",
-        "Mercury",
-        "Pluto",
-        "Venus"
-      ],
-    "answer":"Venus",
-    "type":"mc"
-  }, {
-    "question":"In China, why must you never stand chopsticks upgright in your rice?",
-    "choices":
-      [
-        "They resemble candles being burnt for lovers who've left",
-        "They resemble joss sticks used in rituals for the deceased",
-        "They resemble the male and female at war in families",
-        "They resemble knives pointed up towards heaven"
-      ],
-    "answer":"They resemble joss sticks used in rituals for the deceased",
-    "type":"mc"
-  }, {
-    "question":"What does a pagophagiac eat?",
-    "choices":
-      [
-        "Fingernails",
-        "Ash",
-        "Pips",
-        "Ice"
-      ],
-    "answer":"Ice",
-    "type":"mc"
-  }, {
-    "question":"A fysigunkus is a person who lacks what?",
-    "choices":
-      [
-        "Humor",
-        "Wisdom",
-        "Curiosity",
-        "Discipline"
-      ],
-    "answer":"Curiosity",
-    "type":"mc"
-  }, {
-    "question":"What color is a newborn Dalmatian?",
-    "choices":
-      [
-        "white",
-        "black",
-        "black with white spots",
-        "white with black spots"
-      ],
-    "answer":"white",
-    "type":"mc"
-  }, {
-    "question":"Which country has the lowest average ground level in the world?",
-    "choices":
-      [
-        "Republic of Mauritius",
-        "Holland",
-        "The Seychelles",
-        "Republic of the Maldives"
-      ],
-    "answer":"Republic of the Maldives",
+    "answer":"High Heels",
     "type":"mc"
   }, {
     "question":"What is the loudest animal on Earth?",
@@ -794,6 +1141,197 @@
     "answer":"Blue Whale",
     "type":"mc"
   }, {
+    "question":"Which of these animals has the highest ear-to-body ratio?",
+    "choices":
+      [
+        "Bat-eared fox",
+        "Townsend's big-eared bat",
+        "Long-eared jerboa",
+        "Yellow-rumped leaf-eared mouse"
+      ],
+    "answer":"Long-eared jerboa",
+    "type":"mc"
+  }, {
+    "question":"When Goofy made his debut, his name wasn't Goofy.  It was: ",
+    "choices":
+      [
+        "Goof the Dawg",
+        "Goofaroo",
+        "Steamboat Willie",
+        "Dippy Dawg"
+      ],
+    "answer":"Dippy Dawg",
+    "type":"mc"
+  }, {
+    "question":"Which movie starring a famous Tom casts Meg Ryan as a widow?",
+    "choices":
+      [
+        "You've Got Mail",
+        "Joe Versus the Volcano",
+        "Sleepless in Seattle",
+        "Top Gun"
+      ],
+    "answer":"Top Gun",
+    "type":"mc"
+  }, {
+  "question":"What item does Father Christmas give to the boy in Raymond Briggs' story of `The Snowman`?",
+    "choices":
+      [
+        "A scarf",
+        "A bell",
+        "A snowglobe",
+        "A .44 magnum - the most powerful gun in the world and will blow your head clean off"
+      ],
+    "answer":"A scarf",
+    "type":"mc"
+  }, {
+    "question":"Amerigo Vespucci - whose parents were betting at naming things than he was - named which present-day country `Little Venice` following his 1499 expedition?",
+    "choices":
+      [
+        "Venezuela",
+        "Brazil",
+        "Argentina",
+        "Colombia"
+      ],
+    "answer":"Venezuela",
+    "type":"mc"
+  }, {
+    "question":"Which Whitney Houston song is an anagram of `Mention Mine to Me`?",
+    "answer":"One Moment in Time",
+    "image":"whitney_houston.jpeg",
+    "hints":[
+      "It's *not* `I Meme, No Ointment`, one of her lesser-known works",
+      "It's also *not* `Imminent Moon Tee`",
+      "Imagine listening to the chorus of `I Wanna Dance With Somebody` and not singing along.  Can't be done."
+    ],
+    "type":"text"
+  }, {
+    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"summary",
+    "image":"summary.gif",
+    "hints":[
+      "Mary, Queen of Scots",
+      "Mary, Mary, Quite Contrary",
+      "Some other Mary?"
+    ],
+    "type":"text"
+  }, {
+    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"keep in touch",
+    "image":"keepintouch.png",
+    "hints":[
+      "how do you give hints on Rebus puzzles without giving away the answer?",
+      "like, there's two words, and the preposition that explains their relation in this puzzle",
+      "eepkay in ouchtay"
+    ],
+    "type":"text"
+  }, {
+    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"end up behind bars",
+    "image":"bars.png",
+    "hints":[
+      "The word `barn` is VERY important here",
+      "Not actually",
+      "One of the words in the answer is `behind`"
+    ],
+    "type":"text"
+  }, {
+    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"eye of the hurricane",
+    "image":"hurricane.png",
+    "hints":[
+      "I, Hurricane",
+      "I Am Hurricane",
+      "Pursuit of Hurrycane"
+    ],
+    "type":"text"
+  }, {
+    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"notebook",
+    "image":"notebook.png",
+    "hints":[
+      "A James Marsden movie where he inexplicably *doesn't* get the girl",
+      "Sorry, that's actually all James Marsden movies",
+      "A James Garner movie"
+    ],
+    "type":"text"
+  }, {
+  "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"reduction",
+    "image":"reduction.gif",
+    "hints":[
+      "lyposuction",
+      "abduction",
+      "the color is important?"
+    ],
+    "type":"text"
+  }, {
+    "question":"Who played golf on the moon?",
+    "choices":
+      [
+        "Neil Armstrong",
+        "Tiger Woods",
+        "Buzz Aldrin",
+        "Alan Shepard"
+      ],
+    "answer":"Alan Shepard",
+    "type":"mc"
+  }, {
+    "question":"Which animated character is banned in the Polish town of Tuszyn?",
+    "choices":
+      [
+        "Betty Boop - mysognistic",
+        "Bart Simpson - for his crude humor and language",
+        "Winnie the Pooh - for his dubious sexuality",
+        "Mickey Mouse - because the Disney corporation is the epitome of evil"
+      ],
+    "answer":"Winnie the Pooh - for his dubious sexuality",
+    "type":"mc"
+  }, {
+    "question":"What is the fastest swimming animal?",
+    "choices":
+      [
+        "Orca",
+        "Michael Phelps",
+        "Marlin",
+        "Sailfish"
+      ],
+    "answer":"Sailfish",
+    "type":"mc"
+  }, {
+    "question":"From head to tail, what animal has the longest tongue in relation to its body size?",
+    "choices":
+      [
+        "Gene Simmons",
+        "Tube-Lipped Nectar Bat",
+        "Giant Anteater",
+        "Bearded Pygmy Chameleon"
+      ],
+    "answer":"Tube-Lipped Nectar Bat",
+    "type":"mc"
+  }, {
+    "question":"Which of these singer/actresses portrays a character in the Marvel Cinematic Universe?",
+    "choices":
+      [
+        "Mandy Moore",
+        "Taylor Swift",
+        "Miley Cyrus",
+        "Anna Kendrick"
+      ],
+    "answer":"Miley Cyrus",
+    "type":"mc"
+  }, {
+  "question":"Who was the tallest of Robin Hood's Merry Men?",
+    "choices":
+      [
+        "Big John",
+        "Lil Jon",
+        "Little John",
+        "Dave Chappelle"
+      ],
+    "answer":"Little John",
+    "type":"mc"
+  }, {
     "question":"Which country has a beaver as its national emblem?",
     "choices":
       [
@@ -803,6 +1341,107 @@
         "Beavertonfieldville"
       ],
     "answer":"Canada",
+    "type":"mc"
+  }, {
+    "question":"Which glass is full first?",
+    "answer":"3",
+    "image":"beer.jpg",
+    "hints":[
+      "Also the answer to the question, how many beers is my limit?",
+      "It's the digit, not the word",
+      "This really shouldn't be difficult you can eyeball this"
+    ],
+    "type":"text"
+  }, {
+    "question":"Math Puzzle",
+    "answer":"89",
+    "image":"eightynine.png",
+    "hints":[
+      "42 is the answer to the ultimate question of life, the universe, and everything",
+      "But not to this",
+      "Try adding or multiplying.  Or try spinning; that's a good trick!"
+    ],
+    "type":"text"
+  }, {
+    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"thunderstorm",
+    "image":"thunder.png",
+    "hints":[
+      "`thtorm` - Mike Tyson",
+      "Why is the preferred name instead of lightning storm?",
+      "It's not a rectangle/square situation but you can still see lightning so far away you can't hear thunder..."
+    ],
+    "type":"text"
+  }, {
+    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"once upon a time",
+    "image":"onceupon.png",
+    "hints":[
+      "A Jennifer Morrison TV show",
+      "*NOT* `House`",
+      "Whatever happened to Jennifer Morrison?"
+    ],
+    "type":"text"
+  }, {
+    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"too good for me",
+    "image":"twogood.png",
+    "hints":[
+      "GOOD MEMES",
+      "2fast2furious",
+      "2good2meme"
+    ],
+    "type":"text"
+  }, {
+    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"coffeebreak",
+    "image":"coffee.png",
+    "hints":[
+      "I've never had coffee",
+      "Yesterday I woke up at 3:45...pm...I should start drinking coffee",
+      "`WE WERE ON A BREAK!` - Ross"
+    ],
+    "type":"text"
+  }, {
+    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"what goes up must come down",
+    "image":"what_goes_up.jpg",
+    "hints":[
+      "this is in a song",
+      "would be an appropriate if unexpected song to be used for elevator music",
+      "you should probably give up if you can't solve this"
+    ],
+    "type":"text"
+  }, {
+    "question":"rebus puzzle",
+    "answer":"space invaders",
+    "image":"space_invaders.gif",
+    "hints":[
+      "Zim, for one",
+      "an old arcade game",
+      "Insert Coins to Continue"
+    ],
+    "type":"text"
+  }, {
+    "question":"rebus puzzle",
+    "answer":"in between jobs",
+    "image":"in_between_jobs.gif",
+    "hints":[
+      "They Took Our Jobs",
+      "They Turk Err Jerbs",
+      "DEY TURKER JERRRB"
+    ],
+    "type":"text"
+  }, {
+    "question":"It is illegal to wear ____ in the British Parliament.",
+    "choices":
+      [
+        "A Suit of Armor",
+        "High Heels",
+        "Livestrong bracelets",
+        "Crocs"
+      ],
+    "answer":"A Suit of Armor",
     "type":"mc"
   }, {
     "question":"True or False - white rhinos are white.",
@@ -816,26 +1455,137 @@
     "answer":"False",
     "type":"mc"
   }, {
-    "question":"What is the world's most venemous fish?",
+    "question":"_____ is a group of ravens",
     "choices":
       [
-        "Scorpion fish",
-        "Lion Fish",
-        "Stonefish",
-        "Poison McPoisonface"
+        "An ostentation",
+        "A murder",
+        "A murmuration",
+        "An unkindness"
       ],
-    "answer":"Stonefish",
+    "answer":"An unkindness",
     "type":"mc"
   }, {
-    "question":"What is the fastest swimming animal?",
+    "question":"Nicolas Cage won an Academy Award for `Best Actor` for which movie?",
     "choices":
       [
-        "Orca",
-        "Michael Phelps",
-        "Swordfish",
-        "Sailfish"
+        "Con Air",
+        "Leaving Las Vegas",
+        "National Treasure 3 (come back to this in 5 years)",
+        "The Wicker Man"
       ],
-    "answer":"Sailfish",
+    "answer":"Leaving Las Vegas",
     "type":"mc"
+  }, {
+    "question":"In Samoa, it is a crime for a man to ____.",
+    "choices":
+      [
+        "Forget his wife's birthday",
+        "Be shirtless",
+        "Die in Parliament",
+        "Say anything critical of Dwayne `The Rock` Johnson"
+      ],
+    "answer":"Forget his wife's birthday",
+    "type":"mc"
+  }, {
+    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"reasoning",
+    "image":"reason.png",
+    "hints":[
+      "It's greason then",
+      "I AM the Senate",
+      "NOT YET"
+    ],
+    "type":"text"
+  }, {
+    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"iron curtain",
+    "image":"iron.gif",
+    "hints":[
+      "Probably not all that convenient for showers",
+      "A nickname once given to the Steelers defense",
+      "But best known as the barrier between the East & West"
+    ],
+    "type":"text"
+  }, {
+    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"half-hearted",
+    "image":"half.gif",
+    "hints":[
+      "meh",
+      "meh",
+      "meh"
+    ],
+    "type":"text"
+  }, {
+    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"misunderstood",
+    "image":"misunderstood.jpg",
+    "hints":[
+      "stoodmis",
+      "stoodonmis",
+      "I give up"
+    ],
+    "type":"text"
+  }, {
+    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"to infinity and beyond!",
+    "image":"infinity.png",
+    "hints":[
+      "Tim Allen's most famous line",
+      "People really sleep on Home Improvement nowadays",
+      "I spent a *good* portion of my childhood thinking Buzz was voiced by Mel Gibson, but he just stuck to Pocahantas and Chicken Run"
+    ],
+    "type":"text"
+  }, {
+    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"I'm on cloud nine",
+    "image":"cloud_nine.gif",
+    "hints":[
+      "Apparently the number has changed over time",
+      "In 1935 it was eight, then down to seven in the 50's",
+      "Maybe someday if we need that extra push over the cliff, we'll put it up to 11"
+    ],
+    "type":"text"
+  }, {
+    "question":"Santa has hidden a secret message on one of the escape room presents. Can you find a clue hidden on the package? What is the secret message?",
+    "answer":"merry xmas",
+    "image":"christmas.jpg",
+    "hints":[
+      "This is the easiest one if you need a hint this could be a rough time",
+      "Seriously this is going to be a grind if you're struggling already",
+      "I can just give you the final code it's no big deal"
+    ],
+    "type":"text"
+  }, {
+    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"greenpeace",
+    "image":"greenpeace.jpg",
+    "hints":[
+      "like Green Day but also not",
+      "it's a humanitarian group",
+      "hint 3"
+    ],
+    "type":"text"
+  }, {
+    "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
+    "answer":"no way jose",
+    "image":"no_way_jose.jpg",
+    "hints":[
+      "I think going right-to-left is easier?",
+      "the first part is the toughest",
+      "it's a `no way` sign"
+    ],
+    "type":"text"
+  }, {
+    "question":"Logic Puzzle",
+    "answer":"yellow",
+    "image":"iputonmyrobeandwizardhat.png",
+    "hints":[
+      "I put on my robe and wizard hat!  What color is the hat in the top left square?",
+      "There are 16 wizard hats, 4 colors (red, blue, green, yellow), 4 arithmetic signs",
+      "All 16 hats are unique, and no row or column has two of the same."
+    ],
+    "type":"text"
   }
 ]
