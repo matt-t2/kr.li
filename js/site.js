@@ -12,7 +12,9 @@
 
 var chars = [],
     questions = [],
-    numCs, numQs,
+    questionsFull = [],
+    numQs = 15,
+    numCs,
     user_answer, user_answer_choice, newHint,
     currChar = currQuestion = xPos = wrongAnswers = numHints = 0,
     stat_max = 8,
@@ -20,7 +22,9 @@ var chars = [],
     maxWrongAnswers,
     maxWrongAnswersText = 3,
     maxWrongAnswersMC = 2,
-    enterTime = 5000, // in milliseconds
+    enterTime = 8000, // in milliseconds
+    exitTime,
+    pixelSlideTime = 20,
     questionSlideTime = howto_load_time = (enterTime - 3000),
     allow_keys = skip_question = false,
     charSoundDuration = 0.0,
@@ -35,36 +39,48 @@ var chars = [],
     sliderHandleHalfWidth = 26,
     uniqChar = '',
     howto_fadeColor = '#aedecb',
-    currContainer = 'start_container'; // start, character_selection, confirm, game, death, victory, answer
+    currContainer = 'start_container', // start, character_selection, confirm, game, death, victory, answer
+    user_code = '',
+    playMusic = true;
 
 const FULL_DASH_ARRAY = 283;
-const WARNING_THRESHOLD = 3;
-const ALERT_THRESHOLD = 1;
+// const WARNING_THRESHOLD = 3;
+// const ALERT_THRESHOLD = 1;
 
-const COLOR_CODES = {
+const DEATH_COLOR_CODES = {
   info: {
     color: "green" },
 
   warning: {
     color: "orange",
-    threshold: WARNING_THRESHOLD },
+    threshold: 3 },
 
   alert: {
     color: "red",
-    threshold: ALERT_THRESHOLD } };
+    threshold: 1 } };
 
-const TIME_LIMIT = 5;
+const VICTORY_COLOR_CODES = {
+  info: {
+    color: "green" },
+
+  warning: {
+    color: "orange",
+    threshold: 9 },
+
+  alert: {
+    color: "red",
+    threshold: 3 } };
+
+const DEATH_TIME_LIMIT = 5;
 let timePassed = 0;
-let timeLeft = TIME_LIMIT;
 let timerInterval = null;
-let remainingPathColor = COLOR_CODES.info.color;
 
 const $element = $('#difficultySlider');
 const $tooltip = $('#slider_tooltip');
 const sliderStates = [
-  { name: 'low', tooltip: 'low difficulty', range: _.range(1, mediumDifficulty)},
-  { name: 'med', tooltip: 'medium difficulty', range: _.range(mediumDifficulty, highDifficulty)},
-  { name: 'high', tooltip: 'high difficulty', range: _.range(highDifficulty, maxDifficulty)}
+  { name: 'low', tooltip: 'GG EZ', range: _.range(1, mediumDifficulty)},
+  { name: 'med', tooltip: 'normal', range: _.range(mediumDifficulty, highDifficulty)},
+  { name: 'high', tooltip: 'struggle is real', range: _.range(highDifficulty, maxDifficulty)}
 ];
 
 var currentState;
@@ -76,12 +92,12 @@ $(document).ready(function(){
     dataType: "json",
     success: function(data) {
       $.each(data, function(key, value){
-        questions.push(value);
+        questionsFull.push(value);
       });
     },
     complete: function(data) {
-      numQs = questions.length;
-      shuffle(questions);
+      // numQs = questions.length;
+      //shuffle(questions);
     }
   });
 
@@ -119,6 +135,7 @@ function shuffle(array) {
   return array;
 }
 
+var c_code = '133517';
 
 /********************
  *                  *
@@ -144,7 +161,11 @@ function startCharSelection(){
   showCont("character_selection_container");
 
   // TODO: uncomment when nearing end
-  // $('#music')[0].play();
+  if(playMusic){
+    playMusic == false;
+    $('#music')[0].play();
+  }
+  
   nextCharacter();
 }
 
@@ -298,12 +319,12 @@ function characterWalk(sTime, wTime, stopPoint){
   }, sTime);
 }
 
-function characterEnter(sTime, wTime){
+function characterChangePos(sTime, wTime){
   setTimeout(function() {
     characterWalk(sTime, wTime, enterStoppingPoint);
     var slideCharacter = window.setInterval(function() {
       $("#game_character").css('left', '+=1');
-    }, 20);
+    }, pixelSlideTime);
     setTimeout(function() {
       clearInterval(slideCharacter);
     }, wTime);
@@ -329,7 +350,10 @@ function generateCharacter(){
   $("#game_character").css('height',thisCharacter.height);
   $("#game_character").css('width',thisCharacter.width);
   $("#game_character").css('left','-' + thisCharacter.width);
-  characterEnter(stepTime, enterTime);
+
+  exitTime = ($(window).width() + $("#game_character").width()) * pixelSlideTime;
+
+  characterChangePos(stepTime, enterTime);
 
   // Add grayscale for zombie (she doesn't have enough contrast with gameBackground)
   if(thisCharacter.image == "zombie.png"){
@@ -361,12 +385,29 @@ function generateCharacter(){
   }
 }
 
+function generateCode(){
+  $("#this_char_code_img").attr('src','img/chars/profile/' + thisCharacter.image);
+  if(Array.isArray(thisCharacter.victory_code)){
+    thisCharacter.victory_code.forEach(function(img){
+      $("#victory_code").append('<img class=\'code_img\' alt=\'code_img\' src=\'img/chars/profile/' + img + '\'>');
+    });
+  } else {
+    $("#victory_code > #code_text").append(thisCharacter.victory_code);
+  }
+}
+
 function startConfirmation(){
   // Load confirm
 
   showConts("confirm_container","game_container");
   $('#char_sound').attr('src','sound/char/' + thisCharacter.sound);
   $('#conf_character').attr('src','img/chars/profile/' + thisCharacter.image);
+
+  var q_start = currChar * numQs;
+
+  questions = questionsFull.slice(q_start, q_start + numQs);
+  console.log(questions);
+  shuffle(questions);
 
   questions.forEach(function(question, index){
     // Type refers to how answers are submitted.  Text-answer questions 
@@ -381,6 +422,8 @@ function startConfirmation(){
 
       // Answer Choices
       var qc_div = $('<div class=\'choice_container\'></div>');
+
+      shuffle(question.choices);
       question.choices.forEach(function(choice){
         qc_div.append('<div class=\'choice_divider\'></div>');
         qc_div.append('<div class=\'choice\'>' + choice + '</div>');
@@ -450,11 +493,12 @@ function startGame(){
   }
   numLivesRemaining = numLives;
   showLives();
-  $("#howto_cont").prepend("<span>welcome<br>" + thisCharacter.name.toLowerCase() + "</span>");
+  $("#howto_cont").prepend("<span>welcome,<br>" + thisCharacter.name.toLowerCase() + "</span>");
   $("#howto_cont").show();
   
   hideConfirm();
   generateCharacter();
+  generateCode();
 }
 
 function showLives(){
@@ -467,7 +511,7 @@ function showLives(){
 function outOfLives(){
   window.setTimeout(function() {
     showCont("death_container");
-    startTimer();
+    //startTimer(DEATH_TIME_LIMIT, "death", DEATH_COLOR_CODES);
   }, 5000);
 }
 
@@ -549,7 +593,41 @@ function nextQuestion(){
           });
         }, 500);
       } else {
-        showCont("victory_container");
+        // TODO: slide off last question, slide off character, slide in 'YOU WIN' and code and play_again timer
+        gameBackgroundScroll(questionSlideTime);
+        characterWalk(stepTime, (questionSlideTime * 1.5), questionStoppingPoint);
+
+        setTimeout(function(){
+          $('.question_box').eq(currQuestion - 1).animate({
+            left: "-30vw"
+          }, {
+            queue: false,
+            duration: questionSlideTime
+          });
+
+          $('#hintbox_cont').animate({
+            left: "-98vw"
+          }, {
+            queue: false,
+            duration: questionSlideTime,
+            complete: function() {
+              $("#hintbox_cont").empty();
+              $("#hintbox_cont").css('left','0');
+            }
+          });
+
+          $('#victory_cont').animate({
+            left: "20vw"
+          }, {
+            queue: false,
+            duration: (questionSlideTime * 1.5),
+            complete: function() {
+              // Animation complete TODO: present clue & play_again timer
+              characterChangePos(stepTime, exitTime);
+              startTimer(stepTime, "victory", VICTORY_COLOR_CODES);
+            }
+          });
+        }, 500);
       }
     } else {
       wrongAnswers++;
@@ -566,7 +644,11 @@ function nextQuestion(){
         $('.question_box').eq(currQuestion - 1).children('.wrong_cont').children('.wrong' + wrongAnswers).css('display','inline');
       }
       if(wrongAnswers==maxWrongAnswers){
-        loseLife();
+        if(currQuestion < numQs){
+          loseLife();
+        } else {
+          // TODO: trigger victory but meh
+        }
       }
     }
   } else {
@@ -631,9 +713,17 @@ $('#enter_code_container').on('keyup', '.final_solution', function () {
       if($(this).not(':last-child')){
         $(this).next('.final_solution').focus();
       }
+
+      user_code = '';
+
+      $('.final_solution').each(function() {
+        user_code = user_code.concat($(this)[0].value);
+      });
+
       // TODO: compare to correct code
-      if(false){
-        showCont("answer_container");
+      if(user_code == c_code){
+        console.log('WIN');
+        //TODO: showCont("answer_container");
       } else {
         console.log("Donald Trump: \"WRONG!\"");
       }
@@ -799,6 +889,7 @@ rangeslider({
 
 on('input', function () {
   console.log('input: ' + this);
+  console.log(this.value);
   updateHandle($handle[0], this.value);
   checkState($handle[0], this.value);
 });
@@ -811,6 +902,8 @@ function updateHandle(el, val) {
 // Check if the slider state has changed
 function checkState(el, val) {
   // if the value does not fall in the range of the current state, update
+  console.log(currentState.range);
+  console.log(parseInt(val));
   if (!_.contains(currentState.range, parseInt(val))) {
     updateState(el, val);
   }
@@ -851,14 +944,14 @@ function updateState(el, val) {
 /* Credit: Mateusz Rybczonec at https://css-tricks.com/how-to-create-an-animated-countdown-timer-with-html-css-and-javascript/ */
 
 document.getElementById("death_timer").innerHTML = `
-<div class="base-timer">
-  <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <g class="base-timer__circle">
-      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+<div class="death-base-timer">
+  <svg class="death-base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <g class="death-base-timer__circle">
+      <circle class="death-base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
       <path
-        id="base-timer-path-remaining"
+        id="death-base-timer-path-remaining"
         stroke-dasharray="283"
-        class="base-timer__path-remaining ${remainingPathColor}"
+        class="death-base-timer__path-remaining green"
         d="
           M 50, 50
           m -45, 0
@@ -868,7 +961,29 @@ document.getElementById("death_timer").innerHTML = `
       ></path>
     </g>
   </svg>
-  <span id="base-timer-label" class="base-timer__label">Play Again</span>
+  <span id="death-base-timer-label" class="death-base-timer__label">Play Again</span>
+</div>
+`;
+
+document.getElementById("victory_timer").innerHTML = `
+<div class="victory-base-timer">
+  <svg class="victory-base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <g class="victory-base-timer__circle">
+      <circle class="victory-base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+      <path
+        id="victory-base-timer-path-remaining"
+        stroke-dasharray="283"
+        class="victory-base-timer__path-remaining green"
+        d="
+          M 50, 50
+          m -45, 0
+          a 45,45 0 1,0 90,0
+          a 45,45 0 1,0 -90,0
+        "
+      ></path>
+    </g>
+  </svg>
+  <span id="victory-base-timer-label" class="victory-base-timer__label">Play Again</span>
 </div>
 `;
 
@@ -877,13 +992,15 @@ function onTimesUp() {
   showCont("start_container");
 }
 
-function startTimer() {
+function startTimer(timeLimit, condition, color_codes) {
+  var timePassed = 0;
+  var timeLeft = timeLimit;
   timerInterval = setInterval(() => {
     timePassed = timePassed += 1;
-    timeLeft = TIME_LIMIT - timePassed;
+    timeLeft = timeLimit - timePassed;
 
-    setCircleDasharray();
-    setRemainingPathColor(timeLeft);
+    setCircleDasharray(timeLeft, timeLimit, condition);
+    setRemainingPathColor(timeLeft, timeLimit, condition, color_codes);
 
     if (timeLeft === 0) {
       onTimesUp();
@@ -891,36 +1008,36 @@ function startTimer() {
   }, 1000);
 }
 
-function setRemainingPathColor(timeLeft) {
-  const { alert, warning, info } = COLOR_CODES;
+function setRemainingPathColor(timeLeft, timeLimit, condition, color_codes) {
+  const { alert, warning, info } = color_codes;
   if (timeLeft <= alert.threshold) {
     document.
-    getElementById("base-timer-path-remaining").
+    getElementById(condition + "-base-timer-path-remaining").
     classList.remove(warning.color);
     document.
-    getElementById("base-timer-path-remaining").
+    getElementById(condition + "-base-timer-path-remaining").
     classList.add(alert.color);
   } else if (timeLeft <= warning.threshold) {
     document.
-    getElementById("base-timer-path-remaining").
+    getElementById(condition + "-base-timer-path-remaining").
     classList.remove(info.color);
     document.
-    getElementById("base-timer-path-remaining").
+    getElementById(condition + "-base-timer-path-remaining").
     classList.add(warning.color);
   }
 }
 
-function calculateTimeFraction() {
-  const rawTimeFraction = timeLeft / TIME_LIMIT;
-  return rawTimeFraction - 1 / TIME_LIMIT * (1 - rawTimeFraction);
+function calculateTimeFraction(timeLeft, timeLimit) {
+  const rawTimeFraction = timeLeft / timeLimit;
+  return rawTimeFraction - 1 / timeLimit * (1 - rawTimeFraction);
 }
 
-function setCircleDasharray() {
+function setCircleDasharray(timeLeft, timeLimit, condition) {
   const circleDasharray = `${(
-  calculateTimeFraction() * FULL_DASH_ARRAY).
+  calculateTimeFraction(timeLeft, timeLimit) * FULL_DASH_ARRAY).
   toFixed(0)} 283`;
   document.
-  getElementById("base-timer-path-remaining").
+  getElementById(condition + "-base-timer-path-remaining").
   setAttribute("stroke-dasharray", circleDasharray);
 }
 

@@ -35,9 +35,9 @@ ENTER CODE CONTAINER
 			<div id="enter_code_title">
 				<span>
 					<input type="text" class="final_solution" maxlength="1" />
+					<input type="text" class="final_solution" maxlength="1" /> - 
 					<input type="text" class="final_solution" maxlength="1" />
-					<input type="text" class="final_solution" maxlength="1" />
-					<input type="text" class="final_solution" maxlength="1" />
+					<input type="text" class="final_solution" maxlength="1" /> - 
 					<input type="text" class="final_solution" maxlength="1" />
 					<input type="text" class="final_solution" maxlength="1" />
 				</span>
@@ -51,14 +51,6 @@ ANSWER CONTAINER
 -->
 		<div id="answer_container">
 			<div id="answer_title"></div>
-		</div>
-
-<!--
-VICTORY CONTAINER
-
--->
-		<div id="victory_container">
-			<div id="victory_title"></div>
 		</div>
 
 <!--
@@ -152,6 +144,14 @@ GAME CONTAINER
 				<span>each character has its own set of questions</span>
 				<div class='howto_divider'></div>
 				<span id="enter">press enter<br>to begin</span>
+			</div>
+			<div id="victory_cont">
+				<div id="victory_title">YOU WIN</div>
+				<div id="victory_code">
+					<img class='code_img' alt='code_img' id='this_char_code_img'>
+					<span id='code_text'> = </span>
+				</div>
+				<div id="victory_timer"></div>
 			</div>
 		</div>
 

@@ -14,7 +14,8 @@
     "attack":6,
     "defense":5,
     "speed":3,
-    "special":2
+    "special":2,
+    "victory_code":1
   }, {
     "name":"Zelda",
     "image":"link.png",
@@ -30,7 +31,8 @@
     "attack":7,
     "defense":0,
     "speed":7,
-    "special":2
+    "special":2,
+    "victory_code":1
   }, {
     "name":"Mike",
     "image":"cyclops.png",
@@ -46,7 +48,8 @@
     "attack":8,
     "defense":4,
     "speed":0,
-    "special":4
+    "special":4,
+    "victory_code":["link.png","skel.png"]
   }, {
     "name":"Jack Lumberton",
     "image":"jack.png",
@@ -62,7 +65,8 @@
     "attack":6,
     "defense":6,
     "speed":2,
-    "special":2
+    "special":2,
+    "victory_code":["zombie.png","bear.png"]
   }, {
     "name":"Other Jack",
     "image":"skel.png",
@@ -78,7 +82,8 @@
     "attack":6,
     "defense":0,
     "speed":1,
-    "special":8
+    "special":8,
+    "victory_code":7
   }, {
     "name":"Satan Claws",
     "image":"santa.png",
@@ -94,7 +99,8 @@
     "attack":1,
     "defense":1,
     "speed":7,
-    "special":7
+    "special":7,
+    "victory_code":3
   }, {
     "name":"Girl Zelda",
     "image":"zelda.png",
@@ -110,7 +116,8 @@
     "attack":1,
     "defense":6,
     "speed":8,
-    "special":2
+    "special":2,
+    "victory_code":["ape.png","santa.png"]
   }, {
     "name":"Baloo",
     "image":"bear.png",
@@ -126,7 +133,8 @@
     "attack":3,
     "defense":0,
     "speed":6,
-    "special":8
+    "special":8,
+    "victory_code":5
   }, {
     "name":"Bumble",
     "image":"yeti.png",
@@ -142,7 +150,8 @@
     "attack":8,
     "defense":8,
     "speed":0,
-    "special":0
+    "special":0,
+    "victory_code":["zelda.png","jack.png","cyclops.png"]
   }, {
     "name":"Zombae",
     "image":"zombie.png",
@@ -158,6 +167,7 @@
     "attack":1,
     "defense":7,
     "speed":1,
-    "special":8
+    "special":8,
+    "victory_code":3
   }
 ]

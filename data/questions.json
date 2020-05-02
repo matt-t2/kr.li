@@ -476,7 +476,7 @@
   }, {
     "question":"Sudoku on steroids",
     "answer":"1",
-    "image":"supersudoku.png",
+    "image":"super_sudoku.png",
     "hints":[
       "What number goes in the bottom right square?",
       "This follows basic Sudoku rules, with the additional criteria that any connected squares must also include the same digit",
@@ -693,7 +693,7 @@
         "Cinderella",
         "Sleeping Beauty",
         "Snow White",
-        "*sigh* the oppression continues to this day"
+        "*sigh* the oppression continues"
       ],
     "answer":"Sleeping Beauty",
     "type":"mc"
@@ -1111,7 +1111,7 @@
     "question":"Animal Hybrids",
     "image_caption":"Like the might Liger and the less-mighty Beefalo, ____ is a hybrid offspring, in this case the hybrid of a bottlenose dolphin and a false killer whale.",
     "answer":"wholphin",
-    "image":"liger.pngg",
+    "image":"liger.png",
     "hints":[
       "Killer whales aren't actually whales",
       "And fake killer whales aren't actually killer whales",
@@ -1197,6 +1197,7 @@
     "type":"mc"
   }, {
     "question":"Which Whitney Houston song is an anagram of `Mention Mine to Me`?",
+    "image_caption":"Which Whitney Houston song is an anagram of `Mention Mine to Me`?",
     "answer":"One Moment in Time",
     "image":"whitney_houston.jpeg",
     "hints":[

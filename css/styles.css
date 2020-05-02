@@ -99,15 +99,16 @@ body {
 	text-align: center;
 	height: 60vh;
 	margin: 20vh 0 5vh 0;
+	font-size: 40px;
+  	font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+  	line-height: 60px;
 }
 
 .final_solution {
-	font-size: 40px;
-  	font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
-  	width: 60px;
-  	height: 60px;
-  	line-height: 60px;
+	height: 60px;
+	width: 60px;
   	text-align: center;
+  	font-size: 40px;
 }
 
 
@@ -624,6 +625,28 @@ body {
 
 /********************
  *                  *
+ *     VICTORY      *
+ *                  *
+ *                  *
+ ********************/
+
+#victory_cont {
+	text-align: center;
+	width: 60vw;
+	position: fixed;
+	left: 170vw;
+	z-index: 5;
+}
+
+#victory_cont #victory_title {
+	font-size: 150px;
+	font-family: 'Crackman';
+	line-height: 40vh;
+	height: 40vh;
+}
+
+/********************
+ *                  *
  *      HOW-TO      *
  *                  *
  *                  *
@@ -691,7 +714,7 @@ body {
  *                  *
  ********************/
 
-#enter_code_container, #answer_container, #victory_container {
+#enter_code_container, #answer_container {
 	display: none;
 	overflow: hidden;
 }
@@ -857,29 +880,29 @@ input[type="range"]:focus + .rangeslider .rangeslider__handle {
 
 /* Credit: Mateusz Rybczonec at https://css-tricks.com/how-to-create-an-animated-countdown-timer-with-html-css-and-javascript/ */
 
-.base-timer {
+.death-base-timer, .victory-base-timer {
   position: relative;
   width: 300px;
   height: 300px;
 }
 
-.base-timer__svg {
+.death-base-timer__svg, .victory-base-timer__svg {
   -webkit-transform: scaleX(-1);
           transform: scaleX(-1);
   z-index: 2;
   position: absolute;
 }
 
-.base-timer__circle {
+.death-base-timer__circle, .victory-base-timer__circle {
   fill: none;
   stroke: none;
 }
 
-.base-timer__path-elapsed {
+.death-base-timer__path-elapsed, .victory-base-timer__path-elapsed {
   stroke-width: 7px;
 }
 
-.base-timer__path-remaining {
+.death-base-timer__path-remaining, .victory-base-timer__path-remaining {
   stroke-width: 7px;
   stroke-linecap: round;
   -webkit-transform: rotate(90deg);
@@ -892,19 +915,19 @@ input[type="range"]:focus + .rangeslider .rangeslider__handle {
   stroke: currentColor;
 }
 
-.base-timer__path-remaining.green {
+.death-base-timer__path-remaining.green, .victory-base-timer__path-remaining.green {
   color: rgb(65, 184, 131);
 }
 
-.base-timer__path-remaining.orange {
+.death-base-timer__path-remaining.orange, .victory-base-timer__path-remaining.orange {
   color: orange;
 }
 
-.base-timer__path-remaining.red {
+.death-base-timer__path-remaining.red, .victory-base-timer__path-remaining.red {
   color: red;
 }
 
-.base-timer__label {
+.death-base-timer__label, .victory-base-timer__label {
   position: absolute;
   width: 300px;
   height: 300px;
@@ -919,7 +942,7 @@ input[type="range"]:focus + .rangeslider .rangeslider__handle {
   z-index: 1;
 }
 
-svg:hover + #base-timer-label {
+svg:hover + #death-base-timer-label, svg:hover + #victory-base-timer-label {
   color: #333333;
   /* change change fill of svg, but will need it semi-transparent to leave label visible */
 }
