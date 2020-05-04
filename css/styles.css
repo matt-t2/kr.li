@@ -207,9 +207,11 @@ body {
 
 
 .dot {
-	height: 25px;
-	width: 25px;
-	background-color: #52bfa1;
+	height: 15px;
+	width: 15px;
+	background: linear-gradient(to right, #52bfa1 50%, #ccc 50%);
+	background-size: 200% 100%;
+	background-position-x: 100%;
 	border-radius: 50%;
 	display: inline-block;
 	margin: 5px;
@@ -460,6 +462,10 @@ body {
 	padding: 0 5%;
 }
 
+.question_cpt {
+	height: 15% !important;
+}
+
 .answer {
 	display: block;
 	height: 20%;
@@ -474,6 +480,11 @@ body {
 	box-sizing: border-box;
 	background-clip: padding-box;
 	border: 2px #aedecb solid;
+}
+
+.answer_cpt {
+	height: 15% !important;
+	top: 55% !important;
 }
 
 .answer:hover {
@@ -533,6 +544,11 @@ body {
 	display: block;
 	margin: 5% auto;
 	text-align: center;
+}
+
+.q_img_cpt {
+	height: 30% !important;
+	max-height: 30% !important;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -645,6 +661,15 @@ body {
 	height: 40vh;
 }
 
+#victory_code {
+	font-size: 60px;
+	line-height: 60px;
+}
+
+#victory_code > img {
+	height: 60px;
+}
+
 /********************
  *                  *
  *      HOW-TO      *
@@ -665,7 +690,7 @@ body {
 }
 
 #howto_cont > span {
-	display: none;
+	display: table-cell;
 	color: #252525;
 	width: 25vw;
 	box-sizing: border-box;
@@ -700,9 +725,21 @@ body {
 	z-index: 3;
 }
 
+#on_question {
+	display: inline-block;
+	position: relative;
+	width: 50px;
+	height: 100%;
+	line-height: 100%;
+	top: -142px;
+	left: 10px;
+	font-size: 25px;
+}
+
 .charLifeImage {
 	position: relative;
 	top: -129px; /* I don't know why this element is being pushed down 129 pixels with pos: relative */
+	left: -50px; /* space for questions_remaining span */
 	max-height: 100%;
 	margin-left: 2vw;
 }
@@ -729,6 +766,11 @@ body {
 #death_container {
 	display: none;
 	overflow: hidden;
+	text-align: center;
+}
+
+#death_title span {
+	display: inline-block;
 }
 
 
@@ -884,13 +926,17 @@ input[type="range"]:focus + .rangeslider .rangeslider__handle {
   position: relative;
   width: 300px;
   height: 300px;
+  margin: 0 auto;
 }
 
 .death-base-timer__svg, .victory-base-timer__svg {
   -webkit-transform: scaleX(-1);
           transform: scaleX(-1);
   z-index: 2;
-  position: absolute;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  /* margin: 0 auto; */
 }
 
 .death-base-timer__circle, .victory-base-timer__circle {
@@ -940,6 +986,10 @@ input[type="range"]:focus + .rangeslider .rangeslider__handle {
           justify-content: center;
   font-size: 36px;
   z-index: 1;
+}
+
+svg:hover {
+  cursor: pointer !important;
 }
 
 svg:hover + #death-base-timer-label, svg:hover + #victory-base-timer-label {

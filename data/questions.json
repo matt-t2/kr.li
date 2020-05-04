@@ -1117,7 +1117,7 @@
       "And fake killer whales aren't actually killer whales",
       "So despite the somwhat misleading name of this hybrid, it's actually a cross between a dolphin and an animal that is the fake of the fake of a whale."
     ],
-    "type":"text"
+    "type":"caption"
   }, {
     "question":"What clothing item is banned at the Acropolis?",
     "choices":
@@ -1205,7 +1205,7 @@
       "It's also *not* `Imminent Moon Tee`",
       "Imagine listening to the chorus of `I Wanna Dance With Somebody` and not singing along.  Can't be done."
     ],
-    "type":"text"
+    "type":"caption"
   }, {
     "question":"There is a common phrase hidden here in this text. Can you solve this rebus puzzle and solve the hidden message?",
     "answer":"summary",

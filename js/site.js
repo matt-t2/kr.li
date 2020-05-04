@@ -21,15 +21,15 @@ var chars = [],
     userDifficulty = numLives = numLivesRemaining = 5,
     maxWrongAnswers,
     maxWrongAnswersText = 3,
-    maxWrongAnswersMC = 2,
-    enterTime = 8000, // in milliseconds
+    maxWrongAnswersMC = 1,
+    enterTime = 4000, // in milliseconds
     exitTime,
     pixelSlideTime = 20,
-    questionSlideTime = howto_load_time = (enterTime - 3000),
+    questionSlideTime = howto_load_time = 3000,
     allow_keys = skip_question = false,
-    charSoundDuration = 0.0,
+    maxSoundDuration = charSoundDuration = 2,
     name, thisCharacter,
-    stepTime, enterStoppingPoint, questionStoppingPoint, xLength,
+    stepTime, enterStoppingPoint, exitStoppingPoint, questionStoppingPoint, xLength,
     mediumDifficulty = 4,
     highDifficulty = 8,
     maxDifficulty = 10,
@@ -78,9 +78,9 @@ let timerInterval = null;
 const $element = $('#difficultySlider');
 const $tooltip = $('#slider_tooltip');
 const sliderStates = [
-  { name: 'low', tooltip: 'GG EZ', range: _.range(1, mediumDifficulty)},
-  { name: 'med', tooltip: 'normal', range: _.range(mediumDifficulty, highDifficulty)},
-  { name: 'high', tooltip: 'struggle is real', range: _.range(highDifficulty, maxDifficulty)}
+  { name: 'low', tooltip: 'it\'d be embarrassing if you lost', range: _.range(1, mediumDifficulty)},
+  { name: 'med', tooltip: 'aggressively mediocre', range: _.range(mediumDifficulty, highDifficulty)},
+  { name: 'high', tooltip: 'the struggle is real', range: _.range(highDifficulty, maxDifficulty)}
 ];
 
 var currentState;
@@ -111,7 +111,6 @@ $(document).ready(function(){
     },
     complete: function(data) {
       numCs = chars.length;
-      nextCharacter();
     }
   });
 });
@@ -159,6 +158,7 @@ function showConts(cont1, cont2){
 function startCharSelection(){
   // Load character_selection
   showCont("character_selection_container");
+  nextCharacter();
 
   // TODO: uncomment when nearing end
   if(playMusic){
@@ -169,6 +169,32 @@ function startCharSelection(){
   nextCharacter();
 }
 
+function refreshGame(){
+  $("#confirm_container > div").removeAttr('style');
+  $("#game_character").removeAttr('style');
+  $("#display_lives").empty();
+  $("#display_lives").append('<span id=\'on_question\'></span>');
+  $(".bg").removeAttr('style');
+  $("#ground").removeAttr('style');
+  $(".choice").removeAttr('style');
+  $(".answer").removeAttr('style');
+  $("#howto_cont > span").removeAttr('style');
+  $("#victory_code > #code_text").text(" = ");
+  $(".code_answer_img").remove();
+  $("#hintbox_cont").empty();
+  $(".question_box").remove();
+  $("#hintbox_cont").removeAttr('style');
+  $("#howto_cont").removeAttr('style');
+  $("#victory_cont").removeAttr('style');
+  $("#howto_cont").find('span:first').remove();
+  $("#victory-base-timer-path-remaining").removeClass("orange");
+  $("#victory-base-timer-path-remaining").removeClass("red");
+  $("#death-base-timer-path-remaining").removeClass("orange");
+  $("#death-base-timer-path-remaining").removeClass("red");
+  wrongAnswers = 0;
+  currQuestion = 0;
+}
+
 /********************
  *                  *
  *    CHARACTER     *
@@ -177,23 +203,35 @@ function startCharSelection(){
  ********************/
 
 /**** FUNCTIONS ****/
-function createStat(stat_class,stat_value){
-  var gray = stat_max - stat_value;
-  $("#" + stat_class).empty();
 
-  for (var i=0; i < stat_value; ++ i){
-    $("#" + stat_class).append('<span class="dot"></span>');
-  }
-  for (var j=0; j < gray; ++ j){
-    $("#" + stat_class).append('<span class="dot gray"></span>');
-  }
+function colorDot(stat, curr_val, stat_val, anim_time){
+  stat.eq(curr_val).animate({
+    'background-position-x': '0%'
+  }, anim_time, function(){
+    if (curr_val < stat_val){
+      colorDot(stat, curr_val+1, stat_val, anim_time);
+    }
+  });
+}
+
+function clearDots(stat){
+  stat.stop();
+  stat.removeAttr('style');
+  stat.css('background-position-x','100%');
+}
+
+function createStat(stat_class,stat_value){
+  stat = $('#' + stat_class + ' > span');
+  anim_time = (2000 / stat_value); // 2 seconds for full animation to complete
+  clearDots(stat);
+  colorDot(stat, 0, stat_value-1, anim_time);
 }
 
 function nextCharacter(){
   thisCharacter = chars[currChar];
   name = thisCharacter.name;
 
-  $("#sel_character").css('background-image','url(img/chars/profile/' + thisCharacter.image + ')');
+  $("#sel_character").css('background-image','url(img/chars/prof-pic/' + thisCharacter.image + ')');
   $("#sel_character").css('background-position',thisCharacter.charBackgroundPosition);
   $("#sel_character").css('background-size',thisCharacter.charBackgroundSize);
   $("#name").html(name);
@@ -213,28 +251,18 @@ function nextCharacter(){
  *                  *
  ********************/
 
-function generateLoadBar(charSoundDuration){
+function generateLoadBar(soundDuration){
+  console.log(soundDuration);
   $('#loadbar').animate({
     width: "100%"
   }, {
     queue: false,
-    duration: charSoundDuration * 1000
+    duration: soundDuration * 1000,
+    complete: function() {
+      $('#conf_answer > span').show();
+    }
   });
 }
-
-// function hideConfirm(){
-//   $('#confirm_container').animate({
-//     left: '100vw'
-//   }, {
-//     queue: false,
-//     duration: 5000,
-//     complete: function() {
-//       $("#confirm_container").hide();
-//       $('#conf_answer > span').hide();
-//       $("#confirm_container").css('left',0);
-//     }
-//   });
-// }
 
 function hideConfirm(){
   // do reverse of showGame
@@ -274,7 +302,7 @@ function hideConfirm(){
           } else{
             allow_keys = true;
           }
-        }).css('display','table-cell');
+        });
       }
 
       fadeHowTos();
@@ -319,16 +347,25 @@ function characterWalk(sTime, wTime, stopPoint){
   }, sTime);
 }
 
-function characterChangePos(sTime, wTime){
-  setTimeout(function() {
-    characterWalk(sTime, wTime, enterStoppingPoint);
-    var slideCharacter = window.setInterval(function() {
-      $("#game_character").css('left', '+=1');
-    }, pixelSlideTime);
-    setTimeout(function() {
-      clearInterval(slideCharacter);
-    }, wTime);
-  }, 2000);
+// TODO: instead of +=1 px, animate slide to left=25vw on enter
+//                                           left=100vw on exit
+function characterChangePos(sTime, wTime, stPoint, dist){
+  characterWalk(sTime, wTime, stPoint);
+  $("#game_character").animate({
+    left: dist
+  }, {
+    queue: false,
+    duration: wTime
+  });
+  // setTimeout(function() {
+  //   characterWalk(sTime, wTime, enterStoppingPoint);
+  //   var slideCharacter = window.setInterval(function() {
+  //     $("#game_character").css('left', '+=1');
+  //   }, pixelSlideTime);
+  //   setTimeout(function() {
+  //     clearInterval(slideCharacter);
+  //   }, wTime);
+  // }, 2000);
 }
 
 function generateCharacter(){
@@ -338,6 +375,22 @@ function generateCharacter(){
   stepTime = thisCharacter.stepTime;
 
   // Update animation time so character finishes at rest
+
+  // enterTime is the assigned length of time to run the animation when the game begins
+  // questionSlideTime is the assigned length of time to move on to the next question in-game
+  // 
+  // Here, I'm updating these values for each character so that the character will finish each 'animation' 
+  // at rest.  Each image has a certain number of postures to replicate a walking step for the character. 
+  // stepTime reflects the time in ms beteen each of these postures.  xLength is the total number of postures 
+  // for that character.
+  // 
+  // enterTime / stepTime               => how many individual postures will be shown within the enterTime.
+  // (enterTime / stepTime) / xLength   => the number of total cycles for the character within enterTime
+  // Math.ceil((e/s) / xL)              => first full cycle taking time >= enterTime
+  // 
+  // enterStoppingPoint, questionStoppingPoint   => character is `at rest` in this position and should stop
+  // 
+  // update enterTime and questionSlideTime to reflect the revised time necessary to reach `at rest` position
   enterStoppingPoint = Math.ceil((enterTime / stepTime) / xLength) * xLength;
   enterTime = stepTime * enterStoppingPoint;
   questionStoppingPoint = Math.ceil((questionSlideTime / stepTime) / xLength) * xLength;
@@ -349,11 +402,12 @@ function generateCharacter(){
   $("#game_character").css('background-size',thisCharacter.gameBackgroundSize);
   $("#game_character").css('height',thisCharacter.height);
   $("#game_character").css('width',thisCharacter.width);
-  $("#game_character").css('left','-' + thisCharacter.width);
+  $("#game_character").css('left','-25vw');
 
   exitTime = ($(window).width() + $("#game_character").width()) * pixelSlideTime;
+  exitStoppingPoint = Math.ceil(exitTime / stepTime);
 
-  characterChangePos(stepTime, enterTime);
+  characterChangePos(stepTime, enterTime, enterStoppingPoint, '25vw');
 
   // Add grayscale for zombie (she doesn't have enough contrast with gameBackground)
   if(thisCharacter.image == "zombie.png"){
@@ -381,15 +435,18 @@ function generateCharacter(){
 
     $(".answer").css('border-color','#c1ffff');
   } else if(thisCharacter.image == "jack.png"){
+    uniqChar = 'jack';
     $("#bg5").hide();
+  } else{
+    uniqChar = '';
   }
 }
 
 function generateCode(){
-  $("#this_char_code_img").attr('src','img/chars/profile/' + thisCharacter.image);
+  $("#this_char_code_img").attr('src','img/chars/prof-pic/' + thisCharacter.image);
   if(Array.isArray(thisCharacter.victory_code)){
     thisCharacter.victory_code.forEach(function(img){
-      $("#victory_code").append('<img class=\'code_img\' alt=\'code_img\' src=\'img/chars/profile/' + img + '\'>');
+      $("#victory_code").append('<img class=\'code_img code_answer_img\' alt=\'code_img\' src=\'img/chars/prof-pic/' + img + '\'>');
     });
   } else {
     $("#victory_code > #code_text").append(thisCharacter.victory_code);
@@ -401,7 +458,7 @@ function startConfirmation(){
 
   showConts("confirm_container","game_container");
   $('#char_sound').attr('src','sound/char/' + thisCharacter.sound);
-  $('#conf_character').attr('src','img/chars/profile/' + thisCharacter.image);
+  $('#conf_character').attr('src','img/chars/prof-pic/' + thisCharacter.image);
 
   var q_start = currChar * numQs;
 
@@ -435,6 +492,33 @@ function startConfirmation(){
       
       // Answer Input Form
       q_div.append('<textarea class=\'answer\' placeholder=\'> Your Guess Here <\'>');
+
+      // Display any wrong guesses
+      q_div.append(
+        '<div class=\'wrong_cont\'>' + 
+          '<img src=\'img/wrong/wrong_1.png\' alt=\'wrong1\' class=\'wrong wrong1\'>' + 
+          '<img src=\'img/wrong/wrong_2.png\' alt=\'wrong2\' class=\'wrong wrong2\'>' + 
+          '<img src=\'img/wrong/wrong_3.png\' alt=\'wrong3\' class=\'wrong wrong3\'>' + 
+        '</div>'
+      );
+
+      // Hints
+      q_div.append(
+        '<div class=\'hint_cont\'>' + 
+          '<img src=\'img/lightbulb.png\' alt=\'hint1\' class=\'hint hint_avail hint1\'>' + 
+          '<img src=\'img/lightbulb.png\' alt=\'hint2\' class=\'hint hint_avail hint2\'>' + 
+          '<img src=\'img/lightbulb.png\' alt=\'hint3\' class=\'hint hint_avail hint3\'>' + 
+        '</div>'
+      );
+    } else if(question.type == "caption"){
+      // Image (contains question)
+      q_div.append('<img class=\'q_img q_img_cpt\' alt=\'img ' + currQuestion + '\' src=\'img/questions/' + question.image + '\'>');
+      
+      // Question
+      q_div.append('<div class=\'question question_cpt\'>' + question.image_caption + '</div>');
+
+      // Answer Input Form
+      q_div.append('<textarea class=\'answer answer_cpt\' placeholder=\'> Your Guess Here <\'>');
 
       // Display any wrong guesses
       q_div.append(
@@ -490,6 +574,8 @@ function startGame(){
   numLives = maxDifficulty - userDifficulty + 1;
   if(userDifficulty == maxDifficulty){
     maxWrongAnswersText = maxWrongAnswersMC = 1;
+  } else if(userDifficulty < 4){
+    maxWrongAnswersMC = 2;
   }
   numLivesRemaining = numLives;
   showLives();
@@ -504,14 +590,14 @@ function startGame(){
 function showLives(){
   // place numLives worth of char prof images top left
   for (var l = 0; l < numLives; ++ l)
-    $('#display_lives').append('<img class=\'charLifeImage\' alt=\'LIFE\' src=\'img/chars/profile/' + thisCharacter.image + '\'>');
+    $('#display_lives').append('<img class=\'charLifeImage\' alt=\'LIFE\' src=\'img/chars/prof-pic/' + thisCharacter.image + '\'>');
 
 }
 
 function outOfLives(){
   window.setTimeout(function() {
     showCont("death_container");
-    //startTimer(DEATH_TIME_LIMIT, "death", DEATH_COLOR_CODES);
+    startTimer(DEATH_TIME_LIMIT, "death", DEATH_COLOR_CODES);
   }, 5000);
 }
 
@@ -553,6 +639,8 @@ function nextQuestion(){
         wrongAnswers = 0;
         characterWalk(stepTime, questionSlideTime, questionStoppingPoint);
 
+        $("#on_question").text((currQuestion + 1) + "/15");
+
         gameBackgroundScroll(questionSlideTime);
         
         setTimeout(function(){
@@ -566,7 +654,7 @@ function nextQuestion(){
               currQuestion++;
               wrongAnswers = 0;
               numHints = 0;
-              if(questions[currQuestion - 1].type == 'text'){
+              if(questions[currQuestion - 1].type == 'text' || questions[currQuestion - 1].type == 'caption'){
                 maxWrongAnswers = maxWrongAnswersText;
                 allow_keys = true;
               } else {
@@ -623,7 +711,7 @@ function nextQuestion(){
             duration: (questionSlideTime * 1.5),
             complete: function() {
               // Animation complete TODO: present clue & play_again timer
-              characterChangePos(stepTime, exitTime);
+              characterChangePos(stepTime, exitTime, '100vw');
               startTimer(stepTime, "victory", VICTORY_COLOR_CODES);
             }
           });
@@ -639,7 +727,7 @@ function nextQuestion(){
 
       if(questions[currQuestion - 1].type == 'mc'){
         user_answer_choice.css('border-color','red');
-      } else if(questions[currQuestion - 1].type == 'text'){
+      } else if(questions[currQuestion - 1].type == 'text' || questions[currQuestion - 1].type == 'caption'){
         $('.question_box').eq(currQuestion - 1).find('.answer').css('border-color','red');
         $('.question_box').eq(currQuestion - 1).children('.wrong_cont').children('.wrong' + wrongAnswers).css('display','inline');
       }
@@ -653,6 +741,7 @@ function nextQuestion(){
     }
   } else {
     characterWalk(stepTime, questionSlideTime, questionStoppingPoint);
+    $("#on_question").text((currQuestion + 1) + "/15");
     setTimeout(function(){
       gameBackgroundScroll(questionSlideTime);
       $('.question_box').eq(currQuestion).animate({
@@ -660,7 +749,7 @@ function nextQuestion(){
       }, questionSlideTime, function() {
         // Animation complete
         currQuestion++;
-        if(questions[currQuestion - 1].type == 'text'){
+        if(questions[currQuestion - 1].type == 'text' || questions[currQuestion - 1].type == 'caption'){
           maxWrongAnswers = maxWrongAnswersText;
           allow_keys = true;
         } else {
@@ -720,9 +809,9 @@ $('#enter_code_container').on('keyup', '.final_solution', function () {
         user_code = user_code.concat($(this)[0].value);
       });
 
-      // TODO: compare to correct code
       if(user_code == c_code){
         console.log('WIN');
+        window.location.href = "1203984jq98wehq9230";
         //TODO: showCont("answer_container");
       } else {
         console.log("Donald Trump: \"WRONG!\"");
@@ -790,12 +879,11 @@ $('#game_container').on('click', '.hint_avail', function(){
 });
 
 $('#char_sound').on('ended', function(){
-  $('#conf_answer > span').show();
   enter_to_start = true;
 });
 
 $('#char_sound').on("canplay", function () {
-  charSoundDuration = $('#char_sound')[0].duration;
+  charSoundDuration = Math.min(maxSoundDuration, $('#char_sound')[0].duration);
   $('#char_sound')[0].play();
   generateLoadBar(charSoundDuration);
 });
@@ -862,6 +950,16 @@ $('#game_container').on('click', '.choice', function(){
   nextQuestion();
 });
 
+$('#death_container').on('click', 'svg', function(){
+  showCont("start_container");
+  refreshGame();
+});
+
+$('#victory_cont').on('click', 'svg', function(){
+  showCont("start_container");
+  refreshGame();
+});
+
 
 
 
@@ -882,14 +980,11 @@ rangeslider({
   polyfill: false,
   onInit: function () {
     $handle = $('.rangeslider__handle', this.$range);
-    console.log(this);
     updateHandle($handle[0], this.value);
     updateState($handle[0], this.value);
   } }).
 
 on('input', function () {
-  console.log('input: ' + this);
-  console.log(this.value);
   updateHandle($handle[0], this.value);
   checkState($handle[0], this.value);
 });
@@ -902,8 +997,6 @@ function updateHandle(el, val) {
 // Check if the slider state has changed
 function checkState(el, val) {
   // if the value does not fall in the range of the current state, update
-  console.log(currentState.range);
-  console.log(parseInt(val));
   if (!_.contains(currentState.range, parseInt(val))) {
     updateState(el, val);
   }
@@ -911,16 +1004,16 @@ function checkState(el, val) {
 
 // Change the state of the slider
 function updateState(el, val) {
-  for (var j = 0; j < sliderStates.length; j++) {if (window.CP.shouldStopExecution(0)) break;
-    if (_.contains(sliderStates[j].range, parseInt(val))) {
-      currentState = sliderStates[j];
-      // updateSlider();
+  if(val < maxDifficulty){
+    for (var j = 0; j < sliderStates.length; j++) {if (window.CP.shouldStopExecution(0)) break;
+      if (_.contains(sliderStates[j].range, parseInt(val))) {
+        currentState = sliderStates[j];
+        // updateSlider();
+      }
     }
+  } else {
+    currentState = sliderStates[2]; // if max difficulty, set to high difficulty
   }
-  //  // If the state is high, update the handle count to read 50+
-  //  window.CP.exitedLoop(0);if (currentState.name == "high") {
-  //    updateHandle($handle[0], "50+");
-  //  }
 
   // Update handle color
   $handle.
@@ -990,6 +1083,7 @@ document.getElementById("victory_timer").innerHTML = `
 function onTimesUp() {
   clearInterval(timerInterval);
   showCont("start_container");
+  refreshGame();
 }
 
 function startTimer(timeLimit, condition, color_codes) {
@@ -1013,14 +1107,8 @@ function setRemainingPathColor(timeLeft, timeLimit, condition, color_codes) {
   if (timeLeft <= alert.threshold) {
     document.
     getElementById(condition + "-base-timer-path-remaining").
-    classList.remove(warning.color);
-    document.
-    getElementById(condition + "-base-timer-path-remaining").
     classList.add(alert.color);
   } else if (timeLeft <= warning.threshold) {
-    document.
-    getElementById(condition + "-base-timer-path-remaining").
-    classList.remove(info.color);
     document.
     getElementById(condition + "-base-timer-path-remaining").
     classList.add(warning.color);
