@@ -22,15 +22,15 @@
     "answer":"with their feet",
     "type":"mc"
   }, {
-    "question":"Which of these is a species of insect?",
+    "question":"Which of these animals is *NOT* a crustacean?",
     "choices":
       [
-        "Harpymidge",
-        "Gorgonbug",
-        "Dragonfly",
-        "Minotaurgnat"
+        "Sow Bug (Roly-Poly if you're sophisticated)",
+        "Water Boatman",
+        "Sea-Monkey",
+        "Bob Marley Parasite"
       ],
-    "answer":"Dragonfly",
+    "answer":"Water Boatman",
     "type":"mc"
   }, {
   	"question":"The bikini was originally called the what?",
@@ -1369,7 +1369,7 @@
     "image":"thunder.png",
     "hints":[
       "`thtorm` - Mike Tyson",
-      "Why is the preferred name instead of lightning storm?",
+      "Why isn't this the preferred name instead of lightning storm?",
       "It's not a rectangle/square situation but you can still see lightning so far away you can't hear thunder..."
     ],
     "type":"text"

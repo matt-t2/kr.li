@@ -41,9 +41,6 @@ var chars = [],
     howto_fadeColor = '#aedecb',
     currContainer = 'start_container', // start, character_selection, confirm, game, death, victory, answer
     user_code = '',
-    dieSpeed = 500,
-    characterPosition = '15vw',
-    num_dbs,
     playMusic = true;
 
 const FULL_DASH_ARRAY = 283;
@@ -119,8 +116,6 @@ $(document).ready(function(){
   });
 });
 
-$.cookie("chars_used", 0);
-
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -140,7 +135,7 @@ function shuffle(array) {
   return array;
 }
 
-var timestamp = t_s = 746667727465;
+var timestamp = t_s = 666868706672;
 
 /********************
  *                  *
@@ -169,7 +164,7 @@ function startCharSelection(){
   // TODO: uncomment when nearing end
   if(playMusic){
     playMusic == false;
-    //$('#music')[0].play();
+    $('#music')[0].play();
   }
   
   nextCharacter();
@@ -302,7 +297,7 @@ function hideConfirm(){
         }
         howtos.eq(counter).animate({
           backgroundColor: howto_fadeColor
-        }, ((enterTime - howto_load_time) / 3));
+        }, (enterTime / 3));
 
 
         howtos.eq(counter).fadeIn((enterTime / 3), function() {
@@ -352,25 +347,11 @@ function characterWalk(sTime, wTime, stopPoint){
     if(xPos == stopPoint){
       xPos = 0;
       clearInterval(walkingAnimation);
+      console.log('current: ' + currQuestion);
     }
     
     $("#game_character").css('background-position',thisCharacter.gameBackgroundPosX[xPos % xLength] + ' ' + thisCharacter.gameBackgroundPosY);
   }, sTime);
-}
-
-function characterDie(){
-  xPos = 0;
-  xLength = thisCharacter.gameDeathPosX.length;
-
-  var deathAnimation = window.setInterval(function(){
-    xPos++;
-    if(xPos == xLength){
-      xPos = 0;
-      clearInterval(deathAnimation);
-    } else {
-      $("#game_character").css('background-position',thisCharacter.gameDeathPosX[xPos] + ' ' + thisCharacter.gameBackgroundPosY);
-    }
-  }, dieSpeed);
 }
 
 // TODO: instead of +=1 px, animate slide to left=25vw on enter
@@ -394,80 +375,9 @@ function characterChangePos(sTime, wTime, stPoint, dist){
   // }, 2000);
 }
 
-function slideDBs(dist){
-  var interval_time = dist / 1000;
-
-  var bg_slide_time = 0;
-
-  var slideAcross = window.setInterval(function(){
-    bg_slide_time++;
-    if(bg_slide_time == 1000){
-      clearInterval(slideAcross);
-    } else {
-      $('.d_b').css('left','-1px');
-    }
-  }, interval_time);
-}
-
-function generateDB(){
-
-  var num_chars_used = $.cookie('chars_used');
-
-  if(num_chars_used == 10){
-    num_dbs = 100;
-    for (var db = 0; db < num_dbs; ++ db){
-      var db_top = (Math.random() * $(window).height()) - 125;
-      var db_left = (Math.random() * 600) + $(window).width();
-      $("#game_container").append('<img alt=\'d_b\' class=\'d_b\' src=\'img/d_b.gif\' style=\'top: ' + db_top + '; left: ' + db_left + ';\'>');
-    }
-
-    slideDBs($(window).width() + 600)
-  } else{
-    if(num_chars_used < 6){
-      // At least 1, at most the number of characters used
-      num_dbs = Math.max(Math.random() * num_chars_used, 1);
-    } else if(num_chars_used > 5 && num_chars_used < 10){
-      // At least the number of characters used, at most 20
-      num_dbs = Math.max(Math.random() * 20, num_chars_used);
-    }
-
-    for (var db = 0; db < num_dbs; ++ db){
-      var db_top = Math.random() * ($(window).height() - 250);
-      var db_left = (Math.random() * 100) + $(window).width();
-      $("#game_container").append('<img alt=\'d_b\' class=\'d_b\' src=\'img/d_b.gif\' style=\'top: ' + db_top + '; left: ' + db_left + ';\'>');
-    }
-
-    slideDBs($(window).width() + 100);
-  }
-}
-
-function uniqueEntrance(char){
-  if(char == 'zombie'){
-    var enterLength = thisCharacter.gameEnterPosX.length;
-
-    $("#game_character").css('background-position',thisCharacter.gameEnterPosX[0] + ' ' + thisCharacter.gameBackgroundPosY);
-    $("#game_character").css('left',characterPosition);
-
-    var enterAnimation = window.setInterval(function(){
-      xPos++;
-
-      if(xPos == enterLength){
-        xPos = 0;
-        $("#game_character").css('background-position',thisCharacter.gameBackgroundPosX[0] + ' ' + thisCharacter.gameBackgroundPosY);
-        clearInterval(enterAnimation);
-      } else {
-        $("#game_character").css('background-position',thisCharacter.gameEnterPosX[xPos] + ' ' + thisCharacter.gameBackgroundPosY);
-      }
-    }, stepTime);
-  }
-}
-
 var in_game_status = igs = conf_status;
 
 function generateCharacter(){
-  var prevCookie = $.cookie('chars_used');
-  $.cookie('chars_used',(prevCookie + 1));
-
   thisCharacter = chars.find(element => element.name == name);
   //thisCharacter = chars[currCharTesting];
   xLength = thisCharacter.gameBackgroundPosX.length;
@@ -495,54 +405,49 @@ function generateCharacter(){
   questionStoppingPoint = Math.ceil((questionSlideTime / stepTime) / xLength) * xLength;
   questionSlideTime = stepTime * questionStoppingPoint;
 
-  $("#game_character").css('background-image','url(img/chars/game-pic/' + thisCharacter.image + ')');
+  $("#game_character").css('background-image','url(img/chars/walking/' + thisCharacter.image + ')');
   $("#game_character").css('background-position',thisCharacter.gameBackgroundPosX[xPos] + ' ' + thisCharacter.gameBackgroundPosY);
   //$("#game_character").css('left',thisCharacter.left[xPos]);
   $("#game_character").css('background-size',thisCharacter.gameBackgroundSize);
   $("#game_character").css('height',thisCharacter.height);
   $("#game_character").css('width',thisCharacter.width);
-  $("#game_character").css('left','-' + thisCharacter.width);
+  $("#game_character").css('left','-25vw');
 
   exitTime = ($(window).width() + $("#game_character").width()) * pixelSlideTime;
   exitStoppingPoint = Math.ceil(exitTime / stepTime);
 
+  characterChangePos(stepTime, enterTime, enterStoppingPoint, '25vw');
 
+  // Add grayscale for zombie (she doesn't have enough contrast with gameBackground)
   if(thisCharacter.image == "zombie.png"){
     uniqChar = 'zombie';
-
-    setTimeout(function() {
-      uniqueEntrance('zombie');
-    }, (enterTime - (stepTime * thisCharacter.gameEnterPosX.length)));
-    
-
     $(".bg").css("filter","grayscale(80%)");
     $(".bg").css("-webkit-filter","grayscale(80%)");
 
     $(".choice").css('background-color','#8fb9a8');
     $(".answer").css('background-color','#8fb9a8');
+    
+
     $(".answer").css('border-color','#8fb9a8');
-  } else {
-    characterChangePos(stepTime, enterTime, enterStoppingPoint, characterPosition);
-    if(thisCharacter.image == "santa.png" || thisCharacter.image == "yeti.png"){
-      uniqChar = 'snow';
+  } else if(thisCharacter.image == "santa.png" || thisCharacter.image == "yeti.png"){
+    uniqChar = 'snow';
+    $("#howto_cont > span").css("color","#666");
+    $(".bg").css("filter","grayscale(30%) brightness(180%)");
+    $("#bg4").css("filter","grayscale(70%) brightness(220%)");
+    $("#bg5").css("filter","grayscale(100%) brightness(300%)");
+    $("#ground").css("filter","brightness(340%)");
+    $("#ground").css("filter","brightness(300%)");
 
-      $("#howto_cont > span").css("color","#666");
+    $(".choice").css('background-color','#c1ffff');
+    $(".answer").css('background-color','#c1ffff');
+    
 
-      $(".bg").css("filter","grayscale(30%) brightness(180%)");
-      $("#bg4").css("filter","grayscale(70%) brightness(220%)");
-      $("#bg5").css("filter","grayscale(100%) brightness(300%)");
-      $("#ground").css("filter","brightness(340%)");
-      $("#ground").css("filter","brightness(300%)");
-
-      $(".choice").css('background-color','#c1ffff');
-      $(".answer").css('background-color','#c1ffff');
-      $(".answer").css('border-color','#c1ffff');
-    } else if(thisCharacter.image == "jack.png"){
-      uniqChar = 'jack';
-      $("#bg5").hide();
-    } else{
-      uniqChar = '';
-    }
+    $(".answer").css('border-color','#c1ffff');
+  } else if(thisCharacter.image == "jack.png"){
+    uniqChar = 'jack';
+    $("#bg5").hide();
+  } else{
+    uniqChar = '';
   }
 }
 
@@ -699,11 +604,10 @@ function showLives(){
 }
 
 function outOfLives(){
-  characterDie();
   window.setTimeout(function() {
     showCont("death_container");
     startTimer(DEATH_TIME_LIMIT, "death", DEATH_COLOR_CODES);
-  }, (dieSpeed * (thisCharacter.gameDeathPosX.length) + 1000));
+  }, 5000);
 }
 
 function loseLife(){
@@ -724,11 +628,6 @@ var cc = igs;
 function nextQuestion(){
   
   if(currQuestion > 0){
-    // For questions 13-15, 1/12 chance of occurring:
-    // TODO: remove comments here
-    //if(currQuestion > 11 && ((Math.random() * 12) < 1)){
-      generateDB();
-    //}
     
     var correct_answer = questions[currQuestion - 1].answer.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
 
@@ -738,9 +637,9 @@ function nextQuestion(){
       skip_question = true;
 
       if(questions[currQuestion - 1].type == 'mc'){
-        user_answer_choice.css('border-color','#54ff29 !important');
+        user_answer_choice.css('border-color','#54ff29');
       } else {
-        $('.question_box').eq(currQuestion - 1).find('.answer').css('border-color','#54ff29 !important');
+        $('.question_box').eq(currQuestion - 1).find('.answer').css('border-color','#54ff29');
       }
     }
 
@@ -838,9 +737,9 @@ function nextQuestion(){
       console.log('lives: ' + numLivesRemaining + ', totalLives: ' + numLives);
 
       if(questions[currQuestion - 1].type == 'mc'){
-        user_answer_choice.css('border-color','red !important');
+        user_answer_choice.css('border-color','red');
       } else if(questions[currQuestion - 1].type == 'text' || questions[currQuestion - 1].type == 'caption'){
-        $('.question_box').eq(currQuestion - 1).find('.answer').css('border-color','red !important');
+        $('.question_box').eq(currQuestion - 1).find('.answer').css('border-color','red');
         $('.question_box').eq(currQuestion - 1).children('.wrong_cont').children('.wrong' + wrongAnswers).css('display','inline');
       }
       if(wrongAnswers==maxWrongAnswers){
@@ -921,9 +820,7 @@ $('#enter_code_container').on('keyup', '.final_solution', function () {
         user_code = user_code.concat($(this)[0].value);
       });
 
-      if(get_a(user_code) == get_c(cc)){
-
-      //if(user_code == get_c(cc)){
+      if(user_code == get_c(cc)){
         console.log('WIN');
         window.location.href = "ine_1203984jq98wehq9230";
         //TODO: showCont("answer_container");
@@ -1065,13 +962,11 @@ $('#game_container').on('click', '.choice', function(){
 });
 
 $('#death_container').on('click', 'svg', function(){
-  clearInterval(timerInterval);
   showCont("start_container");
   refreshGame();
 });
 
 $('#victory_cont').on('click', 'svg', function(){
-  clearInterval(timerInterval);
   showCont("start_container");
   refreshGame();
 });
