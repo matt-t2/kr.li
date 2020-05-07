@@ -395,16 +395,20 @@ function characterChangePos(sTime, wTime, stPoint, dist){
 }
 
 function slideDBs(dist){
-  var interval_time = dist / 1000;
+  var interval_time = 1000 / dist;
 
   var bg_slide_time = 0;
 
   var slideAcross = window.setInterval(function(){
     bg_slide_time++;
-    if(bg_slide_time == 1000){
+    if(bg_slide_time == dist){
+      $(".d_b").remove();
       clearInterval(slideAcross);
     } else {
-      $('.d_b').css('left','-1px');
+      $('.d_b').each(function(){
+        var db_left = $(this).offset().left;
+        $(this).css('left',(db_left - 2) + 'px');
+      });
     }
   }, interval_time);
 }
@@ -417,11 +421,11 @@ function generateDB(){
     num_dbs = 100;
     for (var db = 0; db < num_dbs; ++ db){
       var db_top = (Math.random() * $(window).height()) - 125;
-      var db_left = (Math.random() * 600) + $(window).width();
-      $("#game_container").append('<img alt=\'d_b\' class=\'d_b\' src=\'img/d_b.gif\' style=\'top: ' + db_top + '; left: ' + db_left + ';\'>');
+      var db_left = (Math.random() * 1200) + $(window).width();
+      $("#game_container").append('<img alt=\'d_b\' class=\'d_b\' src=\'img/d_b.gif\' style=\'top: ' + db_top + 'px; left: ' + db_left + 'px;\'>');
     }
 
-    slideDBs($(window).width() + 600)
+    slideDBs($(window).width() + 1200)
   } else{
     if(num_chars_used < 6){
       // At least 1, at most the number of characters used
@@ -433,11 +437,11 @@ function generateDB(){
 
     for (var db = 0; db < num_dbs; ++ db){
       var db_top = Math.random() * ($(window).height() - 250);
-      var db_left = (Math.random() * 100) + $(window).width();
-      $("#game_container").append('<img alt=\'d_b\' class=\'d_b\' src=\'img/d_b.gif\' style=\'top: ' + db_top + '; left: ' + db_left + ';\'>');
+      var db_left = (Math.random() * 600) + $(window).width();
+      $("#game_container").append('<img alt=\'d_b\' class=\'d_b\' src=\'img/d_b.gif\' style=\'top: ' + db_top + 'px; left: ' + db_left + 'px;\'>');
     }
 
-    slideDBs($(window).width() + 100);
+    slideDBs($(window).width() + 600);
   }
 }
 
@@ -466,7 +470,7 @@ var in_game_status = igs = conf_status;
 
 function generateCharacter(){
   var prevCookie = $.cookie('chars_used');
-  $.cookie('chars_used',(prevCookie + 1));
+  $.cookie('chars_used',(parseInt(prevCookie) + 1));
 
   thisCharacter = chars.find(element => element.name == name);
   //thisCharacter = chars[currCharTesting];
@@ -725,10 +729,9 @@ function nextQuestion(){
   
   if(currQuestion > 0){
     // For questions 13-15, 1/12 chance of occurring:
-    // TODO: remove comments here
-    //if(currQuestion > 11 && ((Math.random() * 12) < 1)){
+    if(currQuestion > 11 && ((Math.random() * 12) < 1)){
       generateDB();
-    //}
+    }
     
     var correct_answer = questions[currQuestion - 1].answer.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
 
