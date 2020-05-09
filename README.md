@@ -26,4 +26,4 @@ Completing the quiz with each character will provide a clue to the code to solve
 
 <img src="https://raw.githubusercontent.com/matt-t2/kr.li/master/img/design_process/website/website2.png" alt="Gameplay" width="600">
 
-<img src="https://raw.githubusercontent.com/matt-t2/kr.li/master/img/design_process/website/website6.png" alt="Gameplay" width="600">
+<img src="https://raw.githubusercontent.com/matt-t2/kr.li/master/img/design_process/website/website7.png" alt="Gameplay" width="600">
