@@ -951,6 +951,7 @@ function nextQuestion(){
     characterWalk(stepTime, questionSlideTime, questionStoppingPoint);
     if(userDifficulty >= highDifficulty){
       playMusic = false;
+      $('#music')[0].pause();
       playMulaney();
     }
     $("#on_question").text((currQuestion + 1) + "/15");
