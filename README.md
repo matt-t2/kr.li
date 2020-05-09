@@ -1,8 +1,7 @@
-# kr.li
-Online Brain-Teaser Game
+# kr.li - Online Brain-Teaser Game
 
 
-### Choose Your Character
+## Choose Your Character
 10 Playable Characters to choose from, each with their own unique set of questions.  Some characters also have unique backgrounds.
 
 <br><br>
@@ -11,7 +10,7 @@ Online Brain-Teaser Game
 
 <br><br><br><br>
 
-### Set Your Difficulty
+## Set Your Difficulty
 Difficulty slider allows you to pick from 1 to 10, with varying difficulties affecting the number of lives per game, and guesses per question.
 
 <br><br>
@@ -20,7 +19,7 @@ Difficulty slider allows you to pick from 1 to 10, with varying difficulties aff
 
 <br><br><br><br>
 
-### Using Hints, Complete the Game Before Your Lives Run Out!
+## Using Hints, Complete the Game Before Your Lives Run Out!
 Completing the quiz with each character will provide a clue to the code to solve the game.
 
 <br><br>
