@@ -28,9 +28,16 @@ START CONTAINER
 		<div id="start_container">
 			<div id="start_title">
 				<span id="load_character_selection">START</span>
-				<div id="extra">for best experience, view full screen</div>
+				<div id="extra">for best experience, play full screen with sound</div>
 			</div>
 			<div id="enter_code"><span>ENTER CODE</span></div>
+			<span class="light red left"></span>
+			<span class="light yellow left"></span>
+			<span class="light green left"></span>
+
+			<span class="light red right"></span>
+			<span class="light yellow right"></span>
+			<span class="light green right"></span>
 		</div>
 
 <!--
@@ -49,30 +56,6 @@ ENTER CODE CONTAINER
 				</span>
 			</div>
 			<div id="return"><span>RETURN</span></div>
-		</div>
-
-<!--
-ANSWER CONTAINER
-
--->
-		<div id="answer_container">
-			<div id="answer_title"></div>
-			<div id="timeline">
-				Thanksgiving Break 2018 - selected as a groomsman and the game is afoot
-
-				March 2, 2019 - a plan emerges
-
-				https://www.reddit.com/r/DIY/comments/awl59h/i_made_a_portable_escape_room_for_my_friends/
-				https://www.reddit.com/r/gaming/comments/avjwwj/kakuna_rattata/
-
-
-				-- Game of Thrones season 8 happens --
-
-
-
-				SO CLOSE.  Final step - trivia website.  Plan is to rip off: http://www.kerrywall.com/trek-polish/
-
-			</div>
 		</div>
 
 <!--
@@ -220,7 +203,22 @@ SITEWIDE CONTENT
 
 -->
 		<audio id="music">
-			<source src="sound/music.mp4" type="audio/mp4">
+			<source src="sound/music/To The Moon Soundtrack - Full Album.mp3" type="audio/mpeg">
+		</audio>
+		<audio id="victory_music">
+			<source src="sound/effects/victory.mp3" type="audio/mpeg">
+		</audio>
+		<audio id="death_music">
+			<source src="sound/effects/death.mp3" type="audio/mpeg">
+		</audio>
+		<audio id="unusual" class="mulaney">
+			<source src="sound/music/It's Not Unusual.mp3" type="audio/mpeg">
+		</audio>
+		<audio id="pussycat" class="mulaney">
+			<source src="sound/music/What's New Pussycat.mp3" type="audio/mpeg">
+		</audio>
+		<audio id="game_start_music">
+			<source src="sound/effects/start.mp3" type="audio/mpeg">
 		</audio>
 		<audio id="char_sound">
 			<source type="audio/mpeg">
@@ -230,6 +228,9 @@ SITEWIDE CONTENT
 		</audio>
 		<audio id="wrong_answer">
 			<source src="sound/effects/wrong.mp3" type="audio/mpeg">
+		</audio>
+		<audio id="click">
+			<source src="sound/effects/click.mp3" type="audio/mpeg">
 		</audio>
 		<script src="js/site.js"></script>
 	</body>

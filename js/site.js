@@ -20,7 +20,7 @@ var chars = [],
     stat_max = 8,
     userDifficulty = numLives = numLivesRemaining = 5,
     maxWrongAnswers,
-    maxWrongAnswersText = 4,
+    maxWrongAnswersText = 3,
     maxWrongAnswersMC = 2,
     enterTime = 4000, // in milliseconds
     exitTime,
@@ -44,7 +44,24 @@ var chars = [],
     dieSpeed = 500,
     characterPosition = '15vw',
     num_dbs,
-    playMusic = true;
+    john_count = 0,
+    playMusic = true,
+    playback_speed = 1.0,
+    show_extra = true;
+
+//$('#music')[0].volume=0;
+$('#game_start_music')[0].volume=0.3;
+$('#click')[0].volume=0.1;
+$('#char_sound')[0].volume=0.5;
+$('#unusual')[0].volume=0.5;
+$('#pussycat')[0].volume=0.5;
+$('#music')[0].volume=0.5;
+
+
+var light_dist = ($(window).width() / 20) - 20;
+$('.light.left').css('left',light_dist+'px');
+$('.light.right').css('right',light_dist+'px');
+
 
 const FULL_DASH_ARRAY = 283;
 // const WARNING_THRESHOLD = 3;
@@ -119,7 +136,9 @@ $(document).ready(function(){
   });
 });
 
-$.cookie("chars_used", 0);
+if (typeof $.cookie('chars_used') === 'undefined'){
+ $.cookie("chars_used", 0);
+} 
 
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
@@ -162,17 +181,39 @@ function showConts(cont1, cont2){
 }
 
 function startCharSelection(){
-  // Load character_selection
-  showCont("character_selection_container");
-  nextCharacter();
-
-  // TODO: uncomment when nearing end
-  if(playMusic){
-    playMusic == false;
-    //$('#music')[0].play();
-  }
   
-  nextCharacter();
+  setTimeout(function() {
+    $('#game_start_music')[0].play();
+  }, 700);
+  
+
+  var lights_counter = 0;
+
+  var startGameAnimation = window.setInterval(function(){
+    lights_counter++;
+    if(lights_counter == 1){
+      $(".light.red").show();
+    } else if(lights_counter == 2){
+      $(".light.yellow").show();
+    } else if(lights_counter == 3){
+      $(".light.green").show();
+      clearInterval(startGameAnimation);
+    }
+  },1000); 
+
+
+  setTimeout(function() {
+    // Load character_selection
+    showCont("character_selection_container");  
+    $('.light').hide();
+    nextCharacter();
+    if(show_extra){
+      show_extra=false;
+      $("#extra").hide();
+    }
+  }, 4000);
+
+  
 }
 
 var game_status = t_s;
@@ -199,6 +240,8 @@ function refreshGame(){
   $("#victory-base-timer-path-remaining").removeClass("red");
   $("#death-base-timer-path-remaining").removeClass("orange");
   $("#death-base-timer-path-remaining").removeClass("red");
+  $("#death_container").css('backgroundColor','#2b5754');
+  $("#enter").removeClass('unclickable');
   wrongAnswers = 0;
   currQuestion = 0;
 }
@@ -262,7 +305,6 @@ function nextCharacter(){
  ********************/
 
 function generateLoadBar(soundDuration){
-  console.log(soundDuration);
   $('#loadbar').animate({
     width: "100%"
   }, {
@@ -270,6 +312,7 @@ function generateLoadBar(soundDuration){
     duration: soundDuration * 1000,
     complete: function() {
       $('#conf_answer > span').show();
+      $('#loadbar').css('transform','skewX(0deg)');
     }
   });
 }
@@ -571,7 +614,6 @@ function startConfirmation(){
   var q_start = currChar * numQs;
 
   questions = questionsFull.slice(q_start, q_start + numQs);
-  console.log(questions);
   shuffle(questions);
 
   questions.forEach(function(question, index){
@@ -601,6 +643,9 @@ function startConfirmation(){
       // Answer Input Form
       q_div.append('<textarea class=\'answer\' placeholder=\'> Your Guess Here <\'>');
 
+      // Answer Enter Button
+      q_div.append('<button class=\'text-enter\'>&#x21AA; Enter</button>');
+
       // Display any wrong guesses
       q_div.append(
         '<div class=\'wrong_cont\'>' + 
@@ -628,6 +673,9 @@ function startConfirmation(){
       // Answer Input Form
       q_div.append('<textarea class=\'answer answer_cpt\' placeholder=\'> Your Guess Here <\'>');
 
+      // Answer Enter Button
+      q_div.append('<button class=\'text-enter\'>&#x21AA; Enter</button>');
+
       // Display any wrong guesses
       q_div.append(
         '<div class=\'wrong_cont\'>' + 
@@ -651,6 +699,19 @@ function startConfirmation(){
   });
 }
 
+function playMulaney(){
+  john_count++;
+
+  if(john_count % 7 == 0){
+    // It's Not Unusual
+    $('#unusual')[0].play();
+  } else {
+    // What's New Pussycat?
+    $('#pussycat')[0].playbackRate=playback_speed;
+    $('#pussycat')[0].play();
+    playback_speed = Math.pow(1.1, john_count);
+  }
+}
 
 
 
@@ -684,15 +745,39 @@ function startGame(){
     maxWrongAnswersText = maxWrongAnswersMC = 1;
   } else if(userDifficulty < 4){
     maxWrongAnswersMC = 3;
+  } else if(userDifficulty >= highDifficulty){
+    maxWrongAnswersText = 2;
+    maxWrongAnswersMC = 1;
   }
   numLivesRemaining = numLives;
   showLives();
-  $("#howto_cont").prepend("<span>welcome,<br>" + thisCharacter.name.toLowerCase() + "</span>");
+
+  if(name.indexOf(' ') > -1){
+    $("#howto_cont").prepend("<span>welcome,<br>" + name.substr(0,name.indexOf(' ')).toLowerCase() + "</span>");
+  } else {
+    $("#howto_cont").prepend("<span>welcome,<br>" + name.toLowerCase() + "</span>");
+  }
+
   $("#howto_cont").show();
   
   hideConfirm();
   generateCharacter();
   generateCode();
+
+  if(userDifficulty < highDifficulty){
+    if(playMusic){
+      playMusic == false;
+      // TODO: gradual fadeIn
+      //$('#music')[0].animate({volume: 1.0}, 2000);
+      $('#music')[0].play();
+    }
+  } else {
+    if(!playMusic){
+      playMusic == false;
+      $('#music')[0].pause();
+    }
+    //playMulaney();
+  }
 }
 
 function showLives(){
@@ -704,13 +789,17 @@ function showLives(){
 
 function outOfLives(){
   characterDie();
+  $('#death_music')[0].play();
   window.setTimeout(function() {
     showCont("death_container");
     startTimer(DEATH_TIME_LIMIT, "death", DEATH_COLOR_CODES);
+    $("#death_container").animate({
+      backgroundColor: '#000000'
+    }, 5000);
   }, (dieSpeed * (thisCharacter.gameDeathPosX.length) + 1000));
 }
 
-function loseLife(){
+function loseLife(lastQuestion){
   numLivesRemaining--;
   // grey out character life
   $(".charLifeImage").eq(numLivesRemaining).css('filter','brightness(15%)');
@@ -718,8 +807,10 @@ function loseLife(){
   if(numLivesRemaining == 0){
     outOfLives();
   } else {
-    skip_question = true;
-    nextQuestion();
+    if(!lastQuestion){
+      skip_question = true;
+      nextQuestion();
+    }
   }
 }
 
@@ -736,14 +827,17 @@ function nextQuestion(){
     var correct_answer = questions[currQuestion - 1].answer.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
 
     if (user_answer == correct_answer) {
-      document.getElementById("correct_answer").play();
+      $("#correct_answer")[0].play();
+      allow_keys = false;
+      //$('.question_box').eq(currQuestion - 1).find('.choice').unbind();
 
       skip_question = true;
-
       if(questions[currQuestion - 1].type == 'mc'){
-        user_answer_choice.css('border-color','#54ff29 !important');
+        user_answer_choice.css('border-color','#54ff29');
+        $('.question_box').eq(currQuestion - 1).find('.choice').addClass('unclickable');
       } else {
-        $('.question_box').eq(currQuestion - 1).find('.answer').css('border-color','#54ff29 !important');
+        $('.question_box').eq(currQuestion - 1).find('.answer').css('border-color','#54ff29');
+        $('.question_box').eq(currQuestion - 1).find('.answer').addClass('unclickable');
       }
     }
 
@@ -796,9 +890,9 @@ function nextQuestion(){
           });
         }, 500);
       } else {
-        // TODO: slide off last question, slide off character, slide in 'YOU WIN' and code and play_again timer
         gameBackgroundScroll(questionSlideTime);
         characterWalk(stepTime, (questionSlideTime * 1.5), questionStoppingPoint);
+        $('#victory_music')[0].play();
 
         setTimeout(function(){
           $('.question_box').eq(currQuestion - 1).animate({
@@ -835,27 +929,30 @@ function nextQuestion(){
     } else {
       wrongAnswers++;
 
-      document.getElementById("wrong_answer").play();
-      console.log('maxWrong' + maxWrongAnswers);
-      console.log('numWrong' + wrongAnswers);
-      console.log('lives: ' + numLivesRemaining + ', totalLives: ' + numLives);
+      $("#wrong_answer")[0].play();
 
       if(questions[currQuestion - 1].type == 'mc'){
-        user_answer_choice.css('border-color','red !important');
+        user_answer_choice.css('border-color','red');
+        user_answer_choice.addClass('unclickable');
       } else if(questions[currQuestion - 1].type == 'text' || questions[currQuestion - 1].type == 'caption'){
-        $('.question_box').eq(currQuestion - 1).find('.answer').css('border-color','red !important');
+        $('.question_box').eq(currQuestion - 1).find('.answer').css('border-color','red');
         $('.question_box').eq(currQuestion - 1).children('.wrong_cont').children('.wrong' + wrongAnswers).css('display','inline');
       }
       if(wrongAnswers==maxWrongAnswers){
+        allow_keys = false;
         if(currQuestion < numQs){
           loseLife();
         } else {
-          // TODO: trigger victory but meh
+          loseLife(true);
         }
       }
     }
   } else {
     characterWalk(stepTime, questionSlideTime, questionStoppingPoint);
+    if(userDifficulty >= highDifficulty){
+      playMusic = false;
+      playMulaney();
+    }
     $("#on_question").text((currQuestion + 1) + "/15");
     setTimeout(function(){
       gameBackgroundScroll(questionSlideTime);
@@ -910,6 +1007,7 @@ $("#load_character_selection").on('click', function(){
 
 $('#enter_code span').on('click', function(){
   showCont("enter_code_container");
+  $('#click')[0].play();
 }); 
 
 $('#enter_code_container').on('keyup', '.final_solution', function () {
@@ -938,6 +1036,7 @@ $('#enter_code_container').on('keyup', '.final_solution', function () {
 
 $('#enter_code_container').on('click', '#return', function(){
   showCont("start_container");
+  $('#click')[0].play();
 });
 
 $('#character_selection_container').on('mouseenter', '#left_arrow,#right_arrow', function(){
@@ -951,15 +1050,18 @@ $('#character_selection_container').on('mouseleave', '#left_arrow,#right_arrow',
 $('#character_selection_container').on('click', '#left_arrow', function(){
     currChar = (currChar + numCs - 1) % numCs;
     nextCharacter();
+    $('#click')[0].play();
 });
 
 $('#character_selection_container').on('click', '#right_arrow', function(){
     currChar = (currChar + 1) % numCs;
     nextCharacter();
+    $('#click')[0].play();
 });
 
 $('#character_selection_container').on('click', '#select', function(){
   startConfirmation();
+  $('#click')[0].play();
 }); 
 
 $('#difficultySlider').on('change', function(){
@@ -968,16 +1070,19 @@ $('#difficultySlider').on('change', function(){
 
 $('#confirm_container').on('click', '#yes', function(){
   startGame();
+  $('#click')[0].play();
 });
 
 $('#confirm_container').on('click', '#no', function(){
   enter_to_start = false;
+  $('#click')[0].play();
 
   // Load character_selection
   showCont("character_selection_container");
   $('#conf_answer > span').hide();
   nextCharacter();
   $('#loadbar').width(0);
+  $('#loadbar').css('transform','skewX(-25deg)');
 });
 
 $('#game_container').on('mouseenter', '.hint_avail', function(){
@@ -995,12 +1100,17 @@ $('#game_container').on('click', '.hint_avail', function(){
   addHint();
 });
 
+$('.mulaney').on('ended', function(){
+  playMulaney();
+});
+
 $('#char_sound').on('ended', function(){
   enter_to_start = true;
 });
 
 $('#char_sound').on("canplay", function () {
-  charSoundDuration = Math.min(maxSoundDuration, $('#char_sound')[0].duration);
+  // charSoundDuration = Math.min(maxSoundDuration, $('#char_sound')[0].duration);
+  charSoundDuration = $('#char_sound')[0].duration;
   $('#char_sound')[0].play();
   generateLoadBar(charSoundDuration);
 });
@@ -1057,26 +1167,43 @@ $(document).on('keydown', function(event){
   }
 });
 
+$('#game_container').on('click', '.text-enter', function(){
+  if(allow_keys){
+    if(currQuestion != 0){
+      user_answer = $('.question_box').eq(currQuestion - 1).find('.answer').val().toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+    }
+    nextQuestion()
+  }
+});
+
 $('#enter').on('click', function(event){
+  if(!$(this).hasClass('unclickable')){
     nextQuestion();
+    $('#click')[0].play();
+    $(this).addClass('unclickable');
+  }
 });
 
 $('#game_container').on('click', '.choice', function(){
-  user_answer_choice = $(this);
-  user_answer = user_answer_choice.text().toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
-  nextQuestion();
+  if(!$(this).hasClass('unclickable')){
+    user_answer_choice = $(this);
+    user_answer = user_answer_choice.text().toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+    nextQuestion();
+  }
 });
 
 $('#death_container').on('click', 'svg', function(){
   clearInterval(timerInterval);
   showCont("start_container");
   refreshGame();
+  $('#click')[0].play();
 });
 
 $('#victory_cont').on('click', 'svg', function(){
   clearInterval(timerInterval);
   showCont("start_container");
   refreshGame();
+  $('#click')[0].play();
 });
 
 

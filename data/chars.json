@@ -80,7 +80,7 @@
     "special":2,
     "victory_code":1
   }, {
-    "name":"Mike",
+    "name":"Scott",
     "image":"cyclops.png",
     "sound":"cyclops.mp3",
     "gameBackgroundPosX":
@@ -160,7 +160,7 @@
     "special":2,
     "victory_code":["zombie.png","bear.png"]
   }, {
-    "name":"Other Jack",
+    "name":"Grim",
     "image":"skel.png",
     "sound":"skel.mp3",
     "gameBackgroundPosX":
@@ -270,7 +270,7 @@
     "special":2,
     "victory_code":["ape.png","santa.png"]
   }, {
-    "name":"Baloo",
+    "name":"Paddington",
     "image":"bear.png",
     "sound":"bear.mp3",
     "gameBackgroundPosX":
@@ -312,7 +312,7 @@
     "special":8,
     "victory_code":5
   }, {
-    "name":"Bumble",
+    "name":"Snow Bigfoot",
     "image":"yeti.png",
     "sound":"yeti.mp3",
     "gameBackgroundPosX":
@@ -353,7 +353,7 @@
     "special":0,
     "victory_code":["zelda.png","jack.png","cyclops.png"]
   }, {
-    "name":"Zombae",
+    "name":"Blair",
     "image":"zombie.png",
     "sound":"zombie.mp3",
     "gameEnterPosX":
